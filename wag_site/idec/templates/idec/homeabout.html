@@ -1,0 +1,59 @@
+<!--About Section ======================-->
+<section class="section-about about-1 section-full-width">	
+    {% for block in block.value %}  
+        {% if block.block_type == "intro_with_background" %}
+            <div class="section-title-wrapper position-relative">				
+                <div class="scroll-move">
+                    <span class="scrolling-text display-1 fw-extra-bold stroke-title text-stroke stroke-opacity-20 stroke-width-1 stroke-primary lh-1">{{ block.value.background_text }}</span>
+                </div>
+                <div class="container">	
+                    <div class="section-title section-separator">
+                        <h2 class="fw-extra-bold heading-title separator lh-1">{{ block.value.main_text }}</h2>
+                        <p class="fs-4 fw-semibold mb-0 subtitle subtitle-width">{{ block.value.brief }}</p>	
+                    </div>
+                </div>	
+            </div>	
+        {% elif block.block_type == "main_info" %}
+            <div class="about-bg bg-primary text-secondary position-relative">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <div class="about-image overflow-hidden">
+                                {% comment %} <img src="assets/images/about-image-3.jpg" class="img-fluid wow slideInLeft" alt="about-image">  {% endcomment %}
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="about-contents d-flex flex-column">
+                                {% for block in block.value %}
+                                <div class="about-content-inner d-flex flex-column flex-lg-row">
+                                    <div class="list-item-number">
+                                        <h3 class="stroke-heading stroke-heading-2 mb-0">
+                                            <svg stroke-width="1" class="text-line-2 fs-60 fw-extra-bold"><text x="0%" dominant-baseline="middle" y="70%">01</text></svg>
+                                        </h3>
+                                    </div>									
+                                    
+                                    <div>
+                                        <h4>{{ block.value.main_text}}</h4>
+                                        <p class="mb-0">We thrive on challenging the norms, infusing each project with fresh, innovative perspectives that defy convention.</p>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                <div>
+                                    <a href="about-us.html" class="btn btn-link link-hover-animation-1 d-inline-flex gap-10 align-items-center">Learn more About Us <span>
+                                        <svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
+                                        </svg></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>						
+            </div>
+        {% endif %}
+
+    {% endfor %}
+    	
+    
+</section>
+<!--About Section ======================-->

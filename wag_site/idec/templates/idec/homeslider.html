@@ -1,0 +1,63 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+            <section class="section-hero hero-1 max-width">
+                <div id="heroSlider" class="carousel carousel-dark slide" data-bs-ride="carousel" data-bs-interval="6000">  <!--    -->
+
+                    <div class="carousel-indicators">
+                        {% for slide in block.value %}
+                            <div class="d-flex align-items-center gap-3 gap-lg-1 lh-1 {% if forloop.counter == 1 %} active" aria-current="true" {% else %} " {% endif %} data-bs-target="#heroSlider" data-bs-slide-to="{{ forloop.counter0}}" >
+                                <span class="indecators-item display-4 fw-extra-bold mb-0">{{ forloop.counter }}</span>
+                                <span class="indecators-description fw-bold mb-0">{{ slide.value.catchy_text }}</span>
+                            </div>
+                        {% endfor %}				
+                    </div>
+                    <!-- carousel-indicators -->
+                    <div class="carousel-inner">
+                        {% for slide in block.value %}
+                            <div class="carousel-item {% if forloop.counter0 == 0 %} active   {% endif %}" >					
+                                <picture>		
+                                    {% comment %} <source media="(max-width:500px)" srcset="assets/images/hero-4-sm.jpg">				
+                                    <source media="(max-width:768px)" srcset="assets/images/hero-4-md.jpg">		 {% endcomment %}
+                                    {% image slide.value.image width-800 as img %}
+                                    <img alt="hero-image" src="{{ img.url }}">
+                                    <img src="assets/images/hero-4.jpg" alt="hero-image">
+                                </picture>
+                                <div>
+                                    <div class="carousel-captions">
+                                        <div class="container">		
+                                            <div class="content-text text-start">
+                                                <h1 class="stroke-heading display-2 fw-extra-bold d-flex flex-column">
+                                                    <span class="hero-heading animate-fill primary">{{ slide.value.text}}</span>																								
+                                                    <svg stroke-width="2" class="text-line display-2 fw-extra-bold z-1"><text x="0%" dominant-baseline="middle" y="70%">{{ slide.value.dachedText }}</text></svg>
+                                                </h1>
+                                                <div class="architronix-button">
+                                                    <a href="project-archive.html" class="btn btn-outline-primary gap-10">{{slide.value.buttonText}}
+                                                        <svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/></svg>																														
+                                                    </a>
+                                                </div>
+                                            </div>										
+                                        </div>
+                                    </div> 
+                                </div>						
+                            </div>
+                        {% endfor %}                 
+                    </div>
+                    <div class="carousel-control-buttons d-flex flex-column gap-0 position-absolute bottom-0 end-0">
+                        <a class="next-btn" href="#" data-bs-target="#heroSlider" data-bs-slide="next">						
+                            <svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
+                            </svg>							
+                        </a>						
+                        <a class="prev-btn" href="#" data-bs-target="#heroSlider" data-bs-slide="prev"> 														
+                            <svg class="arrow-reverse" width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
+                            </svg>		
+                        </a>							
+                    </div>
+                </div>
+            </section>
+
+			<!--Hero Section ======================-->
+			
+			<!--Hero Section ======================-->
