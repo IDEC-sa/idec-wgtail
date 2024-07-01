@@ -463,6 +463,13 @@
                         {% include "idec/homeabout.html" with block=block only %}
                     <!--End About Section ======================-->
                     {% endif %}
+
+					{% if block.block_type == 'projects' %}
+                    <!--project Section ======================-->
+                        {% include "idec/homeproject.html" with block=block only %}
+                    <!--End project Section ======================-->
+                    {% endif %}
+
                 {% endfor %}
             {% endwith %}
 

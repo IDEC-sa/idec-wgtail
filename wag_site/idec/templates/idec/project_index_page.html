@@ -1,0 +1,7 @@
+
+{% for post in page.get_children %}
+{% with post=post.specific %}
+    <p>{{ post.title }}</p>
+{% endwith %}
+{% endfor %}
+

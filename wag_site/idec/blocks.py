@@ -6,6 +6,10 @@ from wagtail.blocks import (BooleanBlock, CharBlock, ChoiceBlock,
 
 from wagtail.images.blocks import ImageChooserBlock
 
+
+
+
+
 class SliderImage(StructBlock):
 
     catchy_text = TextBlock()
@@ -17,6 +21,9 @@ class SliderImage(StructBlock):
 
 class Slider(StreamBlock):
     slide = SliderImage()
+
+
+
 
 class intro_with_background(StructBlock):
     background_text = TextBlock()
@@ -34,11 +41,55 @@ class detailed_info_img(StructBlock):
     main_info = main_info()
     image = ImageChooserBlock()
 
+
+
+
+
 class HomeAboutBlock(StreamBlock):
     main_info = main_info()
     intro_with_background = intro_with_background()
 
+
+
+
+# كتلة المشروع
+# class ProjectBlock(StructBlock):
+#     title = CharBlock(required=True, max_length=100)
+#     subtitle = CharBlock(required=False, max_length=200)
+#     image = ImageChooserBlock()
+#     description = RichTextBlock()
+#     start_date = DateTimeBlock()
+#     end_date = DateTimeBlock()
+
+
+
+
+
+ 
+
+
+
+# كتلة المشروع
+class ProjectBlock(StructBlock):
+    title = CharBlock(required=True, max_length=100)
+    subtitle = CharBlock(required=False, max_length=200)
+    image = ImageChooserBlock()
+    description = RichTextBlock()
+    start_date = DateTimeBlock()
+    end_date = DateTimeBlock()
+    clients = CharBlock(required=False, max_length=200)
+    area = CharBlock(required=False, max_length=100)
+    project_year = CharBlock(required=False, max_length=4)
+    project_type = CharBlock(required=False, max_length=100)
+    detail_page = PageChooserBlock(required=False, page_type='idec.ProjectDetailPage')
+
+
+class Projects(StreamBlock):
+    project = ProjectBlock()
+
+# الكتلة الرئيسية التي تحتوي على جميع المكونات
 class BodyBlock(StreamBlock):
     h1 = CharBlock()
     slider = Slider()
     about = HomeAboutBlock()
+    projects = Projects()  # إضافة كتلة المشروع
