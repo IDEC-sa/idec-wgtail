@@ -1,8 +1,200 @@
-<!-- project_detail_page.html -->
+{% extends 'project_base.html' %}
 
-{% extends "base.html" %}
-{% load wagtailcore_tags %}
+{% load wagtailcore_tags wagtailimages_tags %}
 
+{% block body %}    
+ 
+
+
+
+			<!--Hero Section ======================-->
+			<div class="section-hero hero-2 section-padding-xxl position-relative max-width">	
+                {% for image in page.gallery_images.all %}
+                {% image image.image width-1000 as img %}
+
+              
+                        <img src="{{ img.url }}" class="img-fluid" alt="hero-image" style="width: 100%;">
+
+
+                {% endfor %}			
+			</div>
+			<!--Hero Section ======================-->
+
+
+
+
+
+			<!--Section ======================-->
+			<section class="section-full-width position-relative">
+
+				<div class="container">	
+					<div class="section-padding-xxl">
+						<div class="position-relative">
+							<div class="row g-40">
+								<div class="col-lg-7 col-xxl-8">
+									<div class="section-title section-separator">
+										<h2 class="fw-extra-bold heading-title separator lh-1">{{ page.project_title }}</h2>
+										<p class="fs-4 mb-0 subtitle">{{ page.description|richtext }}.</p>	
+									</div>
+								</div>
+								<div class="col-lg-5 col-xxl-4">									
+									<div class="project-details-wrapper project-details-style bg-primary text-secondary">
+										<h4 class="project-details-title fw-semibold">{{ page.subtitle|richtext }}</h4>
+										<ul class="project-details-list list-unstyled mb-0 d-flex flex-row flex-lg-column flex-wrap flex-lg-nowrap">
+										
+                                        
+                                            {% if page.clients %}                       
+
+                                            <li class="d-flex flex-column gap-2 gap-xxl-10">
+												<span class="fs-5 fw-bold">Clients:</span>
+												<span>{{ page.clients|richtext }}</span>
+											</li>
+                                            {% endif %}
+
+
+                                            {% if page.area %}                       
+
+											<li class="d-flex flex-column gap-2 gap-xxl-10">
+												<span class="fs-5 fw-bold">Area:</span>
+												<span>{{ page.area|richtext }}</span>
+											</li>	
+                                            {% endif %}	
+                                            {% if page.project_year %}                       
+							
+											<li class="d-flex flex-column gap-2 gap-xxl-10">
+												<span class="fs-5 fw-bold">Project year:</span>
+												<span>{{ page.project_year|richtext }}</span>
+											</li>
+                                            {% endif %}	
+                                            {% if page.project_type %}                       
+
+											<li class="d-flex flex-column gap-2 gap-xxl-10">
+												<span class="fs-5 fw-bold">Project type:</span>
+												<span>{{ page.project_type|richtext }}</span>
+											</li>
+                                            {% endif %}	
+                                            {% if page.location %}                       
+
+											<li class="d-flex flex-column gap-2 gap-xxl-10">
+												<span class="fs-5 fw-bold">Location:</span>
+												<span>{{ page.location|richtext }}</span>
+											</li>
+                                            {% endif %}	
+
+										
+										</ul>
+									</div>																		
+								</div>
+							</div>
+						</div>						
+					</div>											
+				</div>		
+				<!-- container -->
+
+				<div class="image-contents d-flex flex-column flex-xl-row align-items-xl-center gap-4 section-padding-md position-relative px-10 px-lg-0">
+	
+
+                    {% for image in page.slider_images.all %}
+                    {% image image.image width-1000 as img %}
+    
+                    <img src="{{ img.url }}" class="img-fluid wow fadeIn" alt="img" data-wow-delay=".3s">
+
+    
+    
+                    {% endfor %}
+
+
+
+
+				</div>
+                {% if page.all_description %}                       
+
+				<div class="section-padding-md">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-8">
+								<div class="section-title section-separator">						
+									<p class="mb-0 subtitle py-2 py-lg-4">
+                                        {{ page.all_description|richtext  }}.</p>	
+								</div>
+							</div>
+						</div>					
+					</div>
+				</div>
+                {% endif %}
+
+
+				<div class="project-gallery-1 section-padding-lg">
+					<div class="swiper-custom-progress position-relative">
+						<div class="swiper project-gallery-swiper">
+							<div class="swiper-wrapper"> 
+								
+                                
+                                
+                                {% for image in page.slider_images_big.all %}
+                                {% image image.image width-1000 as img %}
+                
+            
+                                <div class="swiper-slide">
+									<div>
+										<img src="{{ img.url }}" alt="img">						
+
+									</div>
+								</div>
+                
+                                {% endfor %}   
+                                
+                            
+				
+                                
+																
+							</div>
+							<!-- swiper-wrapper -->
+						</div>
+						<!-- swiper -->
+						<div class="container">
+							<div class="project-swiper-pagination-wrapper mt-xl-3">
+								<div class="project-swiper-pagination"></div>						
+								<div class="swiper-button-progress">	
+									<div class="progress-button-prev">
+										<svg class="arrow-reverse" width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
+										</svg>
+									</div>							
+									<div class="progress-button-next">
+										<svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
+										</svg> 
+									</div>																
+								</div>
+							</div>							
+						</div>
+					</div>
+				</div>
+
+			
+                
+
+					
+			</section>
+			<!--Section ======================-->
+			
+ 
+
+{% endblock body %}
+
+
+
+
+
+
+
+
+
+
+
+
+ 
 {% block content %}
     <h1>{{ page.project_title }}</h1>
     {% if page.subtitle %}
@@ -27,3 +219,9 @@
     <!-- Include StreamField content if present -->
     {% include_block page.body %}
 {% endblock %}
+
+
+
+
+
+

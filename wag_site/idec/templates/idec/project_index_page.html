@@ -1,7 +1,183 @@
+{% extends 'project_base.html' %}
 
-{% for post in page.get_children %}
-{% with post=post.specific %}
-    <p>{{ post.title }}</p>
-{% endwith %}
-{% endfor %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block body %}    
+ 
+
+
+
+
+
+			<!--Banner Section ======================-->
+			<section class="section-banner position-relative pt-60">
+				<div class="section-full-width">
+					<div class="section-title-wrapper position-relative">	
+						<div class="scroll-move">
+							<span class="scrolling-text display-1 fw-extra-bold stroke-title text-stroke stroke-opacity-20 stroke-width-1 stroke-primary lh-1">Shop</span>
+						</div>				
+						
+						<div class="container">	
+							<div class="section-title section-separator">
+								<h2 class="fw-extra-bold heading-title separator lh-1">  <h1>{{ page.intro|richtext }}</h1></h2>
+								<div class="d-flex flex-column flex-lg-row gap-4 align-items-lg-end justify-content-lg-between">
+									<p class="fs-4 fw-semibold mb-0 subtitle subtitle-width">{{ page.sub_title|richtext }}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- section-title-wrapper -->
+				</div>
+				<!-- section-full-width -->								
+			</section>
+			<!--Banner Section ======================-->
+
+
+
+
+
+
+
+
+
+			<!--Project-Overview Section ======================-->
+			<section class="section-project-overview pb-lg-3" >				
+				<div class="section-full-width position-relative overflow-hidden">
+
+
+
+
+             {% for post in page.get_children %}
+            {% with post=post.specific %}
+                <!-- <p>{{ post.title }}</p> -->
+     
+            					<div class="container" style="margin: 5px;  padding: 5px;">
+
+
+
+
+
+						<div class="project-overview-1 project-overview-padding">						
+							<div class="row align-items-center gx-0">
+
+                                {% if forloop.counter|divisibleby:2 %}
+
+
+							   <div class="col-lg-6">								
+									<div class="project-overview-image" >
+
+                                {% for image in post.gallery_images.all %}
+                                {% image image.image width-1000 as img %}
+
+                              
+										<img src="{{ img.url }}" class="wow slideInRight" alt="img" style="width: 150%;">
+								
+
+                                {% endfor %}
+	</div>
+								</div>
+
+								<!-- col-9 -->
+								<div class="col-lg-6" >
+									<div class="project-overview-details bg-primary text-secondary wow slideInLeft">
+										<div>
+											<h5 class="display-5 fw-extra-bold mb-0">{{ post.title }}</h5>
+											<p class="project-overview-description mb-0">{{ post.description|richtext }}</p>
+											<ul class="project-overview-list list-unstyled mb-0 d-flex flex-column gap-10">
+												<li class="d-flex align-items-center">
+													<span class="fw-extra-bold">Location:</span>{{ post.location }}
+												</li>
+												<li class="d-flex align-items-center">
+													<span class="fw-extra-bold">Year:</span>{{ post.project_year }}
+												</li>
+												<li class="d-flex align-items-center">
+													<span class="fw-extra-bold">Category:</span>{{ post.project_type }}
+												</li>
+											</ul>
+											<div class="mt-4 mt-lg-30 mt-xxl-40">
+												<a href="{% pageurl post %}" class="btn btn-link link-hover-animation-1 d-inline-flex gap-10 align-items-center">View Project<span>
+													<svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
+													</svg></span>
+												</a>
+											</div>
+										</div>										
+									</div>
+								</div>
+								<!-- col-3 -->
+
+
+                                {% else %}
+
+
+                                <div class="col-lg-6">
+									<div class="project-overview-details bg-primary text-secondary wow slideInLeft">
+										<div>
+											<h5 class="display-5 fw-extra-bold mb-0">{{ post.title }}</h5>
+											<p class="project-overview-description mb-0">{{ post.description|richtext }}</p>
+											<ul class="project-overview-list list-unstyled mb-0 d-flex flex-column gap-10">
+												<li class="d-flex align-items-center">
+													<span class="fw-extra-bold">Location:</span>{{ post.location }}
+												</li>
+												<li class="d-flex align-items-center">
+													<span class="fw-extra-bold">Year:</span>{{ post.project_year }}
+												</li>
+												<li class="d-flex align-items-center">
+													<span class="fw-extra-bold">Category:</span>{{ post.project_type }}
+												</li>
+											</ul>
+											<div class="mt-4 mt-lg-30 mt-xxl-40">
+												<a href="{% pageurl post %}" class="btn btn-link link-hover-animation-1 d-inline-flex gap-10 align-items-center">View Project<span>
+													<svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
+													</svg></span>
+												</a>
+											</div>
+										</div>										
+									</div>
+								</div>
+								<!-- col-3 -->
+
+                                <div class="col-lg-6">								
+									<div class="project-overview-image" >
+
+                                {% for image in post.gallery_images.all %}
+                                {% image image.image width-1000 as img %}
+
+                              
+										<img src="{{ img.url }}" class="wow slideInRight" alt="img" style="width: 150%;">
+								
+
+                                {% endfor %}
+	</div>
+								</div>
+
+
+                                {% endif %}
+
+							</div>							
+							<!-- row -->
+						</div>
+						<!-- project-overview-1 -->
+
+
+
+					</div>	
+
+        {% endwith %}
+            {% endfor %} 
+
+
+
+
+
+					<!-- section-full-width -->
+				</div>				
+			</section>
+			<!--Project-Overview Section ======================-->
+
+
+
+
+            {% endblock body %}
 

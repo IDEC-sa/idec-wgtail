@@ -52,19 +52,6 @@ class HomeAboutBlock(StreamBlock):
 
 
 
-# كتلة المشروع
-# class ProjectBlock(StructBlock):
-#     title = CharBlock(required=True, max_length=100)
-#     subtitle = CharBlock(required=False, max_length=200)
-#     image = ImageChooserBlock()
-#     description = RichTextBlock()
-#     start_date = DateTimeBlock()
-#     end_date = DateTimeBlock()
-
-
-
-
-
  
 
 
@@ -86,6 +73,12 @@ class ProjectBlock(StructBlock):
 
 class Projects(StreamBlock):
     project = ProjectBlock()
+
+
+
+
+
+
 
 # الكتلة الرئيسية التي تحتوي على جميع المكونات
 class BodyBlock(StreamBlock):
