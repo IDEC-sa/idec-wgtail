@@ -480,7 +480,11 @@
                     <!--End Aboutvideo Section ======================-->
                     {% endif %}
 
-		
+					{% if block.block_type == 'services' %}
+                    <!--project Section ======================-->
+                        {% include "idec/homeservice.html" with block=block only %}
+                    <!--End project Section ======================-->
+                    {% endif %}
                 {% endfor %}
             {% endwith %}
 

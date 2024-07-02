@@ -105,6 +105,22 @@ class Aboutvideo(StructBlock):
 
 
 
+class ServiceBlock(StructBlock):
+    title = CharBlock(required=True, max_length=100)
+    sub_title = CharBlock(required=False, max_length=200)
+
+
+class Services(StreamBlock):
+    service = ServiceBlock()
+
+
+
+
+
+
+
+
+
 
 # الكتلة الرئيسية التي تحتوي على جميع المكونات
 class BodyBlock(StreamBlock):
@@ -114,8 +130,7 @@ class BodyBlock(StreamBlock):
     projects = Projects()  # إضافة كتلة المشروع
     feedback = Feedbacks()
     aboutvideo = Aboutvideo()
+    services = Services()  # إضافة كتلة المشروع
 
 
 
-
-# Feedbacks
