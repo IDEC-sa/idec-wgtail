@@ -1,0 +1,28 @@
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+			<!--Counter Section ======================-->
+			<div class="event-counter position-relative">
+				<div class="container">
+					<div class="row row-cols-2 row-cols-md-3 gy-lg-0 gy-4 justify-content-between">
+						
+                        
+                        {% for feedbacks in block.value %}
+
+                        
+                        <div class="col-md-6 col-lg-4 col-xl-3">
+							<div class="separator d-flex align-items-center fw-extra-bold display-3">
+								 <span class="odometer" data-count-to="{{ feedbacks.value.rate}}"></span><span class="odometer-icon">{{ feedbacks.value.icon}}</span>						
+							</div>	
+							<p class="fs-5 fw-bold mb-0 mt-1 mt-lg-2 mt-xxl-3">{{ feedbacks.value.title}}</p>								
+						</div>
+
+                        {% endfor %}                 
+
+
+
+
+					</div>
+				</div>
+			</div>			
+			<!--Counter Section ======================-->

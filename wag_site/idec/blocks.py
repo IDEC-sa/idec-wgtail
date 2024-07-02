@@ -75,9 +75,15 @@ class Projects(StreamBlock):
     project = ProjectBlock()
 
 
+class FeedbacksBlock(StructBlock):
+    title = CharBlock(required=True, max_length=100)
+    rate = CharBlock(required=False, max_length=200)
+    icon = CharBlock(required=False, max_length=200)
 
 
 
+class Feedbacks(StreamBlock):
+    feedback = FeedbacksBlock()
 
 
 # الكتلة الرئيسية التي تحتوي على جميع المكونات
@@ -86,3 +92,9 @@ class BodyBlock(StreamBlock):
     slider = Slider()
     about = HomeAboutBlock()
     projects = Projects()  # إضافة كتلة المشروع
+    feedback = Feedbacks()
+
+
+
+
+# Feedbacks

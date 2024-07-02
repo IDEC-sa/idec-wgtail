@@ -189,39 +189,3 @@
 
 
 
-
-
-
-
-
- 
-{% block content %}
-    <h1>{{ page.project_title }}</h1>
-    {% if page.subtitle %}
-        <h2>{{ page.subtitle }}</h2>
-    {% endif %}
-    <p>{{ page.description }}</p>
-    <p>Start Date: {{ page.start_date }}</p>
-    <p>End Date: {{ page.end_date }}</p>
-    {% if page.clients %}
-        <p>Clients: {{ page.clients }}</p>
-    {% endif %}
-    {% if page.area %}
-        <p>Area: {{ page.area }}</p>
-    {% endif %}
-    {% if page.project_year %}
-        <p>Project Year: {{ page.project_year }}</p>
-    {% endif %}
-    {% if page.project_type %}
-        <p>Project Type: {{ page.project_type }}</p>
-    {% endif %}
-    
-    <!-- Include StreamField content if present -->
-    {% include_block page.body %}
-{% endblock %}
-
-
-
-
-
-
