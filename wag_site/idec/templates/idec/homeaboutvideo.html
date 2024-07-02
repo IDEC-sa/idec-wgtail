@@ -1,0 +1,62 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+        
+        <!--Video Section ======================-->
+			<section class="section-video section-full-width pb-0 pb-lg-130">
+				<div class="section-title-wrapper position-relative">	
+		
+				</div>
+				<div class="video-contents text-secondary">
+					<div class="video-contents-inner">
+						<div class="container">
+							<div class="row gy-5 gy-lg-0">								
+								<div class="col-lg-6 col-xxl-5">
+									
+									<h4 class="mb-4">{{ block.value.title }}</h4>
+									<p>{{ block.value.subtitle }}.</p>
+					 
+										
+									<div class="architronix-button">
+										<a href="services.html" class="btn btn-outline-secondary  d-inline-flex gap-10 align-items-center">{{ block.value.button }}<span>
+											<svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
+											</svg></span>
+										</a>
+									</div>
+									
+								</div>
+								<div class="col-lg-6 col-xxl-6">
+									<div class="video-image-wrapper position-relative overflow-hidden">
+										<div class="wow slideInLeft">
+											<div class="video-image">
+                                                {% image block.value.image width-800 as img %}
+                                                <img alt="hero-image" src="{{ img.url }}">
+
+  
+											</div>
+											<a href="{{ block.value.link }}" class="video-popup video-popup-link">
+												<span class="video-icon">												
+													<svg width="30" height="36" viewBox="0 0 30 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+														<path d="M0.500004 1.54552L29 18L0.500002 34.4545L0.500004 1.54552Z" stroke="#253B2F"/>
+													</svg>
+												</span>	
+											</a>
+										</div>										
+									</div>
+								</div>
+							</div>
+						</div>	
+					</div>
+										
+				</div>
+     
+                <div class="section-title-wrapper position-relative">
+			 					
+					
+					<div class="container">	
+					 
+					</div>
+				</div>
+
+			</section>
+			<!--Video Section ======================-->			

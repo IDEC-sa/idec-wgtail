@@ -474,6 +474,13 @@
                         {% include "idec/homefeedback.html" with block=block only %}
                     <!--End project Section ======================-->
                     {% endif %}
+					{% if block.block_type == 'aboutvideo' %}
+                    <!--Aboutvideo Section ======================-->
+                        {% include "idec/homeaboutvideo.html" with block=block only %}
+                    <!--End Aboutvideo Section ======================-->
+                    {% endif %}
+
+		
                 {% endfor %}
             {% endwith %}
 

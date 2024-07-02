@@ -86,6 +86,26 @@ class Feedbacks(StreamBlock):
     feedback = FeedbacksBlock()
 
 
+ 
+
+
+
+class Aboutvideo(StructBlock):
+    title = CharBlock(required=True, max_length=100)
+    subtitle = CharBlock(required=False, max_length=200)
+    image = ImageChooserBlock()
+    link = CharBlock(required=False, max_length=200)
+
+    button = CharBlock(required=False, max_length=200)
+
+    # detail_page = PageChooserBlock(required=False, page_type='idec.ProjectDetailPage')
+
+
+
+
+
+
+
 # الكتلة الرئيسية التي تحتوي على جميع المكونات
 class BodyBlock(StreamBlock):
     h1 = CharBlock()
@@ -93,6 +113,7 @@ class BodyBlock(StreamBlock):
     about = HomeAboutBlock()
     projects = Projects()  # إضافة كتلة المشروع
     feedback = Feedbacks()
+    aboutvideo = Aboutvideo()
 
 
 
