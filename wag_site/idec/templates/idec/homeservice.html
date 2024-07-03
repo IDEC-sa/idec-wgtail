@@ -1,0 +1,70 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+
+
+
+
+
+            
+			<!--Service Section ======================-->
+			<section class="section-service">
+				<div class="section-full-width">	
+					<div class="section-title-wrapper position-relative">
+						<div class="scroll-move">
+							<span class="scrolling-text display-1 fw-extra-bold stroke-title text-stroke stroke-opacity-20 stroke-width-1 stroke-primary lh-1">Services</span>
+						</div>
+						<div class="container">	
+							<div class="section-title section-separator">
+								<h2 class="fw-extra-bold heading-title separator lh-1">Explore Our Design Offerings</h2>
+								<div class="d-flex flex-column flex-lg-row gap-4 align-items-lg-end justify-content-lg-between">
+									<p class="fs-4 fw-semibold mb-0 subtitle subtitle-width">Exploring Excellence in Every Meticulous Design Detail</p>	
+									<div class="architronix-button">
+										<a href="" class="btn btn-outline-primary  gap-10">View All Services 							
+											<svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
+											</svg>							
+										</a>
+									</div>								
+								</div>
+							</div>
+						</div>
+					</div>		
+					<div class="row gx-60 gy-3 mt-n30 position-relative">
+					
+         
+                        
+
+
+
+                        {% for services in block.value %}
+
+
+                    
+                        <div class="col-sm-6 col-lg-4 col-xl-3">
+							<div class="service-details">
+								<h2 class="stroke-heading">
+									<svg stroke-width="1" class="text-line-2 fw-extra-bold"><text x="0%" dominant-baseline="middle" y="70%">{{ forloop.counter }}</text></svg>
+								</h2>
+								<a href="" class="text-decoration-none"><h4 class="service-title link-hover-animation-1 d-inline-block">{{ services.value.title}}</h4></a>
+								<p class="mb-0">{{ services.value.sub_title}}</p>
+							</div>
+						</div>
+						<!-- col-3 -->
+
+                        
+                        {% endfor %}                 
+
+
+
+
+
+
+					</div>
+					<!-- row -->	
+				</div>
+				<!-- section-full-width -->
+				
+			</section>
+			<!--Service Section ======================-->
+
+			

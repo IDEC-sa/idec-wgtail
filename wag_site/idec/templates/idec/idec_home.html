@@ -172,6 +172,28 @@
                         {% include "idec/homeabout.html" with block=block only %}
                     <!--End About Section ======================-->
                     {% endif %}
+
+					{% if block.block_type == 'projects' %}
+                    <!--project Section ======================-->
+                        {% include "idec/homeproject.html" with block=block only %}
+                    <!--End project Section ======================-->
+                    {% endif %}
+					{% if block.block_type == 'feedback' %}
+                    <!--project Section ======================-->
+                        {% include "idec/homefeedback.html" with block=block only %}
+                    <!--End project Section ======================-->
+                    {% endif %}
+					{% if block.block_type == 'aboutvideo' %}
+                    <!--Aboutvideo Section ======================-->
+                        {% include "idec/homeaboutvideo.html" with block=block only %}
+                    <!--End Aboutvideo Section ======================-->
+                    {% endif %}
+
+					{% if block.block_type == 'services' %}
+                    <!--project Section ======================-->
+                        {% include "idec/homeservice.html" with block=block only %}
+                    <!--End project Section ======================-->
+                    {% endif %}
                 {% endfor %}
             {% endwith %}
 
