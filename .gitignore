@@ -1,3 +1,5 @@
 wag-env
 env
 sqlite
+migrations
+db.sqlite3
