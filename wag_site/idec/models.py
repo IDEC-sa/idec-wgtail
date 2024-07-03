@@ -9,12 +9,11 @@ from wagtail.admin.panels import FieldPanel, InlinePanel
 
 from wagtail.models import Page, Orderable
 from modelcluster.fields import ParentalKey
-
+from wagtail.images.models import WagtailImageField
 from wagtail.fields import StreamField
-from .blocks import BodyBlock, HomeAboutBlock, BranchBlock
-from wagtail.models import Page
+from .blocks import BodyBlock, HomeAboutBlock, BranchBlock, GalleryBlock
 from wagtail.admin.panels import FieldPanel, InlinePanel, PublishingPanel
-
+from wagtail.images.models import Image as WagImage
 from wagtail.fields import RichTextField
 from wagtail.snippets.models import register_snippet
 from wagtail.models import (
@@ -63,10 +62,6 @@ class ProjectDetailPage(Page):
     project_year = models.CharField(max_length=4, blank=True, null=True)
     project_type = models.CharField(max_length=255, blank=True, null=True)
 
-
-
-
-
     content_panels = Page.content_panels + [
         FieldPanel('project_title'),
         FieldPanel('subtitle'),
@@ -82,16 +77,7 @@ class ProjectDetailPage(Page):
         InlinePanel('gallery_images', label="Gallery images"),
         InlinePanel('slider_images', label="Slider images"),
         InlinePanel('slider_images_big', label="Slider images big"),
-
-
     ]
-
-
-
-
-
-
-
 
 
 
@@ -218,74 +204,85 @@ class FooterText(
     class Meta(TranslatableMixin.Meta):
         verbose_name_plural = "Footer Text"
 
-class Branch(Page):
-    city = models.TextField()
-    address = models.TextField()
-    phone = models.TextField()
-    email = models.TextField()
-    content_panels = Page.content_panels + [
-                       # new
-                       FieldPanel("city"),
-                       FieldPanel("address"),
-                       FieldPanel("phone"),
-                       FieldPanel("email"),
-    ]
-
-@register_setting
-class NavigationSettings(BaseGenericSetting):
-    company_name  = models.TextField(blank=False, default="IDEC")
-    twitter_url = models.URLField(verbose_name="Twitter URL", blank=True)
-    fb_url = models.URLField(verbose_name="Facebook URL", blank=True)
-    linkedin_url = models.URLField(verbose_name="Linkedin URL", blank=True)
-    github_url = models.URLField(verbose_name="GitHub URL", blank=True)
-    instagram_url = models.URLField(verbose_name="Instagram URL", blank=True)
+class CategoryPage(Page):
+    image = WagtailImageField()
+    name  = models.TextField()
+    description = models.TextField()
 
     content_panels = Page.content_panels + [
-                       # new
+        FieldPanel('image'),
+        FieldPanel('name'),
+        FieldPanel('description')
     ]
-    panels = [
-        MultiFieldPanel(
-            [
-                FieldPanel("twitter_url"),
-                FieldPanel("github_url"),
-                FieldPanel("instagram_url"),
-                FieldPanel("twitter_url"),
-                FieldPanel("fb_url"),
-                FieldPanel("linkedin_url"),
-                FieldPanel("company_name"),
-            ],
-            "Social settings",
-        )
-    ]
+
+# class Branch(Page):
+#     city = models.TextField()
+#     address = models.TextField()
+#     phone = models.TextField()
+#     email = models.TextField()
+#     content_panels = Page.content_panels + [
+#                        # new
+#                        FieldPanel("city"),
+#                        FieldPanel("address"),
+#                        FieldPanel("phone"),
+#                        FieldPanel("email"),
+#     ]
+
+# @register_setting
+# class NavigationSettings(BaseGenericSetting):
+#     company_name  = models.TextField(blank=False, default="IDEC")
+#     twitter_url = models.URLField(verbose_name="Twitter URL", blank=True)
+#     fb_url = models.URLField(verbose_name="Facebook URL", blank=True)
+#     linkedin_url = models.URLField(verbose_name="Linkedin URL", blank=True)
+#     github_url = models.URLField(verbose_name="GitHub URL", blank=True)
+#     instagram_url = models.URLField(verbose_name="Instagram URL", blank=True)
+
+#     content_panels = Page.content_panels + [
+#                        # new
+#     ]
+#     panels = [
+#         MultiFieldPanel(
+#             [
+#                 FieldPanel("twitter_url"),
+#                 FieldPanel("github_url"),
+#                 FieldPanel("instagram_url"),
+#                 FieldPanel("twitter_url"),
+#                 FieldPanel("fb_url"),
+#                 FieldPanel("linkedin_url"),
+#                 FieldPanel("company_name"),
+#             ],
+#             "Social settings",
+#         )
+#     ]
 
 # ...keep the definition of the NavigationSettings model and add the FooterText model:
-@register_snippet
-class FooterText(
-    DraftStateMixin,
-    RevisionMixin,
-    PreviewableMixin,
-    TranslatableMixin,
-    models.Model,
-):
+# @register_snippet
+# class FooterText(
+#     DraftStateMixin,
+#     RevisionMixin,
+#     PreviewableMixin,
+#     TranslatableMixin,
+#     models.Model,
+# ):
 
-    body = RichTextField()
+#     body = RichTextField()
 
-    panels = [
-        FieldPanel("body"),
-        PublishingPanel(),
-    ]
+#     panels = [
+#         FieldPanel("body"),
+#         PublishingPanel(),
+#     ]
 
-    def __str__(self):
-        return "Footer text"
+#     def __str__(self):
+#         return "Footer text"
 
-    def get_preview_template(self, request, mode_name):
-        return "idec/idec_home.html"
+#     def get_preview_template(self, request, mode_name):
+#         return "idec/idec_home.html"
 
-    def get_preview_context(self, request, mode_name):
-        return {"footer_text": self.body}
+#     def get_preview_context(self, request, mode_name):
+#         return {"footer_text": self.body}
 
-    class Meta(TranslatableMixin.Meta):
-        verbose_name_plural = "Footer Text"
+#     class Meta(TranslatableMixin.Meta):
+#         verbose_name_plural = "Footer Text"
 
 
 

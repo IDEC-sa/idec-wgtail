@@ -1,14 +1,7 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 
- 
 
-
-
-
-
-
-
-			<!--Project Section ======================-->
+		<!--Project Section ======================-->
 			<section class="section-project project-1">
 				<div class="section-full-width">
 					<div class="section-title-wrapper position-relative">		
@@ -47,14 +40,13 @@
 
                             {% for projects in block.value %}
 
-
 						  <div class="carousel-item  {% if forloop.counter0 == 0 %} active   {% endif %} ">
 
 							<div class="project-contents position-relative">
 								<div class="project-image overlay">
 									<picture>		
 										<!-- <source media="(max-width:470px)" srcset="assets/images/project-1-sm.jpg">	 -->
-                                        {% image projects.value.image width-800 as img %}
+                                        {% image projects.value.gallery_images.all.0.image width-800 as img %}
 										<img src="{{ img.url }}" class="w-100 h-100 object-fit-cover" alt="img">
 									</picture>											
 								</div>
@@ -84,7 +76,7 @@
 								
 								<div class="project-info bg-primary">
 									<h5 class="project-title fw-extra-bold">{{ projects.value.title}}</h5>
-									<p class="mb-0">{{ projects.value.description}} ... <a class="text-decoration-none fw-extra-bold" href="project-archive.html">see more</a></p>
+									<p class="mb-0">{{ projects.value.description|richtext}} ... <a class="text-decoration-none fw-extra-bold" href="project-archive.html">see more</a></p>
 
 									<div class="architronix-button d-block d-xl-none mt-4">
 										<a href="{{ projects.value.detail_page.url }}" class="btn btn-outline-secondary  gap-10">View Project</a>

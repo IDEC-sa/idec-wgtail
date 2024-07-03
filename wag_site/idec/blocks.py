@@ -50,23 +50,22 @@ class HomeAboutBlock(StructBlock):
 
 
 
-# كتلة المشروع
-class ProjectBlock(StructBlock):
-    title = CharBlock(required=True, max_length=100)
-    subtitle = CharBlock(required=False, max_length=200)
-    image = ImageChooserBlock()
-    description = RichTextBlock()
-    start_date = DateTimeBlock()
-    end_date = DateTimeBlock()
-    clients = CharBlock(required=False, max_length=200)
-    area = CharBlock(required=False, max_length=100)
-    project_year = CharBlock(required=False, max_length=4)
-    project_type = CharBlock(required=False, max_length=100)
-    detail_page = PageChooserBlock(required=False, page_type='idec.ProjectDetailPage')
+# # كتلة المشروع
+# class ProjectBlock(StructBlock):
+#     title = CharBlock(required=True, max_length=100)
+#     subtitle = CharBlock(required=False, max_length=200)
+#     image = ImageChooserBlock()
+#     description = RichTextBlock()
+#     start_date = DateTimeBlock()
+#     end_date = DateTimeBlock()
+#     clients = CharBlock(required=False, max_length=200)
+#     area = CharBlock(required=False, max_length=100)
+#     project_year = CharBlock(required=False, max_length=4)
+#     project_type = CharBlock(required=False, max_length=100)
 
 
 class Projects(StreamBlock):
-    project = ProjectBlock()
+    project = PageChooserBlock(required=True, page_type='idec.ProjectDetailPage')
 
 
 class FeedbacksBlock(StructBlock):
@@ -107,14 +106,8 @@ class ServiceBlock(StructBlock):
 class Services(StreamBlock):
     service = ServiceBlock()
 
-
-
-
-
-
-
-
-
+class GalleryBlock(StreamBlock):
+    category = PageChooserBlock(required=True, page_type="idec.CategoryPage")
 
 # الكتلة الرئيسية التي تحتوي على جميع المكونات
 class BodyBlock(StreamBlock):
@@ -125,6 +118,10 @@ class BodyBlock(StreamBlock):
     feedback = Feedbacks()
     aboutvideo = Aboutvideo()
     services = Services()  # إضافة كتلة المشروع
+    gallery = GalleryBlock()
 
 class BranchBlock(StreamBlock):
     branch_name = CharBlock()
+
+
+

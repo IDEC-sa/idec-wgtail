@@ -22,7 +22,7 @@
                         <div class="col-lg-6">
                             <div class="about-image overflow-hidden">
                                     {% comment %} {{ block.value }} {% endcomment %}
-                                    {% image block.value.image min-320x200 as img %}
+                                    {% image block.value.image original as img %}
                                     <img src="{{ img.url }}" class="img-fluid wow slideInLeft" alt="about-image"> 
                             </div>
                         </div>
@@ -32,7 +32,7 @@
                                 <div class="about-content-inner d-flex flex-column flex-lg-row">
                                     <div class="list-item-number">
                                         <h3 class="stroke-heading stroke-heading-2 mb-0">
-                                            <svg stroke-width="1" class="text-line-2 fs-60 fw-extra-bold"><text x="0%" dominant-baseline="middle" y="70%">01</text></svg>
+                                            <svg stroke-width="1" class="text-line-2 fs-60 fw-extra-bold"><text x="0%" dominant-baseline="middle" y="70%">{{ forloop.counter }}</text></svg>
                                         </h3>
                                     </div>									
                                     

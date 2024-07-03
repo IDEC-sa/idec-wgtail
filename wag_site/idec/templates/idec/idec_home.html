@@ -192,10 +192,17 @@
 					{% if block.block_type == 'services' %}
                     <!--project Section ======================-->
                         {% include "idec/homeservice.html" with block=block only %}
+					{% endif %}
+                    <!--End project Section ======================-->
+					{% if block.block_type == 'gallery' %}
+                    <!--project Section ======================-->
+                        {% include "idec/homegallery.html" with block=block only %}
                     <!--End project Section ======================-->
                     {% endif %}
                 {% endfor %}
             {% endwith %}
+					
+
 
 			{% include "includes/footer.html" %}
 
