@@ -30,11 +30,9 @@ class main_info_client(StructBlock):
 class main_info(StreamBlock):
     main_info_member = main_info_client()
 
-class detailed_info_img(StructBlock):
-    main_info = main_info()
-    image = ImageChooserBlock()
 
-class HomeAboutBlock(StreamBlock):
+class HomeAboutBlock(StructBlock):
+    image = ImageChooserBlock(required=True)
     main_info = main_info()
     intro_with_background = intro_with_background()
 
@@ -42,3 +40,6 @@ class BodyBlock(StreamBlock):
     h1 = CharBlock()
     slider = Slider()
     about = HomeAboutBlock()
+
+class BranchBlock(StreamBlock):
+    branch_name = CharBlock()

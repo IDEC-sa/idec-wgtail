@@ -1,0 +1,72 @@
+{# Load navigation_tags at the top of the file: #}
+{% load wagtailcore_tags %}
+{% load navigation_tags %}
+<!--Footer Section ======================-->
+<footer class="section-footer section-full-width bg-secondary position-relative">
+    <div class="container">
+        {% with twitter_url=idec.NavigationSettings.twitter_url github_url=idec.NavigationSettings.github_url mastodon_url=idec.NavigationSettings.mastodon_url %}
+        {% if twitter_url or github_url or mastodon_url %}
+            <p>
+                Follow me on:
+                {% if github_url %}
+                    <a href="{{ github_url }}">GitHub</a>
+                {% endif %}
+                {% if twitter_url %}
+                    <a href="{{ twitter_url }}">Twitter</a>
+                {% endif %}
+                {% if mastodon_url %}
+                    <a href="{{ mastodon_url }}">Mastodon</a>
+                {% endif %}
+            </p>
+        {% endif %}
+    {% endwith %}
+    {% with settings=settings.idec.NavigationSettings %}
+    <div class="footer-contents">
+            <div class="row gy-5 gy-lg-0 align-items-center justify-content-between">
+                <div class="col-lg-4">
+                    <div>
+                        <a class="navbar-brand py-0" href="index.html">
+                        <span class="logo">
+                                <!-- <img src="assets/images/logo.png" alt="logo"> -->
+                                <h4>{{ settings.company_name }}</h4>
+                        </span>
+                        </a>
+                        <p class="py-10 py-lg-3 mb-0 fw-semibold">Shaping Interior Excellence</p>
+                        <ul class="contact-lists list-unstyled mb-0 d-flex">
+                            <li><a href="{{ settings.fb_url }}" class="link-hover-animation-1 text-decoration-none text-uppercase" aria-label="top-bar-link">fb</a></li>
+                            <li><a href="{{ settings.instagram_url }}" class="link-hover-animation-1 text-decoration-none text-uppercase" aria-label="top-bar-link">in</a></li>
+                            <li><a href="{{ settings.twitter_url }}" class="link-hover-animation-1 text-decoration-none text-uppercase" aria-label="top-bar-link">tw</a></li>
+                            <li><a href="{{ settings.linkedin_url }}" class="link-hover-animation-1 text-decoration-none text-uppercase" aria-label="top-bar-link">li</a></li>
+                        </ul>
+                    </div>
+                </div>
+    {% endwith %}  
+                <!-- col-4 -->
+                 {% get_footer_text as branches %}
+                {% for branch in branches.branches %}
+                    <div class="col-lg-4 col-xxl-3">
+                        <div class="address-details">
+                            <h5 class="fw-extra-bold separator">Address {{ branch.city }}</h5>
+                            <div class="footer-address">
+                                <p class="fw-semibold mb-0">IDEC,</p>
+                                <p>{{ branch.address }}</p>
+                            </div>
+                            <div class="d-flex flex-column">
+                                <p class="mb-0 d-flex align-items-center gap-2">Phone: <a href="tel:{{ branch.phone }}" class="text-decoration-none link-hover-animation-1">{{ branch.phone }}</a></p>
+                                <p class="mb-0 d-flex align-items-center gap-2">Email: <a href="mailto:{{ branch.email }}" class="text-decoration-none link-hover-animation-1">{{ branch.email }}</a></p>
+                            </div>									
+                        </div>
+                    </div>
+                {% endfor %}
+                
+               
+            </div>
+        </div>
+        <div class="copyright d-flex flex-column gap-2 flex-lg-row justify-content-lg-between align-items-lg-center text-center text-sm-start">
+            <p class="mb-0">Made with Love by <a href="https://themeperch.net/" class="text-decoration-none link-hover-animation-1" target="_blank">IDEC development team</a></p>
+            <p class="mb-0">&copy; 2023, IDEC, All Rights Reserved</p>
+        </div>
+    </div>
+    <!-- container -->
+</footer>
+<!--Footer Section ======================-->
