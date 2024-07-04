@@ -12920,7 +12920,7 @@ textarea {
   --bs-section-bg-margin-top: 24px;
   --bs-section-bg-overlay: rgba(var(--bs-secondary-rgb), .65);
   --bs-section-title-wrapper-margin: -160px;
-  background-image: url("../images/section-bg.jpg");
+  /* background-image: url("../images/section-bg.jpg"); */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

@@ -1,0 +1,76 @@
+{% extends 'project_base.html' %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block body %}    
+ 
+
+<!-- <h2 >{{ page.servies_title }}</h1>
+    <h2 >{{ page.subtitle }}</h1>
+        <h2 >{{ page.description }}</h1>
+            <h2 >{{ page.all_description }}</h1> -->
+
+
+
+
+			<!--Banner Section ======================-->
+			<section class="section-banner position-relative pt-60">
+				<div class="section-full-width">
+					<div class="section-title-wrapper position-relative">
+						<div class="scroll-move">
+							<span class="scrolling-text display-1 fw-extra-bold stroke-title text-stroke stroke-opacity-20 stroke-width-1 stroke-primary lh-1">Services</span>
+						</div>					
+						
+						<div class="container">	
+							<div class="section-title section-separator">
+								<h2 class="fw-extra-bold heading-title separator lh-1">{{ page.servies_title }}</h2>
+								<div class="d-flex flex-column flex-lg-row gap-4 align-items-lg-end justify-content-lg-between">
+									<p class="fs-4 fw-semibold mb-0 subtitle subtitle-width">{{ page.subtitle }}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- section-title-wrapper -->
+				</div>
+				<!-- section-full-width -->				
+			</section>
+			<!--Banner Section ======================-->
+
+
+
+			<!--Service Section ======================-->
+			<section class="section-service position-relative">
+				<div class="container">
+					<div class="position-relative">
+						<div class="row justify-content-between gy-5 gy-lg-0">							
+							<div class="col-lg-7">
+							
+								<div class="d-flex flex-column gap-30 gap-lg-5">
+									<div>
+										<h4 class="mb-4 mb-lg-30">Overview</h4>
+										<p class="mb-0">{{ page.all_description|richtext  }}.</p>
+									</div>
+
+								</div>
+							</div>
+							<!-- col-7 -->
+					 
+						</div>
+						<!-- row -->						
+					</div>			
+				</div>	
+				<!-- container -->
+			</section>
+			<!--Service Section ======================-->
+			
+
+                
+
+{% endblock body %}
+
+
+
+
+
+
+

@@ -68,13 +68,10 @@
 
                                 {% for image in post.gallery_images.all %}
                                 {% image image.image width-1000 as img %}
-
-                              
-										<img src="{{ img.url }}" class="wow slideInRight" alt="img" style="width: 150%;">
-								
-
-                                {% endfor %}
-	</div>
+									<img src="{{ img.url }}" class="wow slideInRight" alt="img" style="width: 150%;">
+								 {% endfor %}
+								 
+								</div>
 								</div>
 
 								<!-- col-9 -->

@@ -35,6 +35,133 @@ from wagtail.contrib.settings.models import (
 
 
 
+
+
+
+
+# ----------------------------------------------------------------
+
+
+
+
+
+
+class careerIndexPage(Page):
+    career_intro = models.CharField(max_length=255,blank=True)
+    career_sub_title = models.CharField(max_length=255,blank=True)
+    career_title_background = models.CharField(max_length=255,blank=True)
+    subpage_types = ['careerDetailPage']
+    content_panels = Page.content_panels + [
+        FieldPanel('career_intro'),
+        FieldPanel('career_sub_title'),
+        FieldPanel('career_title_background'),
+
+    ]
+
+
+
+
+class careerDetailPage(Page):
+    career_title = models.CharField(max_length=255)
+    career_subtitle = models.CharField(max_length=255, blank=True, null=True)
+    career_description = RichTextField()
+    career_all_description = RichTextField()
+
+    content_panels = Page.content_panels + [
+        FieldPanel('career_title'),
+        FieldPanel('career_subtitle'),
+        FieldPanel('career_description'),
+        FieldPanel('career_all_description'),
+
+    ]
+
+
+# ----------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+class serviesIndexPage(Page):
+    intro = models.CharField(max_length=255,blank=True)
+    sub_title = models.CharField(max_length=255,blank=True)
+    title_background = models.CharField(max_length=255,blank=True)
+
+    subpage_types = ['serviesDetailPage']
+
+    content_panels = Page.content_panels + [
+        FieldPanel('intro'),
+        FieldPanel('sub_title'),
+        FieldPanel('title_background'),
+        InlinePanel('gallery_images_serviesIndexPage', label="Gallery images"),
+
+    ]
+
+
+
+class serviesindexGalleryImage(Orderable):
+    page = ParentalKey(serviesIndexPage, on_delete=models.CASCADE, related_name='gallery_images_serviesIndexPage')
+    image = models.ForeignKey(
+        'wagtailimages.Image', on_delete=models.CASCADE, related_name='+'
+    )
+    caption = models.CharField(blank=True, max_length=250)
+
+    panels = [
+        FieldPanel('image'),
+        FieldPanel('caption'),
+    ]  
+
+
+
+
+# ----------------------------------------------------------------
+
+
+
+class serviesDetailPage(Page):
+    servies_title = models.CharField(max_length=255)
+    subtitle = models.CharField(max_length=255, blank=True, null=True)
+    description = RichTextField()
+    all_description = RichTextField()
+
+    content_panels = Page.content_panels + [
+        FieldPanel('servies_title'),
+        FieldPanel('subtitle'),
+        FieldPanel('description'),
+        FieldPanel('all_description'),
+        InlinePanel('gallery_images_servies', label="Gallery images"),
+
+    ]
+
+
+
+class serviesGalleryImage(Orderable):
+    page = ParentalKey(serviesDetailPage, on_delete=models.CASCADE, related_name='gallery_images_servies')
+    image = models.ForeignKey(
+        'wagtailimages.Image', on_delete=models.CASCADE, related_name='+'
+    )
+    caption = models.CharField(blank=True, max_length=250)
+
+    panels = [
+        FieldPanel('image'),
+        FieldPanel('caption'),
+    ]  
+
+
+
+
+
+
+
+
+# ----------------------------------------------------------------
+
+
 class ProjectIndexPage(Page):
     intro = models.CharField(max_length=255,blank=True)
     sub_title = models.CharField(max_length=255,blank=True)
