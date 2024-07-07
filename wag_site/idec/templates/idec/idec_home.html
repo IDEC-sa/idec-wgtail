@@ -195,10 +195,17 @@
 					{% endif %}
                     <!--End project Section ======================-->
 					{% if block.block_type == 'gallery' %}
-                    <!--project Section ======================-->
+                    <!--gallery Section ======================-->
                         {% include "idec/homegallery.html" with block=block only %}
-                    <!--End project Section ======================-->
+                    <!--End gallery Section ======================-->
                     {% endif %}
+
+					{% if block.block_type == 'blogs' %}
+                    <!--blog Section ======================-->
+                        {% include "idec/homeblog.html" with block=block only %}
+                    <!--End blog Section ======================-->
+                    {% endif %}
+
                 {% endfor %}
             {% endwith %}
 					

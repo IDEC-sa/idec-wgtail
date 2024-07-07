@@ -39,7 +39,26 @@ from wagtail.contrib.settings.models import (
 
 
 
+
+
+
+
+
+# --------------------------------------------------------------
 # ----------------------------------------------------------------
+# ----------------------------------------------------------------
+# --------------------------------------------------------------
+# ----------------------------------------------------------------
+# ----------------------------------------------------------------
+
+# --------------------------------------------------------------
+# ----------------------------------------------------------------
+# ----------------------------------------------------------------
+# --------------------------------------------------------------
+# ----------------------------------------------------------------
+# ----------------------------------------------------------------
+
+
 
 
 
@@ -65,13 +84,26 @@ class careerDetailPage(Page):
     career_title = models.CharField(max_length=255)
     career_subtitle = models.CharField(max_length=255, blank=True, null=True)
     career_description = RichTextField()
-    career_all_description = RichTextField()
+    # career_country = models.CharField(max_length=255)
+    start_date = models.DateField()  # تأكد من أن الحقل موجود في النموذج
+    end_date = models.DateField()
+    Expert = RichTextField()
+    type = RichTextField()
+    location =  RichTextField()
+    salary_range = RichTextField()
+
 
     content_panels = Page.content_panels + [
         FieldPanel('career_title'),
         FieldPanel('career_subtitle'),
         FieldPanel('career_description'),
-        FieldPanel('career_all_description'),
+        # FieldPanel('career_country'),
+        FieldPanel('start_date'),
+        FieldPanel('end_date'),
+        FieldPanel('Expert'),
+        FieldPanel('type'),
+        FieldPanel('location'),
+        FieldPanel('salary_range')
 
     ]
 
@@ -165,12 +197,14 @@ class serviesGalleryImage(Orderable):
 class ProjectIndexPage(Page):
     intro = models.CharField(max_length=255,blank=True)
     sub_title = models.CharField(max_length=255,blank=True)
+    title_background = models.CharField(max_length=255,blank=True)
 
     subpage_types = ['ProjectDetailPage']
 
     content_panels = Page.content_panels + [
         FieldPanel('intro'),
-        FieldPanel('sub_title')
+        FieldPanel('sub_title'),
+        FieldPanel('title_background')
 
     ]
 

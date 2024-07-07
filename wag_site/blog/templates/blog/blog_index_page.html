@@ -1,18 +1,110 @@
-{% extends "base.html" %}
+{% extends 'project_base.html' %}
 
-{% load wagtailcore_tags %}
+{% load wagtailcore_tags wagtailimages_tags %}
 
-{% block body_class %}template-blogindexpage{% endblock %}
+{% block body %}    
+ 
 
-{% block content %}
-    <h1>{{ page.title }}</h1>
 
-    <div class="intro">{{ page.intro|richtext }}</div>
 
-    {% for post in page.get_children %}
-        <h2><a href="{% pageurl post %}">{{ post.title }}</a></h2>
-        {{ post.specific.intro }}
-        {{ post.specific.body|richtext }}
-    {% endfor %}
+			<!--Banner Section ======================-->
+			<section class="section-banner position-relative pt-60">
+				<div class="section-full-width">
+					<div class="section-title-wrapper position-relative">	
+						<div class="scroll-move">
+							<span class="scrolling-text display-1 fw-extra-bold stroke-title text-stroke stroke-opacity-20 stroke-width-1 stroke-primary lh-1">{{ page.blog_background|richtext }}</span>
+						</div>				
+						
+						<div class="container">	
+							<div class="section-title section-separator">
+								<h2 class="fw-extra-bold heading-title separator lh-1">{{ page.blog_intro|richtext }}</h2>
+								<div class="d-flex flex-column flex-lg-row gap-4 align-items-lg-end justify-content-lg-between">
+									<p class="fs-4 fw-semibold mb-0 subtitle subtitle-width">{{ page.blog_sub_title|richtext }}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- section-title-wrapper -->	
+				</div>
+				<!-- section-full-width -->	
+			</section>
+			<!--Banner Section ======================-->
 
-{% endblock %}
+
+
+			<!--Blog Section ======================-->
+			<section class="section-blog position-relative">
+				<div class="container">
+					<div class="position-relative section-padding-xxl">
+						<div class="row gx-20 gy-30 gy-lg-70">						
+							
+                            
+                            {% for post in page.get_children %}
+                            {% with post=post.specific %}
+                            
+                            <div class="col-md-6 col-lg-4">
+								<div class="blog-wrapper">
+									<div class="blog-image">
+
+                                        {% for image in post.gallery_images_blog.all %}
+                                        {% image image.image width-1000 as img %}
+
+                                            <img src="{{ img.url }}" class="img-fluid" alt="img">
+
+                                         {% endfor %}
+
+
+									</div>
+									<div class="blog-details">
+										<p>14 December '23 / Interior</p>
+										<h5 class="blog-title fs-5 fw-semibold"><a href="{% pageurl post %}" class="link-hover-animation-1 stretched-link text-decoration-none">{{ post.blog_title }}</a></h5>
+									</div>
+								</div>	
+							</div>
+				 
+                            {% endwith %}
+                            {% endfor %} 
+
+
+						</div>
+					</div>
+						
+					<!-- <nav  aria-label="Page navigation">
+						<ul class="pagination justify-content-center align-items-end position-relative">	
+							<li class="page-item me-md-10">
+								<a class="btn prev-btn prev-btn-sm me-10" href="#">
+									<svg class="arrow-reverse" width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
+									</svg>	
+								</a>
+							</li>
+							<li class="page-item"><a class="page-link active fw-semibold next-btn next-btn-sm" href="#">01</a></li>
+							<li class="page-item"><a class="page-link fw-semibold next-btn next-btn-sm" href="#">02</a></li>
+							<li class="page-item me-2 me-md-3"><a class="page-link fw-semibold next-btn next-btn-sm" href="#">03</a></li>
+							<li class="page-item mx-md-1">
+								<svg width="29" height="5" viewBox="0 0 29 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<circle cx="2.5" cy="2.5" r="2.5" fill="#253B2F"/>
+									<circle cx="14.5" cy="2.5" r="2.5" fill="#253B2F"/>
+									<circle cx="26.5" cy="2.5" r="2.5" fill="#253B2F"/>
+								</svg> 
+							</li>							
+							<li class="page-item mx-2 mx-md-3"><a class="page-link fw-semibold next-btn next-btn-sm" href="#">37</a></li>							
+							<li class="page-item">
+								<a class="btn btn-primary btn-lg d-inline-flex gap-10" href="#">Next
+									<svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
+									</svg>
+								</a>
+							</li>
+						</ul>
+					</nav>	 -->
+
+				</div>	
+				<!-- container -->
+			</section>
+			<!--Blog Section ======================-->
+
+			
+
+{% endblock body %}
+

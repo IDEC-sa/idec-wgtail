@@ -42,8 +42,8 @@
 								<h2 class="stroke-heading">
 									<svg stroke-width="1" class="text-line-2 fw-extra-bold"><text x="0%" dominant-baseline="middle" y="70%">{{ forloop.counter }}</text></svg>
 								</h2>
-								<a href="" class="text-decoration-none"><h4 class="service-title link-hover-animation-1 d-inline-block">{{ services.value.title}} </h4></a>
-								<p class="mb-0">{{ services.value.subtitle}}</p>
+								<a href="{% pageurl services.value %}" class="text-decoration-none"><h4 class="service-title link-hover-animation-1 d-inline-block">{{ services.value.servies_title}} </h4></a>
+								<p class="mb-0">{{ services.value.description|richtext}}</p>
 							</div>
 						</div>
 						<!-- col-3 -->

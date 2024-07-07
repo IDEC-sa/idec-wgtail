@@ -1,0 +1,98 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+ 
+			<!--Blog Section ======================-->
+			<section class="section-blog blog-1">	
+				<div class="section-full-width">
+					<div class="section-title-wrapper position-relative">
+						<div class="scroll-move">
+							<span class="scrolling-text display-1 fw-extra-bold stroke-title text-stroke stroke-opacity-20 stroke-width-1 stroke-primary lh-1">Blog</span>
+						</div>					
+						
+						<div class="container">	
+							<div class="section-title section-separator">
+								<h2 class="fw-extra-bold heading-title separator lh-1">Design Insights & Inspiration</h2>								
+								<p class="fs-4 fw-semibold mb-0 subtitle subtitle-width">Unveil the Secrets to Transforming Spaces</p>
+							</div>
+						</div>						
+					</div>
+				</div>			
+				<div class="container">
+					<div class="swiper-custom-progress position-relative">
+						<div class="swiper blog-swiper">
+							<div class="swiper-wrapper"> 
+						
+						
+						
+						
+						
+								{% for blogs in block.value %}
+
+						
+								<div class="swiper-slide">
+									<div class="blog-wrapper">
+										<div class="blog-image">
+											{% image blogs.value.gallery_images_blog.all.0.image width-800 as img %}
+											<img src="{{ img.url }}" class="img-fluid" alt="img">
+
+										</div>
+										<div class="blog-details">
+											<p>14 December '15 / Interior </p>
+											<h5 class="blog-title fs-5 fw-semibold"><a href="{% pageurl blogs.value %}" class="link-hover-animation-1 stretched-link text-decoration-none">{{ blogs.value.blog_title}}</a></h5>
+										</div>
+									</div>									
+								</div>
+								<!-- swiper-slide-->
+					
+								{% endfor %}  
+
+
+
+
+
+
+								<!-- swiper-slide-->			
+							</div>
+							<!-- swiper-wrapper -->
+						</div>
+						<!-- swiper -->							
+						<div class="blog-swiper-pagination-wrapper">
+							<div class="blog-swiper-pagination"></div>						
+							<div class="swiper-button-progress">	
+								<div class="progress-button-prev">
+									<svg class="arrow-reverse" width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
+									</svg>
+								</div>							
+								<div class="progress-button-next">
+									<svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
+									</svg> 
+								</div>																
+							</div>
+						</div>									
+					</div>	
+				</div>	
+			</section>
+			<!--Blog Section ======================-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            

@@ -55,6 +55,9 @@ class Projects(StreamBlock):
     project = PageChooserBlock(required=True, page_type='idec.ProjectDetailPage')
 
 
+class Blogs(StreamBlock):
+    blog = PageChooserBlock(required=True, page_type='blog.blogDetailPage')
+
 
 
 
@@ -121,6 +124,7 @@ class BodyBlock(StreamBlock):
     services = Services()  # إضافة كتلة المشروع
     gallery = GalleryBlock()
     career = career()  # إضافة كتلة المشروع
+    blogs = Blogs()  # إضافة كتلة المشروع
 
 class BranchBlock(StreamBlock):
     branch_name = CharBlock()

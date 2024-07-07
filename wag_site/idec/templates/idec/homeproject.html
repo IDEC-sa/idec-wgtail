@@ -9,7 +9,7 @@
 							<span class="scrolling-text display-1 fw-extra-bold stroke-title text-stroke stroke-opacity-20 stroke-width-1 stroke-primary lh-1">Project</span>
 						</div>			
 						
-						<!-- <div class="container">	
+						<div class="container">	
 							<div class="section-title section-separator">
 								<h2 class="fw-extra-bold heading-title separator lh-1">Creative Showcase</h2>
 								<div class="d-flex flex-column flex-lg-row gap-4 align-items-lg-end justify-content-lg-between">
@@ -24,7 +24,7 @@
 								</div>
 							</div>
 						</div>						
-					</div> -->
+					</div>
 
 
 
@@ -70,7 +70,7 @@
 										<span>{{ projects.value.project_type}}</span>
 									</li>
 									<li class="architronix-button d-none d-xl-block">
-										<a href="{{ projects.value.detail_page.url }}" class="btn btn-outline-secondary  gap-10">View Project</a>
+										<a href="{% pageurl projects.value %}" class="btn btn-outline-secondary  gap-10">View Project</a>
 									</li>
 								</ul>
 								
@@ -79,7 +79,7 @@
 									<p class="mb-0">{{ projects.value.description|richtext}} ... <a class="text-decoration-none fw-extra-bold" href="project-archive.html">see more</a></p>
 
 									<div class="architronix-button d-block d-xl-none mt-4">
-										<a href="{{ projects.value.detail_page.url }}" class="btn btn-outline-secondary  gap-10">View Project</a>
+										<a href="{% pageurl projects.value %}" class="btn btn-outline-secondary  gap-10">View Project</a>
 									</div>
 								</div>
 							</div>

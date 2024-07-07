@@ -66,21 +66,21 @@
                                     <div class="col-lg-3 col-xxl-4">
                                         <div class="job-contents">
                                             <p class="custom-font-style fw-bold mb-0">Full Time</p>
-                                            <p class="fs-5 fw-bold mb-0">{{ post.career_title }}</p>
+                                            <p class="fs-5 fw-bold mb-0">{{ post.career_title|richtext }}</p>
                                         </div>
                                     </div>
                                     <!-- col-5 -->
                                     <div class="col-lg-3">
                                         <div class="job-contents">
-                                            <p class="custom-font-style fw-bold mb-0">USA,California</p>
-                                            <p class="mb-0 d-flex flex-column gap-0 flex-xxl-row"><span>Apply before:</span><span class="fw-bold">28 Feb 2024</span></p>
+                                            <p class="custom-font-style fw-bold mb-0">{{ post.location|richtext }}</p>
+                                            <p class="mb-0 d-flex flex-column gap-0 flex-xxl-row"><span>Apply before:</span><span class="fw-bold">{{ post.end_date }}</span></p>
                                         </div>
                                     </div>
                                     <!-- col-4 -->
                                     <div class="col-lg-3">
                                         <div class="job-contents">
                                             <p class="custom-font-style fw-bold mb-0">Expert</p>
-                                            <p class="mb-0"><span class="fw-bold">$45k - $60k /</span>year</p>
+                                            <p class="mb-0"><span class="fw-bold">{{ post.salary_range|richtext }}</span></p>
                                         </div>
                                     </div>
                                     <!-- col-2 -->
