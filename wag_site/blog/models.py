@@ -65,7 +65,7 @@ class BlogDetailPage(Page):
     blog_title = models.CharField(max_length=255)
     blog_subtitle = models.CharField(max_length=255, blank=True, null=True)
     blog_description = RichTextField()
-    # blog_start_date = models.DateField()  # تأكد من أن الحقل موجود في النموذج
+    # blog_start_date = models.DateTimeField()  # تأكد من أن الحقل موجود في النموذج
     blog_type = models.CharField(max_length=255)
 
     content_panels = Page.content_panels + [
