@@ -117,6 +117,182 @@
 				</div>
 			</div>
 			<!--offcanvasCart ======================-->
+			<!-- button -->
+			<a class="position-fixed customise-btn top-50 bg-primary text-secondary fw-semibold rounded-4 text-decoration-none d-flex align-items-center gap-2" href="#customizer" data-bs-toggle="offcanvas" style="margin-top: -1rem; padding: .35rem .75rem .45rem .75rem; transform: rotate(-90deg); font-size: calc(var(--ar-body-font-size) * .8125); letter-spacing: .075rem; z-index: 1030;">
+				<span class="gear-icon d-inline-flex">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
+						<path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"></path>
+						<path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"></path>
+					</svg>
+				</span>
+				<span class="d-none d-md-block">Customize</span>
+			</a>
+			<div class="offcanvas color-swatch-offcanvas offcanvas-start" id="customizer" data-bs-scroll="true" tabindex="-1">		
+				<div class="offcanvas-header border-bottom">
+					<h5 class="offcanvas-title fs-6 d-flex align-items-center gap-2" data-bs-dismiss="offcanvas" style="cursor: pointer;" data-toggle="tooltip" data-placement="top" data-trigger="hover" title="Close Customizer">
+					<span>Customize</span>
+					<span>(x)</span>        
+					</h5>
+					<div class="d-flex align-items-center gap-10">
+						<button class="btn btn-xs btn-primary" onclick="applyCSS()">Apply CSS</button>	
+						<button type="reset" class="btn btn-xs btn-outline-primary ms-auto">Reset</button>
+					</div>        
+				</div>
+				<div class="offcanvas-body bg-light">
+					<form id="customizer-form" class="d-grid h-100">
+						<div class="accordion" id="accordionCustomize">
+							<div class="accordion-item">
+									<h2 class="accordion-header">
+										<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+											Color
+										</button>
+								  </h2>
+								  <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionCustomize">
+										<div class="accordion-body">
+											<span>Predefined Color Presets</span>
+											<div class="color-presets d-flex flex-wrap justify-content-between gap-2">
+												<span class="cursor-pointer default" onclick="loadPreset('default')">Defult</span>
+												<span class="cursor-pointer blackwhite" onclick="loadPreset('blackwhite')">Black &amp; White</span>
+												<span class="cursor-pointer preset1" onclick="loadPreset('preset1')">Color 1</span>                                    
+												<span class="cursor-pointer preset2" onclick="loadPreset('preset2')">Color 2</span>
+												<span class="cursor-pointer preset3" onclick="loadPreset('preset3')">Color 3</span>
+												<span class="cursor-pointer preset4" onclick="loadPreset('preset4')">Color 4</span>
+											</div>
+							  
+											<label class="d-flex justify-content-between" for="primary">
+												Primary color						
+												<input type="color" name="primary" value="#253B2F" id="primary" class="preset-input" data-selector=":root" data-var="--bs-primary" data-value-type="hexa" onchange="updateHiddenValue('primaryrgb', this.value)">
+												<input type="color" name="primaryrgb" value="#253B2F" class="preset-input d-none" data-selector=":root" data-var="--bs-primary-rgb" data-value-type="rgb">
+											</label>
+											
+											<label class="d-flex justify-content-between" for="secondary">
+												Secondary color	
+												<input type="color" name="secondary" value="#D2E0D9" id="secondary" class="preset-input" data-selector=":root" data-var="--bs-secondary" data-value-type="hexa" onchange="updateHiddenValue('secondaryrgb', this.value)">
+												<input type="color" name="secondaryrgb" value="#D2E0D9" class="preset-input d-none" data-selector=":root" data-var="--bs-secondary-rgb" data-value-type="rgb">
+											</label>
+			
+											<label class="d-flex justify-content-between" for="body">
+												Global text color						
+												<input type="color" name="body" value="#253B2F" id="body" class="preset-input" data-selector="body" data-var="--bs-body-color" data-value-type="hexa" onchange="updateHiddenValue('bodyrgb', this.value)">
+												<input type="color" name="bodyrgb" value="#253B2F" class="preset-input d-none" data-selector="body" data-var="--bs-body-color-rgb" data-value-type="rgb">
+											</label>
+			
+											<label class="d-flex justify-content-between" for="bodybg">
+												Body background	
+												<input type="color" name="bodybg" value="#F9FFFC" id="bodybg" class="preset-input" data-selector="body" data-var="--bs-body-bg" data-value-type="hexa" onchange="updateHiddenValue('bodybgrgb', this.value)">
+												<input type="color" name="bodybgrgb" value="#F9FFFC" class="preset-input d-none" data-selector="body" data-var="--bs-body-bg-rgb" data-value-type="rgb">
+											</label>
+			
+											<label class="d-flex justify-content-between" for="menucolor">
+												Menu color						
+												<input type="color" name="menucolor" value="#253B2F" id="menucolor" class="preset-input" data-selector=".navbar-nav" data-var="--bs-nav-link-color" data-value-type="hexa">
+											
+											</label>
+										</div>
+									</div>        
+							</div>
+			
+			
+							<div class="accordion-item">
+								<h2 class="accordion-header">
+									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+										Button style
+									</button>
+								</h2>
+							  
+								<div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionCustomize">
+									<div class="accordion-body">
+								  
+										<label class="d-flex justify-content-between" for="btnBorderRadius">
+											Border Radius
+											<input type="number" name="btnBorderRadius" value="0" size="10" id="btnBorderRadius" class="preset-input form-control number" data-selector=".btn" data-var="--bs-btn-border-radius" data-value-type="px">
+										</label>
+										<label class="d-flex justify-content-between" for="btnBorderWidth">
+											Border width
+											<input type="number" name="btnBorderWidth" value="2" size="10" id="btnBorderWidth" class="preset-input form-control number" data-selector=".btn" data-var="--bs-btn-border-width" data-value-type="px">
+										</label>
+										<div class="d-flex flex-wrap gap-2">
+											<span class="cursor-pointer" onclick="loadPreset('btnsquare')">Square</span>
+											<span class="cursor-pointer rounded" onclick="loadPreset('btnsemiround')">Semi-round</span>
+											<span class="cursor-pointer rounded-pill" onclick="loadPreset('btnrounded')">Rounded</span>
+										</div>
+									</div>
+								</div>    
+							</div>
+			
+							<div class="accordion-item">
+								<h2 class="accordion-header">
+									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+										Input style
+									</button>
+								</h2>
+							  
+			
+								<div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionCustomize">
+									<div class="accordion-body">
+							  
+										<label class="d-flex justify-content-between" for="inputBorderRadius">
+											input Radius
+											<input type="number" name="inputBorderRadius" value="0" size="10" id="inputBorderRadius" class="preset-input form-control number" data-selector=".form-control" data-var="--bs-border-radius" data-value-type="px">
+										</label>
+										<label class="d-flex justify-content-between" for="inputBorderWidth">
+											Border width
+											<input type="number" name="inputBorderWidth" value="2" size="10" id="inputBorderWidth" class="preset-input form-control number" data-selector=".form-control" data-var="--bs-border-width" data-value-type="px">
+										</label>
+			
+										<div class="d-flex flex-wrap gap-2">
+											<span class="cursor-pointer" onclick="loadPreset('inputsquare')">Square</span>
+											<span class="cursor-pointer rounded" onclick="loadPreset('inputsemiround')">Semi-round</span>
+											<span class="cursor-pointer rounded-pill" onclick="loadPreset('inputrounded')">Rounded</span>
+										</div>
+									</div>   
+								</div>     
+							</div>
+			
+							<div class="accordion-item">
+								<h2 class="accordion-header">
+									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+										Custom Fonts
+									</button>
+								</h2>
+								<div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionCustomize">
+									<div class="accordion-body">
+										<label class="d-flex flex-column gap-2" for="googlefontsURL">
+											<a title="Go to the Google Fonts(fonts.google.com)" href="https://fonts.google.com/share?selection.family=Inter:wght@400;700;800" target="_blank">Google Fonts URL</a>
+											<input type="text" name="googlefontsURL" placeholder="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&amp;display=swap" size="10" id="googlefontsURL" class="form-control">                    
+										</label>
+										<label class="d-flex flex-column gap-2" for="fontfamily">
+											Font Family
+											<input type="text" name="fontfamily" placeholder="'Inter', sans-serif" id="fontfamily" class="preset-input form-control" data-selector="body" data-var="--bs-body-font-family">
+										</label>
+										<div class="d-flex flex-wrap gap-2">
+											<span class="cursor-pointer" title="Click to set" onclick="loadPreset('fontdefault')">Default</span>
+											<span class="cursor-pointer" title="Click to set" onclick="loadPreset('font1')">Inter</span>
+											<span class="cursor-pointer" title="Click to set" onclick="loadPreset('font2')">Poppins</span>
+										</div>
+									</div>
+								</div>        
+							</div>               
+							
+							<div class="mt-auto mb-3">
+								<a href="#" title="Copy to Clipboard" class="text-decoration-none" data-copy="css-input">CSS</a>
+								<textarea id="css-input" class="form-control" placeholder="Generated CSS will appear here" onclick="this.select()"></textarea>
+								<small class="" style="font-size: 12px; opacity: .8">Copy &amp; put this code in your <code>theme.css</code> file</small>                    
+							</div>
+						</div>
+													 
+					</form>
+					
+					<style id="customize-css">:root { --bs-primary: #000000; --bs-primary-rgb: 0, 0, 0; --bs-secondary: #fff1dc; --bs-secondary-rgb: 255, 241, 220; }
+			body { --bs-body-color: #000000; --bs-body-color-rgb: 0, 0, 0; --bs-body-bg: #eeeeee; --bs-body-bg-rgb: 238, 238, 238; }
+			.navbar-nav { --bs-nav-link-color: #000000; }
+			.btn { --bs-btn-border-radius: 0px; --bs-btn-border-width: 2px; }
+			.form-control { --bs-border-radius: 0px; --bs-border-width: 2px; }
+			</style>
+					<link rel="stylesheet" href="{% static 'idec/customize/color.css?ver=1.6' %}">
+				</div>					
+			</div>
+			<!-- button -->
 
 
 
@@ -239,7 +415,7 @@
 			<script src="{% static 'idec/assets/js/jquery.progressScroll.min.js' %}"></script>	
 			<script src="{% static 'idec/assets/js/script.js' %}"></script>	
 
-			<!-- <script src="customize/presets.js"></script> -->
+			<script src="{% static 'idec/customize/presets.js' %}"></script>
 
 		
 	</body>
