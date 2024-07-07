@@ -1,0 +1,183 @@
+{% extends 'project_base.html' %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block body %}    
+ 
+
+
+ 
+
+
+			<!--Shop-Tabs Section ======================-->
+			<section class="section-shop section-shop-tabs pt-130 pt-lg-200 position-relative">
+				<div class="container">	
+					<div class="row justify-content-between gy-4">
+						<div class="col-lg-6">
+							<!-- Tabs-Contents -->            
+							<div class="tab-content" id="shops-tabContent">
+								{% for image in page.gallery_images_product_bg.all %}
+								{% image image.image width-1000 as img %}
+
+								<!--shop-1-tab  -->
+								<div class="tab-pane fade show  {% if forloop.counter0 == 0 %} active   {% endif %}" id="shop-{{ forloop.counter }}" role="tabpanel" aria-labelledby="shop-{{ forloop.counter }}-tab" tabindex="0">
+									<img src="{{ img.url }}" class="img-fluid" alt="img">
+								</div>
+								<!--shop-1-tab  -->
+
+								<!--shop-2-tab  -->
+								<!-- <div class="tab-pane fade" id="shop-2" role="tabpanel" aria-labelledby="shop-2-tab" tabindex="0">
+									<img src="assets/images/shop-tab-image-lg-2.jpg" class="img-fluid" alt="img">						
+								</div> -->
+								<!--shop-2-tab  -->
+
+								{% endfor %}                 
+
+							</div>
+							<!-- Tabs-Contents --> 
+
+							<!-- Tabs -->
+							<ul class="shop-tabs nav nav-pills d-flex gap-20 mt-20" id="shops-tab" role="tablist">
+
+								{% for image in page.gallery_images_product.all %}
+								{% image image.image width-1000 as img %}
+
+								<li class="nav-item" role="presentation">
+									<button class="shop-button  {% if forloop.counter0 == 0 %} active   {% endif %}" id="shop-{{ forloop.counter }}-tab" data-bs-toggle="pill" data-bs-target="#shop-{{ forloop.counter }}" type="button" role="tab" aria-controls="shop-{{ forloop.counter }}" aria-selected="true">
+										
+										<img src="{{ img.url }}" alt="img">	
+									</button>
+								</li>
+								<!-- <li class="nav-item" role="presentation">
+									<button class="shop-button" id="shop-2-tab" data-bs-toggle="pill" data-bs-target="#shop-2" type="button" role="tab" aria-controls="shop-2" aria-selected="false">
+										<img src="assets/images/shop-tab-image-2.png" alt="img">							
+									</button>
+								</li>  -->
+								
+								{% endfor %}                 
+
+							</ul>
+							<!-- Tabs -->
+						</div>
+						<!-- col-6 -->
+						<div class="col-lg-5">
+							<div class="shop-product-descriptions sticky-elements">
+								<h5 class="display-5 lh-1">{{ page.product_title|richtext }}</h5>
+								<!-- <div class="d-flex align-items-center justify-content-between">
+									<span class="fs-5 fw-bold">$134.99</span>
+									<div class="star-rating-wrap d-flex gap-2 align-items-start">										
+										<div>
+											<span class="star-rating" >										
+												<span class="star-fill" style="width: 90%;"></span>
+											</span>
+										</div>
+										<span class="small fw-semibold">(13 reviews)</span>
+									</div>								
+								</div> -->
+								<p class="mb-0 mt-3 mt-lg-20">{{ page.product_subtitle|richtext }}</p>
+								<!-- <div class="d-flex flex-wrap gap-3 py-4 py-lg-40">							
+									<div class="cart-btn d-flex align-items-center gap-3">									
+										<span class="cart-icon dash-icon">
+											<svg width="11" height="4" viewBox="0 0 11 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M0 3.38V0.619995H10.2V3.38H0Z" fill="black"/>
+											</svg> 
+										</span>
+										<span class="input-values"><input type="text" name="input-value" value="1" class="input-number"></span>
+										<span class="cart-icon plus-icon">
+											<svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M4.85522 12V7.344H0.199219V4.632H4.85522V0H7.56722V4.632H12.1992V7.344H7.56722V12H4.85522Z"/>
+											</svg> 
+										</span>
+									</div>						
+									<div class="text-lg-end">
+										<a href="#" class="btn btn-md btn-primary " data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart" aria-expanded="false" aria-label="Toggle navigation">Add to cart</a>
+									</div>	
+								</div> -->
+								<ul class="shop-product-list d-flex flex-column gap-10 list-unstyled mb-0">
+									<!-- <li class="d-flex align-items-center gap-10">
+										<span class="list-description">SKU</span> <span>005</span>
+									</li> -->
+									<li class="d-flex align-items-center gap-10">
+										<span class="list-description">CATEGORY :</span><a href="#" class="shop-items-link link-hover-animation-1">ACCESSORIES</a>
+									</li>
+									<li class="d-flex align-items-center gap-10">
+										<span class="list-description">TAGS :</span><a href="#" class="shop-items-link link-hover-animation-1">LAMP</a>, <a href="#" class="shop-items-link link-hover-animation-1">LIGHTING</a>
+									</li>
+								</ul>
+
+							</div>							
+						</div>
+					</div>
+					<!-- row -->
+					
+				</div>
+				<!-- container -->
+			</section>
+			<!--Shop-Tabs Section ======================-->
+
+
+
+			<!--Shop-Description Section ======================-->
+			<div class="section-shop section-shop-description pt-60 pt-lg-100 position-relative">
+				<div class="container">
+					<!-- Tabs -->
+					<ul class="shop-description-tabs nav nav-pills d-flex" id="shop-description-tab" role="tablist">
+						<li class="nav-item" role="presentation">
+							<span class="shop-description-button active" id="description-1-tab" data-bs-toggle="pill" data-bs-target="#description-1" role="tab" aria-controls="description-1" aria-selected="true">
+								<span class="fs-4 fw-bold mb-0">Description</span>
+							</span>
+						</li>
+						<li class="nav-item" role="presentation">
+							<span class="shop-description-button" id="description-2-tab" data-bs-toggle="pill" data-bs-target="#description-2" role="tab" aria-controls="description-2" aria-selected="false">
+								<span class="fs-4 fw-bold mb-0">Product Details</span>
+							</span>
+						</li>   	
+					  				             
+					</ul>
+					<!-- Tabs -->
+
+					<!-- Tabs-Contents -->            
+					<div class="tab-content" id="shop-description-tabContent">
+						<!--description-1-tab  -->
+						<div class="tab-pane fade show active" id="description-1" role="tabpanel" aria-labelledby="description-1-tab" tabindex="0">
+							<div class="description-details">
+								<p class="mb-30">
+									{{ page.product_description|richtext }}
+								</p>
+								<p class="mb-0">
+                                    {{ page.product_details|richtext }}								</p>
+							</div>							
+						</div>
+						<!--description-1-tab  -->
+
+						<!--description-2-tab  -->
+						<div class="tab-pane fade" id="description-2" role="tabpanel" aria-labelledby="description-2-tab" tabindex="0">
+							<div class="description-details">
+								<p class="mb-30">
+									The Ratio Pendant Lamp featurees a wide lampshade, referring the bold and elegant shape classic metal penwdants. The lamp to features a spun steel shade with a seweamlessly embedded LED module. The Ratio Pendant Lamp featurees a wide lampshade, referring the bold and elegant shape classic metal penwdants. The lamp to features a spun steel shade with a seweamlessly embedded LED module.
+								</p>
+								<p class="mb-0">
+									The Ratio Pendant Lamp featurees a wide lampshade, referring the bold and elegant shape classic metal penwdants. The lamp to features a spun steel shade with. 
+								</p>
+							</div>						
+						</div>
+						<!--description-2-tab  -->
+
+					
+					</div>
+					<!-- Tabs-Contents --> 					
+				</div>
+			</div>
+			<!--Shop-Description Section ======================-->
+
+			
+
+			<!--Shop-Swiper Section ======================-->
+ 
+			<!--Shop-Swiper Section ======================-->
+			
+
+			
+
+{% endblock body %}
+

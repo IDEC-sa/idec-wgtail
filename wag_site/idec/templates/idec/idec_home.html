@@ -206,6 +206,14 @@
                     <!--End blog Section ======================-->
                     {% endif %}
 
+
+					{% if block.block_type == 'products' %}
+                    <!--blog Section ======================-->
+                        {% include "idec/homeproduct.html" with block=block only %}
+                    <!--End blog Section ======================-->
+                    {% endif %}
+
+
                 {% endfor %}
             {% endwith %}
 					
