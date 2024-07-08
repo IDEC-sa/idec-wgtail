@@ -115,6 +115,16 @@ class career(StreamBlock):
 class GalleryBlock(StreamBlock):
     category = PageChooserBlock(required=True, page_type="idec.CategoryPage")
 
+
+
+
+
+class Brands(StreamBlock):
+    brand = PageChooserBlock(required=True, page_type='brands.BrandsDetailPage')
+
+
+
+
 # الكتلة الرئيسية التي تحتوي على جميع المكونات
 class BodyBlock(StreamBlock):
     h1 = CharBlock()
@@ -128,6 +138,7 @@ class BodyBlock(StreamBlock):
     career = career()  # إضافة كتلة المشروع
     blogs = Blogs()  # إضافة كتلة المشروع
     products = Products()  # إضافة كتلة المشروع
+    brands = Brands()  # إضافة كتلة المشروع
 
 class BranchBlock(StreamBlock):
     branch_name = CharBlock()
