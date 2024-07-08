@@ -11,14 +11,14 @@
 				<div class="section-full-width">
 					<div class="section-title-wrapper position-relative">	
 						<div class="scroll-move">
-							<span class="scrolling-text display-1 fw-extra-bold stroke-title text-stroke stroke-opacity-20 stroke-width-1 stroke-primary lh-1">{{ page.product_background|richtext }}</span>
+							<span class="scrolling-text display-1 fw-extra-bold stroke-title text-stroke stroke-opacity-20 stroke-width-1 stroke-primary lh-1">{{ page.title_background }}</span>
 						</div>				
 						
 						<div class="container">	
 							<div class="section-title section-separator">
-								<h2 class="fw-extra-bold heading-title separator lh-1">{{ page.product_intro|richtext }}</h2>
+								<h2 class="fw-extra-bold heading-title separator lh-1">{{ page.name }}</h2>
 								<div class="d-flex flex-column flex-lg-row gap-4 align-items-lg-end justify-content-lg-between">
-									<p class="fs-4 fw-semibold mb-0 subtitle subtitle-width">{{ page.product_sub_title|richtext }}</p>
+									<p class="fs-4 fw-semibold mb-0 subtitle subtitle-width">{{ page.description }}</p>
 								</div>
 							</div>
 						</div>
@@ -31,6 +31,33 @@
 
 
 
+	
+          
+            
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
 			<!--Shop Section ======================-->
 			<section class="section-shop position-relative">
 				<div class="container">
@@ -44,18 +71,17 @@
 
 
 
-
-
-                        {% for post in page.get_children %}
-                        {% with post=post.specific %}
-
+                        {% for product_page in page.productdetailpage_set.all %}
+                        {% with product=product_page.specific %}
+            
+ 
 
                         <div class="col-md-6 col-lg-4">
 							<div class="shop-details">
 								<div class="shop-image-wrapper position-relative">
 									<div class="shop-image">
-                                        {% if post.gallery_images_product.all %}
-                                        {% with post.gallery_images_product.all|first as first_image %}
+                                        {% if product.gallery_images_product.all %}
+                                        {% with product.gallery_images_product.all|first as first_image %}
                                             {% image first_image.image width-1000 as img %}
                                     
                                             <img src="{{ img.url }}" class="w-100 h-100 object-fit-cover" alt="img">
@@ -80,10 +106,10 @@
 									</div> -->
 								</div>
 								<!-- shop-image-wrapper -->
-								<a href="{% pageurl post %}" class="text-decoration-none">
+								<a href="{% pageurl product %}" class="text-decoration-none">
 									<div class="shopping-info-wrapper mt-3 mt-lg-4 d-flex justify-content-between">
 										<div class="shopping-item-details">
-											<h5 class="fw-semibold product-title">{{ post.product_title|richtext }}</h5>
+											<h5 class="fw-semibold product-title">{{ product.product_title|richtext }}</h5>
 											<!-- <span class="product-price fs-5">$134.99</span> -->
 										</div>
 										<!-- <div class="star-rating-wrap pt-1">
@@ -148,16 +174,10 @@
 			
 
 
+        
+
 
 			
-
-
-
-
-
-
-
-
 
 {% endblock body %}
 

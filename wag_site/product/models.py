@@ -46,6 +46,9 @@ from wagtail.contrib.settings.models import (
     register_setting,
 )
 
+from brands.models import BrandsDetailPage  # تأكد من استيراد الموديل بشكل صحيح
+# from idec.models import CategoryPage  # تأكد من استيراد الموديل بشكل صحيح
+
 class productIndexPage(Page):
 
     product_intro = models.CharField(max_length=255, blank=True)
@@ -68,12 +71,16 @@ class productDetailPage(Page):
     product_details = RichTextField()
     # blog_start_date = models.DateTimeField()  # تأكد من أن الحقل موجود في النموذج
     product_type = models.CharField(max_length=255)
+    brand = models.ForeignKey('brands.BrandsDetailPage', on_delete=models.SET_NULL, null=True, blank=True, related_name='brand')
+    category = models.ForeignKey('idec.CategoryPage', on_delete=models.SET_NULL, null=True, blank=True)
 
     content_panels = Page.content_panels + [
         FieldPanel('product_title'),
         FieldPanel('product_subtitle'),
         FieldPanel('product_description'),
         FieldPanel('product_details'),
+        FieldPanel('brand'),
+        FieldPanel('category'),
 
         # FieldPanel('blog_start_date'),
         FieldPanel('product_type'),

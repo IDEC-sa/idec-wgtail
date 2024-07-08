@@ -44,6 +44,27 @@ from wagtail.contrib.settings.models import (
 
 
 
+
+
+
+
+
+
+
+
+# --------------------------------------------------------------
+# ----------------------------------------------------------------
+# ----------------------------------------------------------------
+# --------------------------------------------------------------
+# ----------------------------------------------------------------
+# ----------------------------------------------------------------
+
+
+
+
+
+
+
 # --------------------------------------------------------------
 # ----------------------------------------------------------------
 # ----------------------------------------------------------------
@@ -369,11 +390,13 @@ class CategoryPage(Page):
     image = WagtailImageField()
     name  = models.TextField()
     description = models.TextField()
+    title_background = models.CharField(max_length=255,blank=True)
 
     content_panels = Page.content_panels + [
         FieldPanel('image'),
         FieldPanel('name'),
-        FieldPanel('description')
+        FieldPanel('description'),
+        FieldPanel('title_background')
     ]
 
 # class Branch(Page):
