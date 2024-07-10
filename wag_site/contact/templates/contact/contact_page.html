@@ -1,0 +1,100 @@
+{% extends 'project_base.html' %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+
+{% block body %}    
+
+			<!--Banner Section ======================-->
+			<section class="section-banner position-relative pt-60">
+				<div class="section-full-width">
+					<div class="section-title-wrapper position-relative">	
+						<div class="scroll-move">
+							<span class="scrolling-text display-1 fw-extra-bold stroke-title text-stroke stroke-opacity-20 stroke-width-1 stroke-primary lh-1">{{ page.background|richtext }}</span>
+						</div>				
+						
+						<div class="container">	
+							<div class="section-title section-separator">
+								<h2 class="fw-extra-bold heading-title separator lh-1">{{ page.intro|richtext }}</h2>
+								<div>
+									<p class="fs-4 fw-semibold mb-0 subtitle subtitle-width">{{ page.sub_title|richtext }}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- section-title-wrapper -->	
+				</div>		
+				<!-- section-full-width -->	
+			</section>
+			<!--Banner Section ======================-->
+
+
+            <style>
+                .contact-form {
+                    list-style-type: none;
+                    padding-left: 0;
+                }
+                .contact-form li {
+                    margin-bottom: 1.5rem;
+                }
+                .contact-form label {
+                    display: block;
+                    font-weight: bold;
+                }
+                .contact-form .helptext {
+                    display: block;
+                    font-size: 80%;
+                }
+                .form-group {
+                    margin-bottom: 1rem;
+                }
+                .form-group label {
+                    display: block;
+                    margin-bottom: 0.5rem;
+                }
+                .form-group input,
+                .form-group textarea {
+                    width: 100%;
+                    padding: 0.5rem;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                }
+            </style>
+ 
+
+
+			<!--Section section-contact-form ======================-->
+            <section class="section-contact-form position-relative pt-60 pt-lg-100 pt-xxl-120">
+                <div class="container">
+                    <div class="row justify-content-between gy-5">
+                        <div class="col-lg-5">
+                            Place for additional content or description
+                        </div>
+                        <!-- col-5 -->
+                        <div class="col-lg-12">
+                            <form action="{{ page.url }}" method="POST" class="contact-form row gy-3 gx-20">
+                                {% csrf_token %}
+                                {% for field in form %}
+                                    <div class="form-group col-md-6">
+                                        {{ field.label_tag }}
+                                        {{ field }}
+                                        {% if field.help_text %}
+                                            <small class="helptext">{{ field.help_text }}</small>
+                                        {% endif %}
+                                        {% for error in field.errors %}
+                                            <div class="error">{{ error }}</div>
+                                        {% endfor %}
+                                    </div>
+                                {% endfor %}
+                                <button type="submit" class="btn btn-success">Submit Form</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+			<!--Section section-contact-form ======================-->	
+
+
+
+{% endblock body %}
+

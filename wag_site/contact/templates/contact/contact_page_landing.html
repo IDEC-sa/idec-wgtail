@@ -1,0 +1,25 @@
+{% extends 'project_base.html' %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block body %}    
+
+    <div class="container mt-5 mb-5 text-center">
+        <h1>{{ page.title }}</h1>
+        <p>
+            {{ self.thank_you_text|richtext }}
+        </p>
+    </div>
+
+
+
+<script>
+    // Redirect to the previous page after 5 seconds
+    setTimeout(function() {
+        window.history.back();
+    }, 200); // 5000 milliseconds = 5 seconds
+</script>
+{% endblock %}
+
+
+
