@@ -1,0 +1,64 @@
+{% load menu_tags %}
+{% load navigation_tags %}
+{% load mathfilters %}
+
+
+{% for item in menu_items %}
+{% if item.sub_menu %}
+<li class="nav-item dropdown has-megamenu">
+    <a class="nav-link  d-flex gap-2 align-items-center" href="#" aria-label="nav-links" data-bs-toggle="dropdown" aria-expanded="false">
+        {{item.text}}
+        <span class="dropdown-icon">
+            <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 8L6 2L1 8"/>
+            </svg> 
+        </span> 
+    </a>
+    <div class="dropdown-menu  megamenu mb-3 mb-xl-0" role="menu">
+        <div class="container px-0">
+            <div class="row g-0">
+                <div class="col-xl-7 offset-xl-3">
+                    <div class="megamenu-contents megamenu-width">
+                        {% with count=item.sub_menu|length|div:3 %}
+                        {{ count }}
+                        {% endwith %}
+                        <div class="row g-0">
+                            <div class="col-xl-6">
+                                <div class="d-flex gap-30 flex-column py-40 ps-30 pe-40">
+                                    {% for sub_item in item.sub_menu.items %}
+                                        <div class="menu-description">
+                                            <a href="service-single.html" class="menu-heading text-decoration-none link-hover-animation-1 pb-1">{{ sub_item.text }}</a>
+                                            <p class="small mb-0 pt-10">{{ sub_item.href }}</p>
+                                        </div>	
+                                    {% endfor %}
+                                    <!-- menu-description -->
+                                </div>															
+                            </div>
+                            <!-- col -->
+                          
+                            <!-- col -->
+                        </div>
+                        <!-- row -->
+                        <div class="menu-image-wrapper position-relative overflow-hidden">
+                            <img src="assetsassets/images/menu-image-2.png" alt="img">
+                            <div class="menu-image-contents-2 d-inline-flex align-items-center justify-content-between px-3 px-xl-4">
+                                <h5 class="fw-extra-bold">Embark on a Design Journey with Us</h5>
+                                <div class="architronix-button">
+                                    <a href="#feedback" class="btn btn-secondary btn-sm d-inline-flex gap-10 w-100" target="_blank">Lets Talk							
+                                        <svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
+                                        </svg>							
+                                    </a>
+                                </div>
+                            </div>																
+                        </div>
+                    </div>													
+                </div>
+                    
+            </div>	
+            <!-- row -->											
+        </div>																													 
+    </div>
+</li>
+{% endif %}
+{% endfor %}

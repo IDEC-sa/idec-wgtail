@@ -1,4 +1,5 @@
 {% load wagtailcore_tags navigation_tags %}
+{% load menu_tags %}
 
 <!--Header Section ======================-->
 <header class="section-header header-1 sticky-navbar header-bg-1">
@@ -109,11 +110,7 @@
                         </ul>
                         
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="project-archive.html">
-                            Projects										   
-                        </a>									
-                    </li>	
+                    
 
 
                     <li class="nav-item dropdown has-megamenu">
@@ -195,6 +192,8 @@
                         </div>
                     </li>
                     
+                    {% main_menu max_levels=5 template="menus/custom_main_menu.html" add_sub_menus_inline=True %}
+
 
                     <li class="nav-item dropdown ">
                         <a class="nav-link d-flex gap-2 align-items-center" href="#" aria-label="nav-links" data-bs-toggle="dropdown" aria-expanded="false">

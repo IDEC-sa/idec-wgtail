@@ -24,6 +24,7 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # Application definition
 
 INSTALLED_APPS = [
+    "mathfilters",
     "idec",
     "blog",
     "home",
@@ -37,7 +38,9 @@ INSTALLED_APPS = [
     "wagtail.documents",
     "wagtail.images",
     "wagtail.search",
+    "wagtail_modeladmin",
     "wagtail.admin",
+    "wagtailmenus",
     "wagtail",
     "modelcluster",
     "taggit",
@@ -77,6 +80,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "wagtail.contrib.settings.context_processors.settings",
+                "wagtailmenus.context_processors.wagtailmenus"
             ],
         },
     },

@@ -25,3 +25,17 @@ def get_footer_text():
     return {
         "branches": branches
     }
+
+@register.simple_tag()
+def get_header(menu_items):
+    print(menu_items)
+    for item in menu_items:
+        template = ""
+        for i, sub_item in enumerate(item.sub_menu.items):
+            if (i + 1) % 3 == 0:
+                print("lol")
+            print(f"found{i}")
+
+
+    
+

@@ -1,5 +1,6 @@
 {% load static wagtailcore_tags %}
 {% load navigation_tags %}
+{% load menu_tags %}
 
 
 
@@ -377,9 +378,13 @@
                     {% endif %}
                 {% endfor %}
             {% endwith %}
-					
+			dasdaaaaa]
+			{% main_menu max_levels=5 %}
+			asldmas
 
-
+			{% for item in menu_items %}
+				lol
+			{% endfor %}
 			{% include "includes/footer.html" %}
 
 
