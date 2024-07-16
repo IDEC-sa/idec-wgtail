@@ -1,0 +1,31 @@
+{% extends 'project_base.html' %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block body %}    
+ 
+
+<h1>{{ page.Brands_intro|richtext }} </h5>
+    <h1>{{ page.Brands_sub_title|richtext }} </h5>
+        <h1>{{ page.Brands_background|richtext }} </h5>
+
+
+<!-- _______________________________________________________ -->
+
+
+{% for post in page.get_children %}
+{% with post=post.specific %}
+
+
+<h1>{{ page.Brands_title|richtext }} </h5>
+    <h1>{{ page.Brands_subtitle|richtext }} </h5>
+        <h1>{{ page.Brands_description|richtext }} </h5>
+ {% endwith %}
+{% endfor %} 
+
+
+
+			
+
+{% endblock body %}
+

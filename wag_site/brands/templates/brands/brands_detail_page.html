@@ -1,0 +1,31 @@
+{% extends 'project_base.html' %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block body %}    
+ 
+
+
+
+ 
+
+ <h1>{{ page.Brands_title|richtext }} </h5>
+ <h1>{{ page.Brands_subtitle|richtext }} </h5>
+ <h1>{{ page.Brands_description|richtext }} </h5>
+
+
+    {% for image in page.gallery_images_Brands.all %}
+    {% image image.image width-1000 as img %}
+
+  
+            <img src="{{ img.url }}" class="w-100 h-100 object-fit-cover" alt="hero-image">
+
+
+    {% endfor %}
+
+
+
+
+
+{% endblock body %}
+

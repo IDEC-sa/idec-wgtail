@@ -12920,7 +12920,7 @@ textarea {
   --bs-section-bg-margin-top: 24px;
   --bs-section-bg-overlay: rgba(var(--bs-secondary-rgb), .65);
   --bs-section-title-wrapper-margin: -160px;
-  background-image: url("../images/section-bg.jpg");
+  /* background-image: url("../images/section-bg.jpg"); */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -25496,3 +25496,53 @@ textarea {
   }
 }
 /*# sourceMappingURL=style.css.map */
+
+.class_form {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+
+.contact-form li {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--bs-body-color);
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: var(--bs-body-bg);
+  background-clip: padding-box;
+  border: var(--bs-border-width) solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+
+.contact-form label {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--bs-body-color);
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: var(--bs-body-bg);
+  background-clip: padding-box;
+  border: var(--bs-border-width) solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+
+.contact-form .helptext {
+  display: block;
+  font-size: 80%;
+}
+

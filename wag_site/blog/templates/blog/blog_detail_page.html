@@ -1,0 +1,68 @@
+{% extends 'project_base.html' %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block body %}    
+ 
+
+
+
+
+			<!--Banner Section ======================-->			
+			<div class="blog-single-image position-relative max-width">
+				<div class="overlay">					
+					<picture>						
+						<source media="(max-width:530px)" srcset="assets/images/blog-single-image-sm.jpg">
+                        {% for image in page.gallery_images_blog.all %}
+                        {% image image.image width-1000 as img %}
+        
+                      
+        						<img src="{{ img.url }}" class="w-100 h-100 object-fit-cover" alt="hero-image">
+
+        
+                        {% endfor %}
+					</picture> 
+				</div>
+				<div class="container">
+					<div class="blog-single-text position-absolute">
+						<h5 class="display-3 fw-extra-bold mb-0">{{ page.blog_title|richtext }}</h5>
+						<ul class="contact-lists list-unstyled mb-0 d-flex">
+							 
+							<li>{{ page.blog_type|richtext }}</li>
+							 
+						</ul>
+					</div>
+				</div>
+			</div>			
+			<!--Banner Section ======================-->
+
+
+			<!--Blog-single Section ======================-->
+			<section class="section-blog-single position-relative">
+				<div class="container">
+					<div class="row gy-5 justify-content-between">
+						<div class="col-lg-9">
+							<div class="blog-inner">
+								<p class="mb-0">{{ page.blog_description|richtext }}</p>
+ 
+
+								
+								
+                                
+                                
+								
+							</div>
+							<!-- blog-inner -->
+						</div>
+			 
+					</div>
+				</div>
+			</section>
+			<!--Blog-single Section ======================-->
+
+
+
+
+
+{% endblock body %}
+

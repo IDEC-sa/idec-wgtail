@@ -46,26 +46,21 @@ class HomeAboutBlock(StructBlock):
 
 
 
- 
 
 
 
-# # كتلة المشروع
-# class ProjectBlock(StructBlock):
-#     title = CharBlock(required=True, max_length=100)
-#     subtitle = CharBlock(required=False, max_length=200)
-#     image = ImageChooserBlock()
-#     description = RichTextBlock()
-#     start_date = DateTimeBlock()
-#     end_date = DateTimeBlock()
-#     clients = CharBlock(required=False, max_length=200)
-#     area = CharBlock(required=False, max_length=100)
-#     project_year = CharBlock(required=False, max_length=4)
-#     project_type = CharBlock(required=False, max_length=100)
 
 
 class Projects(StreamBlock):
     project = PageChooserBlock(required=True, page_type='idec.ProjectDetailPage')
+
+
+class Products(StreamBlock):
+    product = PageChooserBlock(required=True, page_type='product.productDetailPage')
+
+class Blogs(StreamBlock):
+    blog = PageChooserBlock(required=True, page_type='blog.blogDetailPage')
+
 
 
 class FeedbacksBlock(StructBlock):
@@ -98,16 +93,37 @@ class Aboutvideo(StructBlock):
 
 
 
-class ServiceBlock(StructBlock):
-    title = CharBlock(required=True, max_length=100)
-    sub_title = CharBlock(required=False, max_length=200)
+# class ServiceBlock(StructBlock):
+#     title = CharBlock(required=True, max_length=100)
+#     sub_title = CharBlock(required=False, max_length=200)
 
+
+# class Services(StreamBlock):
+#     service = ServiceBlock()
 
 class Services(StreamBlock):
-    service = ServiceBlock()
+    service = PageChooserBlock(required=True, page_type='idec.serviesDetailPage')
+
+
+
+class career(StreamBlock):
+    career = PageChooserBlock(required=True, page_type='idec.careerDetailPage')
+
+
+
 
 class GalleryBlock(StreamBlock):
     category = PageChooserBlock(required=True, page_type="idec.CategoryPage")
+
+
+
+
+
+class Brands(StreamBlock):
+    brand = PageChooserBlock(required=True, page_type='brands.BrandsDetailPage')
+
+
+
 
 # الكتلة الرئيسية التي تحتوي على جميع المكونات
 class BodyBlock(StreamBlock):
@@ -119,6 +135,10 @@ class BodyBlock(StreamBlock):
     aboutvideo = Aboutvideo()
     services = Services()  # إضافة كتلة المشروع
     gallery = GalleryBlock()
+    career = career()  # إضافة كتلة المشروع
+    blogs = Blogs()  # إضافة كتلة المشروع
+    products = Products()  # إضافة كتلة المشروع
+    brands = Brands()  # إضافة كتلة المشروع
 
 class BranchBlock(StreamBlock):
     branch_name = CharBlock()

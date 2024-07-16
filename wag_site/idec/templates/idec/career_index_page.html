@@ -1,0 +1,119 @@
+{% extends 'project_base.html' %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block body %}    
+ 
+
+
+
+<!-- <h1>{{ page.career_intro }}.</h1>
+<h1>{{ page.career_sub_title }}.</h1>
+<h1>{{ page.career_title_background }}.</h1> -->
+
+
+
+
+		 
+			<!--Banner Section ======================-->
+			<section class="section-banner position-relative pt-60">	
+				<div class="section-full-width">
+					<div class="section-title-wrapper position-relative">	
+						<div class="scroll-move">
+							<span class="scrolling-text display-1 fw-extra-bold stroke-title text-stroke stroke-opacity-20 stroke-width-1 stroke-primary lh-1">{{ page.career_title_background }}</span>
+						</div>				
+						 
+						<div class="container">	
+							<div class="section-title section-separator">
+								<h2 class="fw-extra-bold heading-title separator lh-1">{{ page.career_intro }}</h2>
+								<p class="fs-4 fw-semibold mb-0 subtitle subtitle-width">{{ page.career_sub_title }}</p>	
+							</div>
+						</div>	
+					</div>		
+					<!-- section-title-wrapper -->
+				</div>
+				<!-- section-full-width -->				
+			</section>
+			<!--Banner Section ======================-->
+
+
+
+			<!--Career Section ======================-->
+			<section class="section-career position-relative">
+				<div class="container">
+					<div class="d-flex flex-column gap-30 position-relative">
+
+				 
+
+
+
+                            {% for post in page.get_children %}
+                            {% with post=post.specific %}
+                
+
+
+
+                            
+
+
+                            <div class="career-item bg-secondary border border-1 d-flex align-items-lg-center gap-0 gap-lg-30 p-30">
+                                <div>
+                                    <h3 class="stroke-heading stroke-heading-2 mb-0">
+                                        <svg stroke-width="1" class="text-line-2 fs-60 fw-extra-bold"><text x="0%" dominant-baseline="middle" y="70%">01</text></svg>
+                                    </h3>
+                                </div>
+                                <div class="row align-items-center justify-content-between w-100 gy-20 gy-lg-0 ms-0 ms-lg-n30 ms-xl-0">
+                                    <div class="col-lg-3 col-xxl-4">
+                                        <div class="job-contents">
+                                            <p class="custom-font-style fw-bold mb-0">Full Time</p>
+                                            <p class="fs-5 fw-bold mb-0">{{ post.career_title|richtext }}</p>
+                                        </div>
+                                    </div>
+                                    <!-- col-5 -->
+                                    <div class="col-lg-3">
+                                        <div class="job-contents">
+                                            <p class="custom-font-style fw-bold mb-0">{{ post.location|richtext }}</p>
+                                            <p class="mb-0 d-flex flex-column gap-0 flex-xxl-row"><span>Apply before:</span><span class="fw-bold">{{ post.end_date }}</span></p>
+                                        </div>
+                                    </div>
+                                    <!-- col-4 -->
+                                    <div class="col-lg-3">
+                                        <div class="job-contents">
+                                            <p class="custom-font-style fw-bold mb-0">Expert</p>
+                                            <p class="mb-0"><span class="fw-bold">{{ post.salary_range|richtext }}</span></p>
+                                        </div>
+                                    </div>
+                                    <!-- col-2 -->
+                                    <div class="col-lg-2">
+                                        <div class="text-lg-end ms-0 ms-lg-n30 ms-xxl-0 mt-10 mt-lg-0">
+                                            <a href="{% pageurl post %}" class="btn btn-primary btn-md">Apply</a>
+    
+                                        </div>
+                                    </div>
+                                    <!-- col-1 -->
+                                </div>
+                            </div>
+                            <!-- career-item -->
+
+
+                            {% endwith %}
+                            {% endfor %} 
+                
+
+
+
+
+                        </div>
+				</div>
+				<!-- container -->
+			</section>
+			<!--Career Section ======================-->
+
+
+
+
+
+
+
+{% endblock body %}
+

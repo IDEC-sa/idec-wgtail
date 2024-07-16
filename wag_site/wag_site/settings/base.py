@@ -25,6 +25,9 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 
 INSTALLED_APPS = [
     "mathfilters",
+    "contact",
+    "brands",
+    "product",
     "idec",
     "blog",
     "home",

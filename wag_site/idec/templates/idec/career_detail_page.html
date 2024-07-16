@@ -1,0 +1,113 @@
+{% extends 'project_base.html' %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block body %}    
+ 
+
+
+			<!--Banner Section ======================-->
+			<section class="section-banner bg-secondary section-full-width position-relative pt-60 pt-lg-100">
+				<div class="container">
+					<div class="career-info pt-60 pt-lg-70 pt-xxl-100 pb-120 pb-lg-100 pb-xxl-130">
+						<div class="row align-items-end justify-content-between">
+							<div class="col-lg-7 col-xxl-6">
+								<h1 class="display-3 mb-40">{{ page.career_title }}</h1>
+								<div class="d-none d-lg-block">
+									<div class="d-flex align-items-center justify-content-between">
+										<div class="job-contents">
+											<p class="custom-font-style fw-bold mb-0">USA,California</p>
+											<p class="mb-0"><span>Apply before:</span><span class="fw-bold">{{ page.end_date }}</span></p>
+										</div>
+										<div class="job-contents">
+											<p class="custom-font-style fw-bold mb-0">Expert</p>
+											<p class="mb-0"><span class="fw-bold">{{ page.Expert|richtext }} </span></p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3">
+								<div class="text-lg-end">
+									<a href="" class="btn btn-primary">Apply Now</a>
+								</div>
+							</div>
+						</div>
+					</div>					
+				</div>
+			</section>
+		 	<!--Banner Section ======================-->
+
+
+
+			<!--Career Section ======================-->
+			<section class="section-career position-relative pt-lg-100 pb-60 pb-lg-100 pt-lg-5 pb-xxl-120">
+				<div class="container">
+					<div class="row gy-5 justify-content-between">
+						<div class="col-lg-4 order-lg-1">
+							<div class="overflow-hidden sticky-elements">
+								<div class="project-details-wrapper bg-primary text-secondary">
+									<h4 class="project-details-title fw-semibold">Job Overview</h4>
+									<ul class="project-details-list list-unstyled mb-0 d-flex flex-column">
+										<li class="d-flex flex-column gap-2 gap-xxl-10">
+											<span class="fs-5 fw-bold">Employment type:</span>
+											<span>{{ page.type|richtext }}</span>
+										</li>
+										<li class="d-flex flex-column gap-2 gap-xxl-10">
+											<span class="fs-5 fw-bold">Location:</span>
+											<span>{{ page.location|richtext }}</span>
+										</li>									
+										<li class="d-flex flex-column gap-2 gap-xxl-10">
+											<span class="fs-5 fw-bold">Experience:</span>
+											<span>{{ page.Expert|richtext }}</span>
+										</li>
+									 
+										<li class="d-flex flex-column gap-2 gap-xxl-10">
+											<span class="fs-5 fw-bold">Salary Range:</span>
+											<span><span class="fw-bold">{{ page.salary_range|richtext }}</span></span>
+										</li>
+										<li class="d-flex flex-column gap-2 gap-xxl-10">
+											<span class="fs-5 fw-bold">Date posted:</span>
+											<span>{{ page.start_date }}</span>
+										</li>	
+										<li class="d-flex flex-column gap-2 gap-xxl-10">
+											<span class="fs-5 fw-bold">Expiration date:</span>
+											<span>{{ page.end_date }}</span>
+										</li>
+									</ul>
+								</div>								
+							</div>							
+						</div>
+						<!-- col-4 -->
+						<div class="col-lg-7 order-lg-0">
+							
+							<div class="mb-30">
+								<div class="d-flex flex-column gap-4 gap-lg-30">
+									<p class="mb-0">{{ page.career_description|richtext   }}.</p>
+								</div>									
+							</div>
+
+							
+
+						</div>	
+						<!-- col-7 -->
+					</div>
+					<!-- row -->
+
+			 
+				</div>
+			</section>			
+			<!--Career Section ======================-->
+
+
+
+
+ 
+
+{% endblock body %}
+
+
+
+
+
+
+
