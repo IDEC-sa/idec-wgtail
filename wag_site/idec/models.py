@@ -32,10 +32,7 @@ from wagtail.contrib.settings.models import (
     register_setting,
 )
 
-
-
-
-
+ 
 
 
 
@@ -391,6 +388,7 @@ class CategoryPage(Page):
     name  = models.TextField()
     description = models.TextField()
     title_background = models.CharField(max_length=255,blank=True)
+    subpage_types = ['CategoryPage']   
 
     content_panels = Page.content_panels + [
         FieldPanel('image'),
@@ -398,6 +396,35 @@ class CategoryPage(Page):
         FieldPanel('description'),
         FieldPanel('title_background')
     ]
+
+
+
+
+
+# class SubCategoryPage(Page):
+#     parent_page_types = ['CategoryPage']  # تحديد أن SubCategoryPage يمكن أن يكون فرعًا لـ CategoryPage
+#     subpage_types = []  # تحديد عدم وجود صفحات فرعية أخرى يمكن إضافتها إلى SubCategoryPage
+    
+#     image = WagtailImageField()
+
+#     name = models.CharField(max_length=255)
+#     description = models.TextField()
+#     title_background = models.CharField(max_length=255, blank=True)
+
+#     content_panels = Page.content_panels + [
+#         FieldPanel('name'),
+#         FieldPanel('description'),
+#         FieldPanel('title_background'),
+#         FieldPanel('image'),
+
+#     ]
+
+
+
+
+
+ 
+
 
 # class Branch(Page):
 #     city = models.TextField()

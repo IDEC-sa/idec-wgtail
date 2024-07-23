@@ -38,6 +38,35 @@
 
 
 
+
+
+
+
+
+
+
+
+            <ul class="shop-product-list d-flex flex-column gap-10 list-unstyled mb-0">
+              
+            {% for post in page.get_children %}
+            {% with post=post.specific %}
+                <li class="d-flex align-items-center gap-10">
+                    <span class="list-description">sub CATEGORY :</span><a href="#" class="shop-items-link link-hover-animation-1">{{ post.subpage_types }}</a>
+                </li>
+
+
+            {% endwith %}
+            {% endfor %} 
+            </ul>
+
+
+
+
+
+
+
+
+
 			<!--Career Section ======================-->
 			<section class="section-career position-relative">
 				<div class="container">

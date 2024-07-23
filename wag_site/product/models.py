@@ -73,6 +73,7 @@ class productDetailPage(Page):
     product_type = models.CharField(max_length=255)
     brand = models.ForeignKey('brands.BrandsDetailPage', on_delete=models.SET_NULL, null=True, blank=True, related_name='brand')
     category = models.ForeignKey('idec.CategoryPage', on_delete=models.SET_NULL, null=True, blank=True)
+    # subCategoryPage = models.ForeignKey('idec.SubCategoryPage', on_delete=models.SET_NULL, null=True, blank=True)
 
     content_panels = Page.content_panels + [
         FieldPanel('product_title'),
@@ -81,6 +82,7 @@ class productDetailPage(Page):
         FieldPanel('product_details'),
         FieldPanel('brand'),
         FieldPanel('category'),
+        # FieldPanel('subCategoryPage'),
 
         # FieldPanel('blog_start_date'),
         FieldPanel('product_type'),
