@@ -30,8 +30,10 @@
 						
 						<div class="gallery-wrapper position-relative overflow-hidden w-100 h-100">
 							<div class="gallery-image-wrapper overlay">
-                                <img alt="hero-image" class="position-absolute start-0 top-0 w-100 h-100 object-fit-cover" src="{{ slide.value.image.url }}">
-
+								{% image slide.value.slider_images_big.image original as img %}
+								{{ img.url }}
+                                {% comment %} <img alt="hero-image" class="position-absolute start-0 top-0 w-100 h-100 object-fit-cover" src="{{ slide.value.image.url }}"> {% endcomment %}
+								{% comment %} jkasndjkasd {% endcomment %}
                                 <div class="gallery-info-wrapper">
 									<div class="gallery-info">
 										<a href="project-single.html" class="text-decoration-none link-hover-animation-1 gallery-title separator"><h4 class="mb-0">{{ slide.value.name }}</h4></a>

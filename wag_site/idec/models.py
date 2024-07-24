@@ -109,7 +109,7 @@ class careerDetailPage(Page):
     start_date = models.DateField()  # تأكد من أن الحقل موجود في النموذج
     end_date = models.DateField()
     Expert = RichTextField()
-    type = RichTextField()
+    type = RichTextField()  ## severe problem
     location =  RichTextField()
     salary_range = RichTextField()
 
@@ -386,17 +386,34 @@ class FooterText(
     class Meta(TranslatableMixin.Meta):
         verbose_name_plural = "Footer Text"
 
+
+
+
 class CategoryPage(Page):
     image = WagtailImageField()
     name  = models.TextField()
     description = models.TextField()
     title_background = models.CharField(max_length=255,blank=True)
-
+    
     content_panels = Page.content_panels + [
         FieldPanel('image'),
         FieldPanel('name'),
         FieldPanel('description'),
-        FieldPanel('title_background')
+        FieldPanel('title_background'),
+        InlinePanel("slider_images_big")
+
+    ]
+
+class CategoryImage(Orderable):
+    page = ParentalKey(CategoryPage, on_delete=models.CASCADE, related_name='slider_images_big')
+    image = models.ForeignKey(
+        'wagtailimages.Image', on_delete=models.CASCADE, related_name='+'
+    )
+    caption = models.CharField(blank=True, max_length=250)
+
+    panels = [
+        FieldPanel('image'),
+        FieldPanel('caption'),
     ]
 
 # class Branch(Page):
