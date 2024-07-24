@@ -11579,9 +11579,7 @@ svg {
   fill: currentColor;
 }
 
-.arrow-reverse {
-  transform: rotate(180deg);
-}
+
 
 .arrow-down {
   transform: rotate(90deg);
@@ -25495,4 +25493,3 @@ textarea {
     display: none;
   }
 }
-/*# sourceMappingURL=style.css.map */

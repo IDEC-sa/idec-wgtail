@@ -1,0 +1,452 @@
+{% load static wagtailcore_tags %}
+{% load navigation_tags %}
+{% load menu_tags %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+
+<!doctype html>
+<html lang="en">
+
+	
+<!-- Mirrored from themeperch.net/html/architronix/home-4.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 09 May 2024 07:43:48 GMT -->
+<head>
+		<meta charset="utf-8">
+        <meta name="theme-color"  content="#253b2f">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Architronix description contents">
+		<title>Architronix</title>
+		<link rel="shortcut icon" type="images/png" href="{% static  'idec/assets/images/fav-icon/favicon.ico' %}">
+
+		<!-- Google fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com/">
+		<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet">
+		
+		<!-- Main CSS -->
+		<link rel="stylesheet" href="{% static 'idec/assets/css/swiper-bundle.min.css' %}">
+		<link rel="stylesheet" href="{% static 'idec/assets/css/odometer.css' %}">
+		<link rel="stylesheet" href="{% static 'idec/assets/css/animate.css' %}">
+		<link rel="stylesheet" href="{% static 'idec/assets/css/magnific-popup.css' %}">
+		<link rel="stylesheet" href="{% static 'idec/assets/css/style.css' %}">
+
+		<!-- Customise-Theme -->
+		<link rel="stylesheet" href="{% static 'idec/assets/css/theme.css' %}">
+        {% if LANGUAGE_CODE == 'ar' %} 
+            <link rel="stylesheet" href="{% static 'idec/assets/css/arabic.css' %}">
+        {% endif %}
+		
+	</head>
+
+	<body>
+	
+
+        
+    		<div class="page {% if LANGUAGE_CODE == 'ar' %} {{ 'arabic' }} {% endif %}">
+
+
+			<div class="preloader">				
+				<dotlottie-player src="https://lottie.host/f049e307-d4b6-40be-812e-2ac589351070/5JgAg32Se6.json" background="transparent.html" speed=".9" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
+				<script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+			</div> 
+			
+
+			<div class="w-100 h-100 position-fixed top-0 start-0 page-lines">
+				<div class="container position-relative h-100">
+					<span class="page-line-start position-absolute h-100"></span>
+					<span class="page-line-end position-absolute h-100"></span>	
+					<span class="page-line-inner position-absolute h-100 d-none d-xl-block"></span>					
+				</div>
+			</div>		
+
+
+			<!--Header Section ======================-->
+			{% include "includes/header.html" %}
+			<!--Header Section ======================-->
+
+
+			<!--offcanvasCart ======================-->
+			<div class="offcanvas offcanvas-end" id="offcanvasCart" tabindex="-1">
+				<div class="offcanvas-header">
+
+					<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+				</div>
+				<div class="offcanvas-body px-3 py-40 py-xxl-100 px-lg-5">				
+					<div class="cart-items">
+						<span class="cart-items-heading">Your Cart (2)</span>
+						<a href="#" class="cart-items-heading text-decoration-none">Remove All (X)</a>
+					</div>		
+					<div class="cart-items pt-40 pt-xxl-60">
+						<div class="cart-items-inner d-flex align-items-center gap-3">
+							<img src="assets/images/shop-image-sm-1.png" alt="img">
+							<div class="d-flex flex-column gap-3">
+								<h6 class="cart-items-heading">Pendant Lamp</h6>
+								<span class="d-flex gap-3 align-items-center">
+									<span>Qty</span>
+									<span class="cart-items-heading">1</span>
+								</span>
+							</div>
+						</div>
+						<div class="d-flex flex-column gap-3 align-items-end">
+							<a class="text-decoration-none" href="#">(X)</a>
+							<h6 class="cart-items-heading">$499.99</h6>
+						</div>
+					</div>		
+					<div class="cart-items pt-4">
+						<div class="cart-items-inner d-flex align-items-center gap-3">
+							<img src="assets/images/shop-image-sm-2.png" alt="img">
+							<div class="d-flex flex-column gap-3">
+								<h6 class="cart-items-heading">Scandal Wall Sconce</h6>
+								<span class="d-flex gap-3 align-items-center">
+									<span>Qty</span>
+									<span class="cart-items-heading">1</span>
+								</span>
+							</div>
+						</div>
+						<div class="d-flex flex-column gap-3 align-items-end">
+							<a class="text-decoration-none" href="#">(X)</a>
+							<h6 class="cart-items-heading">$134.99</h6>
+						</div>
+					</div>	
+
+					<div class="offcanvas-cart-btn cart-items justify-content-between">
+						<div>
+							<h6 class="cart-items-heading mb-4 mb-xxl-30">Subtotal:</h6>
+							<a href="#" class="btn btn-md btn-primary ">View Cart</a>
+						</div>
+
+						<div>
+							<h6 class="cart-items-heading mb-4 mb-xxl-30 text-end">$634.99</h6>
+							<a href="#" class="btn btn-md btn-secondary ">Checkout</a>
+						</div>							
+					</div>						
+					
+				</div>
+			</div>
+			<!--offcanvasCart ======================-->
+			<!-- button -->
+			<a class="position-fixed customise-btn top-50 bg-primary text-secondary fw-semibold rounded-4 text-decoration-none d-flex align-items-center gap-2" href="#customizer" data-bs-toggle="offcanvas" style="margin-top: -1rem; padding: .35rem .75rem .45rem .75rem; transform: rotate(-90deg); font-size: calc(var(--ar-body-font-size) * .8125); letter-spacing: .075rem; z-index: 1030;">
+				<span class="gear-icon d-inline-flex">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
+						<path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"></path>
+						<path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"></path>
+					</svg>
+				</span>
+				<span class="d-none d-md-block">Customize</span>
+			</a>
+			<div class="offcanvas color-swatch-offcanvas offcanvas-start" id="customizer" data-bs-scroll="true" tabindex="-1">		
+				<div class="offcanvas-header border-bottom">
+					<h5 class="offcanvas-title fs-6 d-flex align-items-center gap-2" data-bs-dismiss="offcanvas" style="cursor: pointer;" data-toggle="tooltip" data-placement="top" data-trigger="hover" title="Close Customizer">
+					<span>Customize</span>
+					<span>(x)</span>        
+					</h5>
+					<div class="d-flex align-items-center gap-10">
+						<button class="btn btn-xs btn-primary" onclick="applyCSS()">Apply CSS</button>	
+						<button type="reset" class="btn btn-xs btn-outline-primary ms-auto">Reset</button>
+					</div>        
+				</div>
+				<div class="offcanvas-body bg-light">
+					<form id="customizer-form" class="d-grid h-100">
+						<div class="accordion" id="accordionCustomize">
+							<div class="accordion-item">
+									<h2 class="accordion-header">
+										<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+											Color
+										</button>
+								  </h2>
+								  <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionCustomize">
+										<div class="accordion-body">
+											<span>Predefined Color Presets</span>
+											<div class="color-presets d-flex flex-wrap justify-content-between gap-2">
+												<span class="cursor-pointer default" onclick="loadPreset('default')">Defult</span>
+												<span class="cursor-pointer blackwhite" onclick="loadPreset('blackwhite')">Black &amp; White</span>
+												<span class="cursor-pointer preset1" onclick="loadPreset('preset1')">Color 1</span>                                    
+												<span class="cursor-pointer preset2" onclick="loadPreset('preset2')">Color 2</span>
+												<span class="cursor-pointer preset3" onclick="loadPreset('preset3')">Color 3</span>
+												<span class="cursor-pointer preset4" onclick="loadPreset('preset4')">Color 4</span>
+											</div>
+							  
+											<label class="d-flex justify-content-between" for="primary">
+												Primary color						
+												<input type="color" name="primary" value="#253B2F" id="primary" class="preset-input" data-selector=":root" data-var="--bs-primary" data-value-type="hexa" onchange="updateHiddenValue('primaryrgb', this.value)">
+												<input type="color" name="primaryrgb" value="#253B2F" class="preset-input d-none" data-selector=":root" data-var="--bs-primary-rgb" data-value-type="rgb">
+											</label>
+											
+											<label class="d-flex justify-content-between" for="secondary">
+												Secondary color	
+												<input type="color" name="secondary" value="#D2E0D9" id="secondary" class="preset-input" data-selector=":root" data-var="--bs-secondary" data-value-type="hexa" onchange="updateHiddenValue('secondaryrgb', this.value)">
+												<input type="color" name="secondaryrgb" value="#D2E0D9" class="preset-input d-none" data-selector=":root" data-var="--bs-secondary-rgb" data-value-type="rgb">
+											</label>
+			
+											<label class="d-flex justify-content-between" for="body">
+												Global text color						
+												<input type="color" name="body" value="#253B2F" id="body" class="preset-input" data-selector="body" data-var="--bs-body-color" data-value-type="hexa" onchange="updateHiddenValue('bodyrgb', this.value)">
+												<input type="color" name="bodyrgb" value="#253B2F" class="preset-input d-none" data-selector="body" data-var="--bs-body-color-rgb" data-value-type="rgb">
+											</label>
+			
+											<label class="d-flex justify-content-between" for="bodybg">
+												Body background	
+												<input type="color" name="bodybg" value="#F9FFFC" id="bodybg" class="preset-input" data-selector="body" data-var="--bs-body-bg" data-value-type="hexa" onchange="updateHiddenValue('bodybgrgb', this.value)">
+												<input type="color" name="bodybgrgb" value="#F9FFFC" class="preset-input d-none" data-selector="body" data-var="--bs-body-bg-rgb" data-value-type="rgb">
+											</label>
+			
+											<label class="d-flex justify-content-between" for="menucolor">
+												Menu color						
+												<input type="color" name="menucolor" value="#253B2F" id="menucolor" class="preset-input" data-selector=".navbar-nav" data-var="--bs-nav-link-color" data-value-type="hexa">
+											
+											</label>
+										</div>
+									</div>        
+							</div>
+			
+			
+							<div class="accordion-item">
+								<h2 class="accordion-header">
+									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+										Button style
+									</button>
+								</h2>
+							  
+								<div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionCustomize">
+									<div class="accordion-body">
+								  
+										<label class="d-flex justify-content-between" for="btnBorderRadius">
+											Border Radius
+											<input type="number" name="btnBorderRadius" value="0" size="10" id="btnBorderRadius" class="preset-input form-control number" data-selector=".btn" data-var="--bs-btn-border-radius" data-value-type="px">
+										</label>
+										<label class="d-flex justify-content-between" for="btnBorderWidth">
+											Border width
+											<input type="number" name="btnBorderWidth" value="2" size="10" id="btnBorderWidth" class="preset-input form-control number" data-selector=".btn" data-var="--bs-btn-border-width" data-value-type="px">
+										</label>
+										<div class="d-flex flex-wrap gap-2">
+											<span class="cursor-pointer" onclick="loadPreset('btnsquare')">Square</span>
+											<span class="cursor-pointer rounded" onclick="loadPreset('btnsemiround')">Semi-round</span>
+											<span class="cursor-pointer rounded-pill" onclick="loadPreset('btnrounded')">Rounded</span>
+										</div>
+									</div>
+								</div>    
+							</div>
+			
+							<div class="accordion-item">
+								<h2 class="accordion-header">
+									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+										Input style
+									</button>
+								</h2>
+							  
+			
+								<div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionCustomize">
+									<div class="accordion-body">
+							  
+										<label class="d-flex justify-content-between" for="inputBorderRadius">
+											input Radius
+											<input type="number" name="inputBorderRadius" value="0" size="10" id="inputBorderRadius" class="preset-input form-control number" data-selector=".form-control" data-var="--bs-border-radius" data-value-type="px">
+										</label>
+										<label class="d-flex justify-content-between" for="inputBorderWidth">
+											Border width
+											<input type="number" name="inputBorderWidth" value="2" size="10" id="inputBorderWidth" class="preset-input form-control number" data-selector=".form-control" data-var="--bs-border-width" data-value-type="px">
+										</label>
+			
+										<div class="d-flex flex-wrap gap-2">
+											<span class="cursor-pointer" onclick="loadPreset('inputsquare')">Square</span>
+											<span class="cursor-pointer rounded" onclick="loadPreset('inputsemiround')">Semi-round</span>
+											<span class="cursor-pointer rounded-pill" onclick="loadPreset('inputrounded')">Rounded</span>
+										</div>
+									</div>   
+								</div>     
+							</div>
+			
+							<div class="accordion-item">
+								<h2 class="accordion-header">
+									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+										Custom Fonts
+									</button>
+								</h2>
+								<div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionCustomize">
+									<div class="accordion-body">
+										<label class="d-flex flex-column gap-2" for="googlefontsURL">
+											<a title="Go to the Google Fonts(fonts.google.com)" href="https://fonts.google.com/share?selection.family=Inter:wght@400;700;800" target="_blank">Google Fonts URL</a>
+											<input type="text" name="googlefontsURL" placeholder="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&amp;display=swap" size="10" id="googlefontsURL" class="form-control">                    
+										</label>
+										<label class="d-flex flex-column gap-2" for="fontfamily">
+											Font Family
+											<input type="text" name="fontfamily" placeholder="'Inter', sans-serif" id="fontfamily" class="preset-input form-control" data-selector="body" data-var="--bs-body-font-family">
+										</label>
+										<div class="d-flex flex-wrap gap-2">
+											<span class="cursor-pointer" title="Click to set" onclick="loadPreset('fontdefault')">Default</span>
+											<span class="cursor-pointer" title="Click to set" onclick="loadPreset('font1')">Inter</span>
+											<span class="cursor-pointer" title="Click to set" onclick="loadPreset('font2')">Poppins</span>
+										</div>
+									</div>
+								</div>        
+							</div>               
+							
+							<div class="mt-auto mb-3">
+								<a href="#" title="Copy to Clipboard" class="text-decoration-none" data-copy="css-input">CSS</a>
+								<textarea id="css-input" class="form-control" placeholder="Generated CSS will appear here" onclick="this.select()"></textarea>
+								<small class="" style="font-size: 12px; opacity: .8">Copy &amp; put this code in your <code>theme.css</code> file</small>                    
+							</div>
+						</div>
+													 
+					</form>
+					
+					<style id="customize-css">:root { --bs-primary: #000000; --bs-primary-rgb: 0, 0, 0; --bs-secondary: #fff1dc; --bs-secondary-rgb: 255, 241, 220; }
+			body { --bs-body-color: #000000; --bs-body-color-rgb: 0, 0, 0; --bs-body-bg: #eeeeee; --bs-body-bg-rgb: 238, 238, 238; }
+			.navbar-nav { --bs-nav-link-color: #000000; }
+			.btn { --bs-btn-border-radius: 0px; --bs-btn-border-width: 2px; }
+			.form-control { --bs-border-radius: 0px; --bs-border-width: 2px; }
+			</style>
+					<link rel="stylesheet" href="{% static 'idec/customize/color.css?ver=1.6' %}">
+				</div>					
+			</div>
+			<!-- button -->
+
+
+
+			<!--Full-Screen-Modal (Search-Modal) ======================-->
+			<div class="modal fade" id="FullScreenModal" aria-hidden="true"  tabindex="-1">
+				<div class="modal-dialog modal-fullscreen">
+				  <div class="modal-content">
+					<div class="modal-header">					  
+					  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+						<svg width="55" height="55" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M2 2L53 53" stroke="#D2E0D9" stroke-width="3"/>
+							<line x1="1.93543" y1="53.4393" x2="52.9354" y2="2.43934" stroke="#D2E0D9" stroke-width="3"/>
+						</svg> 
+					  </button>
+					</div>
+					<div class="modal-body">
+						<div class="container">
+							<h2 class="display-2 fw-extra-bold mb-30">Search</h2>							
+							<form action="#" class="modal-search-form">
+								<div class="position-relative">
+									<input type="text" class="form-control" id="formInput" placeholder="Type & Hit Enter">
+									<button class="search-icon" type="submit">
+										<svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<g clip-path="url(#clip0_865_1148)">
+											<path d="M43.4629 40.8718L32.5198 29.9286C35.5019 26.2814 36.9681 21.6275 36.6151 16.9295C36.2622 12.2315 34.117 7.84895 30.6233 4.68826C27.1297 1.52758 22.5548 -0.169388 17.8451 -0.05163C13.1354 0.0661284 8.65104 1.9896 5.31971 5.32093C1.98838 8.65227 0.0649077 13.1366 -0.0528507 17.8463C-0.170609 22.5561 1.52636 27.1309 4.68704 30.6246C7.84773 34.1182 12.2303 36.2634 16.9283 36.6164C21.6263 36.9693 26.2802 35.5031 29.9274 32.521L40.8706 43.4642C41.2164 43.7981 41.6795 43.9829 42.1602 43.9787C42.6409 43.9745 43.1007 43.7817 43.4406 43.4418C43.7805 43.1019 43.9733 42.6421 43.9775 42.1614C43.9817 41.6807 43.7969 41.2176 43.4629 40.8718ZM18.3334 33.0013C15.4326 33.0013 12.597 32.1411 10.1851 30.5295C7.77314 28.9179 5.89327 26.6273 4.78319 23.9473C3.6731 21.2674 3.38265 18.3184 3.94857 15.4733C4.51449 12.6283 5.91135 10.0149 7.96252 7.96374C10.0137 5.91257 12.627 4.51571 15.4721 3.94979C18.3172 3.38388 21.2661 3.67432 23.9461 4.78441C26.6261 5.8945 28.9167 7.77436 30.5283 10.1863C32.1399 12.5982 33.0001 15.4339 33.0001 18.3346C32.9957 22.2231 31.4491 25.9511 28.6995 28.7007C25.9499 31.4503 22.2219 32.9969 18.3334 33.0013Z" fill="#D2E0D9"/>
+											</g>
+											<defs>
+											<clipPath id="clip0_865_1148">
+											<rect width="44" height="44" fill="white"/>
+											</clipPath>
+											</defs>
+											</svg> 
+									</button>
+								</div>										  
+							</form>							
+						</div>
+					</div>					
+				  </div>
+				</div>
+			</div>
+			<!--Full-Screen-Modal (Search-Modal) ======================-->
+            {% block content %}
+            {% endblock %} 
+            {% comment %} {% with blocks=page.body %}
+                {% for block in blocks %} 
+                    {% if block.block_type == 'slider' %}
+                    <!--Hero Section ======================-->
+                        {% include "idec/homeslider.html" with block=block only %}
+                    {% endif %}
+                    <!-- End Hero Section ======================-->
+
+                    {% if block.block_type == 'about' %}
+                    <!--About Section ======================-->
+                        {% include "idec/homeabout.html" with block=block only %}
+                    <!--End About Section ======================-->
+                    {% endif %}
+
+					{% if block.block_type == 'projects' %}
+                    <!--project Section ======================-->
+                        {% include "idec/homeproject.html" with block=block only %}
+                    <!--End project Section ======================-->
+                    {% endif %}
+					{% if block.block_type == 'feedback' %}
+                    <!--project Section ======================-->
+                        {% include "idec/homefeedback.html" with block=block only %}
+                    <!--End project Section ======================-->
+                    {% endif %}
+					{% if block.block_type == 'aboutvideo' %}
+                    <!--Aboutvideo Section ======================-->
+                        {% include "idec/homeaboutvideo.html" with block=block only %}
+                    <!--End Aboutvideo Section ======================-->
+                    {% endif %}
+
+					{% if block.block_type == 'services' %}
+                    <!--project Section ======================-->
+                        {% include "idec/homeservice.html" with block=block only %}
+					{% endif %}
+                    <!--End project Section ======================-->
+					{% if block.block_type == 'gallery' %}
+                    <!--gallery Section ======================-->
+                        {% include "idec/homegallery.html" with block=block only %}
+                    <!--End gallery Section ======================-->
+                    {% endif %}
+
+					{% if block.block_type == 'blogs' %}
+                    <!--blog Section ======================-->
+                        {% include "idec/homeblog.html" with block=block only %}
+                    <!--End blog Section ======================-->
+                    {% endif %}
+
+
+					{% if block.block_type == 'products' %}
+                    <!--blog Section ======================-->
+                        {% include "idec/homeproduct.html" with block=block only %}
+                    <!--End blog Section ======================-->
+                    {% endif %}
+
+
+                {% endfor %}
+            {% endwith %}
+			dasdaaaaa] {% endcomment %}
+			{% main_menu max_levels=5 %}
+			asldmas
+
+			{% for item in menu_items %}
+				lol
+			{% endfor %}
+			{% include "includes/footer.html" %}
+
+
+            <!--Back-to-top ======================-->
+			<div class="progressCounter progressScroll progress-scroll-opacity-0">
+				<div class="progressScroll-border">
+				  <div class="progressScroll-circle">
+					<span class="progressScroll-text text-secondary">
+						<svg width="24" height="24" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M12.1758 41.7882C11.4955 41.1079 11.4388 40.0401 12.0057 39.2953L12.1758 39.1007L39.0508 12.2256C39.7929 11.4835 40.9962 11.4835 41.7383 12.2256C42.4186 12.9059 42.4753 13.9737 41.9084 14.7185L41.7383 14.9131L14.8633 41.7882C14.1211 42.5303 12.9179 42.5303 12.1758 41.7882Z"/>
+							<path d="M18.7659 15.5153C17.7163 15.5175 16.8637 14.6685 16.8614 13.619C16.8594 12.6649 17.5608 11.8735 18.4769 11.7358L18.7577 11.7146L40.3903 11.668C41.3473 11.6659 42.14 12.3714 42.2746 13.2906L42.2947 13.5723L42.25 35.2067C42.2478 36.2562 41.3952 37.1052 40.3457 37.1031C39.3916 37.1011 38.6031 36.3963 38.4693 35.4797L38.4493 35.1988L38.489 15.4727L18.7659 15.5153Z"/>	
+						</svg>
+					</span>
+					</div>
+				</div>
+			</div>
+			<!--Back-to-top ======================-->
+
+
+		</div>
+		<!-- pages -->
+			
+			<script src="{% static "idec/assets/lenis@1.0.29/bundled/lenis.min.js" %}"></script> 
+			<script src="{% static 'idec/assets/js/jquery-3.7.0.min.js' %}"></script>	
+			<script src="{% static 'idec/assets/js/bootstrap.bundle.min.js' %}"></script>	
+			<script src="{% static 'idec/assets/js/swiper-bundle.min.js' %}"></script>	
+			<script src="{% static 'idec/assets/js/jquery.magnific-popup.min.js' %}"></script>	
+			<script src="{% static 'idec/assets/js/anime.min.js' %}"></script>	
+			<script src="{% static 'idec/assets/js/animate.js' %}"></script>	
+			<script src="{% static 'idec/assets/js/wow.min.js' %}"></script>	
+			<script src="{% static 'idec/assets/js/odometer.js' %}"></script>	
+			<script src="../../../unpkg.com/typed.js%402.1.0/dist/typed.umd.js"></script>
+			<script src="{% static 'idec/assets/js/jquery.progressScroll.min.js' %}"></script>	
+			<script src="{% static 'idec/assets/js/script.js' %}"></script>	
+
+			<script src="{% static 'idec/customize/presets.js' %}"></script>
+
+		
+	</body>
+
+
+<!-- Mirrored from themeperch.net/html/architronix/home-4.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 09 May 2024 07:43:49 GMT -->
+</html>

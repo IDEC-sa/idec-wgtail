@@ -13,7 +13,7 @@
 									<p class="fs-4 fw-semibold mb-0 subtitle subtitle-width">Where Imagination Takes Flight, and Excellence Blossoms</p>	
 									<div class="architronix-button">
 										<a href="project-archive.html" class="btn btn-outline-primary  gap-10">View All Projects 							
-											<svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<svg class="arrow-reverse" width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
 											</svg>							
 										</a>
@@ -26,7 +26,7 @@
 
 				<div class="horizontal-accordion d-flex">
                     {% for slide in block.value %}
-					<div class="gallery-contents gallery-sm">
+					<div class="gallery-contents {% if forloop.counter == 1 %} gallery-expand  {% else %} gallery-sm {% endif %}">
 						
 						<div class="gallery-wrapper position-relative overflow-hidden w-100 h-100">
 							<div class="gallery-image-wrapper overlay">

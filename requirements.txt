@@ -22,6 +22,7 @@ laces==0.1.1
 openpyxl==3.1.4
 pillow==10.3.0
 pillow_heif==0.16.0
+polib==1.2.0
 pytz==2024.1
 requests==2.32.3
 six==1.16.0
@@ -31,6 +32,7 @@ telepath==0.3.1
 typing_extensions==4.12.2
 urllib3==2.2.2
 wagtail==6.1.2
+wagtail-localize==1.9
 wagtail-modeladmin==2.0.0
 wagtailmenus==4.0
 Willow==1.8.0

@@ -11579,9 +11579,7 @@ svg {
   fill: currentColor;
 }
 
-.arrow-reverse {
-  transform: rotate(180deg);
-}
+
 
 .arrow-down {
   transform: rotate(90deg);
@@ -25495,7 +25493,6 @@ textarea {
     display: none;
   }
 }
-/*# sourceMappingURL=style.css.map */
 
 .class_form {
   list-style-type: none;
@@ -25546,3 +25543,10 @@ textarea {
   font-size: 80%;
 }
 
+.arrow{
+  transform: rotate(180deg);
+}
+
+.reversed{
+  transform: rotate(180deg);
+}
