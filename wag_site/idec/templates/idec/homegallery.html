@@ -30,9 +30,8 @@
 						
 						<div class="gallery-wrapper position-relative overflow-hidden w-100 h-100">
 							<div class="gallery-image-wrapper overlay">
-								{% image slide.value.slider_images_big.image original as img %}
-								{{ img.url }}
-                                {% comment %} <img alt="hero-image" class="position-absolute start-0 top-0 w-100 h-100 object-fit-cover" src="{{ slide.value.image.url }}"> {% endcomment %}
+								{% image slide.value.slider_images_big.all.0.image width-750 height-750 as img %}
+                                <img alt="hero-image" class="position-absolute start-0 top-0 w-100 h-100 object-fit-cover" src="{{ img.url }}">
 								{% comment %} jkasndjkasd {% endcomment %}
                                 <div class="gallery-info-wrapper">
 									<div class="gallery-info">
