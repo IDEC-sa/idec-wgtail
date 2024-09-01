@@ -19,7 +19,7 @@
                             </a>
                         {% endfor %}
                         {% endif %}
-                        <div class="top-bar-contact d-flex align-items-center">
+                        {% comment %} <div class="top-bar-contact d-flex align-items-center">
                             <p class="mb-0 fw-bold">Call Us: <a href="tel:+(1800)456-7890" class="text-decoration-none link-hover-animation-1"> +(1800)456-7890</a></p>
                             <ul class="contact-lists list-unstyled mb-0 d-flex">
                                 <li><a href="#" class="link-hover-animation-1 text-decoration-none text-uppercase" aria-label="top-bar-link">fb</a></li>
@@ -27,7 +27,7 @@
                                 <li><a href="#" class="link-hover-animation-1 text-decoration-none text-uppercase" aria-label="top-bar-link">tw</a></li>
                                 <li><a href="#" class="link-hover-animation-1 text-decoration-none text-uppercase" aria-label="top-bar-link">li</a></li>
                             </ul>
-                        </div>
+                        </div> {% endcomment %}
                     </div>
                     <!-- top-bar -->
                 </div>
@@ -86,7 +86,7 @@
                         <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-end flex-grow-1 align-items-xl-center">
 
-                            <li class="nav-item dropdown">
+                            {% comment %} <li class="nav-item dropdown">
                                 <a class="nav-link active d-flex gap-2 align-items-center" aria-current="page" href="#" aria-label="nav-links" data-bs-toggle="dropdown" aria-expanded="false">الرئيسية<span class="dropdown-icon">
                                         <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M11 8L6 2L1 8"></path>
@@ -111,15 +111,20 @@
                                         </a>
                                     </li>					
                                 </ul>									
-                            </li>
+                            </li> {% endcomment %}
+                     
 
                             <li class="nav-item">
-                                <a class="nav-link" href="project-archive.html">المشاريع</a>									
+                                <a class="nav-link" href="project-archive.html">home</a>									
+                            </li>	
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="project-archive.html">Projects</a>									
                             </li>	
 
 
                             <li class="nav-item dropdown has-megamenu">
-                                <a class="nav-link d-flex gap-2 align-items-center" href="#" aria-label="nav-links" data-bs-toggle="dropdown" aria-expanded="false">الخدمات<span class="dropdown-icon">
+                                <a class="nav-link d-flex gap-2 align-items-center" href="#" aria-label="nav-links" data-bs-toggle="dropdown" aria-expanded="false">Services<span class="dropdown-icon">
                                         <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M11 8L6 2L1 8"></path>
                                         </svg> 
@@ -210,7 +215,7 @@ direction: ltr;
                             
 
                             <li class="nav-item dropdown ">
-                                <a class="nav-link d-flex gap-2 align-items-center" href="#" aria-label="nav-links" data-bs-toggle="dropdown" aria-expanded="false">الصفحات<span class="dropdown-icon">
+                                <a class="nav-link d-flex gap-2 align-items-center" href="#" aria-label="nav-links" data-bs-toggle="dropdown" aria-expanded="false">Pages<span class="dropdown-icon">
                                         <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M11 8L6 2L1 8"></path>
                                         </svg> 
@@ -243,7 +248,7 @@ direction: ltr;
                             
 
                             <li class="nav-item dropdown ">
-                                <a class="nav-link d-flex gap-2 align-items-center" href="#" aria-label="nav-links" data-bs-toggle="dropdown" aria-expanded="false">المدونة<span class="dropdown-icon">
+                                <a class="nav-link d-flex gap-2 align-items-center" href="#" aria-label="nav-links" data-bs-toggle="dropdown" aria-expanded="false">Blogs<span class="dropdown-icon">
                                         <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M11 8L6 2L1 8"></path>
                                         </svg> 
@@ -258,7 +263,7 @@ direction: ltr;
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="contact-2.html">تواصل</a>									
+                                <a class="nav-link" href="contact-2.html">Contact us</a>									
                             </li>
                             
                             <li class="nav-item">
@@ -291,7 +296,7 @@ direction: ltr;
                                 </div>									
                             </li>
                             
-                            <li class="nav-item d-none d-xl-block">
+                            {% comment %} <li class="nav-item d-none d-xl-block">
                                 <a class="nav-link nav-link-icon" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart" aria-expanded="false" aria-label="Toggle navigation">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g clip-path="url(#clip0_142_452)">
@@ -304,7 +309,7 @@ direction: ltr;
                                     </defs>
                                 </svg> 
                                 </a>
-                            </li>						
+                            </li>						 {% endcomment %}
                         </ul>						  
                         </div>
                     </div>
