@@ -42,6 +42,7 @@ class HomeAboutBlock(StructBlock):
     image = ImageChooserBlock(required=True)
     main_info = main_info()
     intro_with_background = intro_with_background()
+    AboutUs = PageChooserBlock(required=True, page_type="about_us.aboutHome")
 
 
 
@@ -85,6 +86,7 @@ class Aboutvideo(StructBlock):
     link = CharBlock(required=False, max_length=200)
 
     button = CharBlock(required=False, max_length=200)
+    AboutUs = PageChooserBlock(required=True, page_type="about_us.aboutHome")
 
     # detail_page = PageChooserBlock(required=False, page_type='idec.ProjectDetailPage')
 
@@ -142,6 +144,32 @@ class BodyBlock(StreamBlock):
 
 class BranchBlock(StreamBlock):
     branch_name = CharBlock()
+
+
+
+# --------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

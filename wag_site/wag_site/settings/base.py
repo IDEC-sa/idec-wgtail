@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     "mathfilters",
     "contact",
     "brands",
+     "about_us",
     "product",
     "idec",
     "blog",

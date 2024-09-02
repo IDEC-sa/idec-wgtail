@@ -1,0 +1,22 @@
+{% extends "idec/basic_body.html" %}
+			{% block content %}
+            {% with blocks=page.body %}
+                {% for block in blocks %} 
+                    {% if block.block_type == 'about' %}
+                    <!--Hero Section ======================-->
+                        {% include "about_us/info.html" with block=block only %}
+                    {% endif %}
+                    <!-- End Hero Section ======================-->
+                    {% if block.block_type == 'about_banner' %}
+                    <!--Hero Section ======================-->
+                        {% include "about_us/about_banner.html" with block=block only %}
+                    {% endif %}
+                    <!-- End Hero Section ======================-->
+                    {% if block.block_type == 'aboutstory' %}
+                    <!--Hero Section ======================-->
+                        {% include "about_us/aboutstory.html" with block=block only %}
+                    {% endif %}
+                    <!-- End Hero Section ======================-->
+                {% endfor %}
+            {% endwith %}
+			{% endblock %}

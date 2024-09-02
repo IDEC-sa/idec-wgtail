@@ -1,0 +1,39 @@
+{% load  wagtailimages_tags %}
+{% load static %}
+			<!--About Section ======================-->
+
+
+
+            {% if block.block_type == 'aboutstory' %}
+                <section class="section-about about-2 section-full-width position-relative pt-4 pt-lg-0">
+                    <div class="about-bg bg-primary text-secondary position-relative">
+                        <div class="container">
+                            <div class="row align-items-center justify-content-between">
+                             
+                                <div class="col-lg-6">
+                                    <div class="about-contents d-flex flex-column">
+                                        <h5 class="display-5">{{ block.value.title }}</h5>
+                                        <p>{{ block.value.description }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-5">
+                                    <div class="about-image overflow-hidden">
+
+                                        {% image block.value.image original as img %}
+    
+                                        <img src="{{ img.url }}" class="img-fluid wow slideInLeft" alt="about-image">
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>						
+                    </div>	
+                </section>
+            {% endif %}
+
+
+
+			<!--About Section ======================-->
+
