@@ -57,7 +57,7 @@ class Feedbacks(StreamBlock):
 
 class Aboutvideo(StructBlock):
     title = CharBlock(required=True, max_length=100)
-    subtitle = CharBlock(required=False, max_length=200)
+    subtitle = TextBlock(required=False, max_length=200)
     image = ImageChooserBlock()
     link = CharBlock(required=False, max_length=200)
 
@@ -70,7 +70,7 @@ class Aboutvideo(StructBlock):
 
 class AboutBanner(StructBlock):
     title = CharBlock(required=True, max_length=100)
-    subtitle = CharBlock(required=False, max_length=200)
+    subtitle = TextBlock(required=False, max_length=200)
     back_title = CharBlock(required=False, max_length=200)
 
 # Story

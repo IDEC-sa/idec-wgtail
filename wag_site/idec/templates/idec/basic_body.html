@@ -14,9 +14,9 @@
 		<meta charset="utf-8">
         <meta name="theme-color"  content="#253b2f">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="Architronix description contents">
-		<title>Architronix</title>
-		<link rel="shortcut icon" type="images/png" href="{% static  'idec/assets/images/fav-icon/favicon.ico' %}">
+		<meta name="description" content="idec description contents">
+		<title>idec</title>
+		<link rel="shortcut icon" type="images/png" href="https://raw.githubusercontent.com/Alaasamy2023/logo/main/PNG%20LOGO33.png?token=GHSAT0AAAAAACWWQYIIP65IXWBFWBNX76ZAZWW3KMQ">
 
 		<!-- Google fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com/">
@@ -36,6 +36,20 @@
             <link rel="stylesheet" href="{% static 'idec/assets/css/arabic.css' %}">
         {% endif %}
 		
+
+
+
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+
+
+
+
+
+
+
+
+
 	</head>
 
 	<body>
@@ -343,6 +357,13 @@
 			<!--Full-Screen-Modal (Search-Modal) ======================-->
             {% block content %}
             {% endblock %} 
+
+
+			{% block body %}
+            {% endblock %} 
+
+
+			
             {% comment %} {% with blocks=page.body %}
                 {% for block in blocks %} 
                     {% if block.block_type == 'slider' %}
@@ -402,10 +423,10 @@
             {% endwith %}
 			dasdaaaaa] {% endcomment %}
 			{% main_menu max_levels=5 %}
-			asldmas
+			{% comment %} asldmas {% endcomment %}
 
 			{% for item in menu_items %}
-				lol
+				{% comment %} lol {% endcomment %}
 			{% endfor %}
 			{% include "includes/footer.html" %}
 
@@ -429,7 +450,7 @@
 		</div>
 		<!-- pages -->
 			
-			<script src="{% static "idec/assets/lenis@1.0.29/bundled/lenis.min.js" %}"></script> 
+			<script src="{% static 'idec/assets/lenis@1.0.29/bundled/lenis.min.js' %}"></script> 
 			<script src="{% static 'idec/assets/js/jquery-3.7.0.min.js' %}"></script>	
 			<script src="{% static 'idec/assets/js/bootstrap.bundle.min.js' %}"></script>	
 			<script src="{% static 'idec/assets/js/swiper-bundle.min.js' %}"></script>	

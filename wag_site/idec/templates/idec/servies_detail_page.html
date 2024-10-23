@@ -44,6 +44,10 @@
 					<div class="position-relative">
 						<div class="row justify-content-between gy-5 gy-lg-0">							
 							<div class="col-lg-9">
+
+								{% if page.gallery_images_servies %}                       
+
+
 								<div class="service-single-image mb-30 mb-lg-5">
 									{% for image in page.gallery_images_servies.all %}
 									{% image image.image width-1000 as img %}
@@ -54,6 +58,11 @@
 					
 									{% endfor %}
 								</div>
+								{% endif %}
+
+
+
+
 								<div class="d-flex flex-column gap-30 gap-lg-5">
 									<div>
 										<h4 class="mb-4 mb-lg-30">Overview</h4>

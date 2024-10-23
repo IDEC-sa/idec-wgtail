@@ -90,6 +90,7 @@
 					</div>											
 				</div>		
 				<!-- container -->
+                {% if page.slider_images %}                       
 
 				<div class="image-contents d-flex flex-column flex-xl-row align-items-xl-center gap-4 section-padding-md position-relative px-10 px-lg-0">
 	
@@ -107,6 +108,14 @@
 
 
 				</div>
+                {% endif %}
+
+
+
+
+
+
+
                 {% if page.all_description %}                       
 
 				<div class="section-padding-md">
@@ -123,6 +132,7 @@
 				</div>
                 {% endif %}
 
+                {% if page.slider_images_big %}                       
 
 				<div class="project-gallery-1 section-padding-lg">
 					<div class="swiper-custom-progress position-relative">
@@ -172,7 +182,8 @@
 					</div>
 				</div>
 
-			
+				{% endif %}
+
                 
 
 					

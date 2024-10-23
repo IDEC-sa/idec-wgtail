@@ -4,15 +4,13 @@ from django.db import models
 
 from wagtail.fields import StreamField, RichTextField
 from .blocks import BodyBlock, HomeAboutBlock,Projects
-
 from wagtail.admin.panels import FieldPanel, InlinePanel
-
 from wagtail.models import Page, Orderable
 from modelcluster.fields import ParentalKey
 from wagtail.images.models import WagtailImageField
 from wagtail.fields import StreamField
 from .blocks import BodyBlock, HomeAboutBlock, BranchBlock, GalleryBlock
-from wagtail.admin.panels import FieldPanel, InlinePanel, PublishingPanel
+from wagtail.admin.panels import FieldPanel, InlinePanel, PublishingPanel,PageChooserPanel
 from wagtail.images.models import Image as WagImage
 from wagtail.fields import RichTextField
 from wagtail.snippets.models import register_snippet
@@ -33,56 +31,12 @@ from wagtail.contrib.settings.models import (
 )
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# --------------------------------------------------------------
 # ----------------------------------------------------------------
 # ----------------------------------------------------------------
-# --------------------------------------------------------------
 # ----------------------------------------------------------------
 # ----------------------------------------------------------------
-
-
-
-
-
-
-
-# --------------------------------------------------------------
 # ----------------------------------------------------------------
 # ----------------------------------------------------------------
-# --------------------------------------------------------------
-# ----------------------------------------------------------------
-# ----------------------------------------------------------------
-
-# --------------------------------------------------------------
-# ----------------------------------------------------------------
-# ----------------------------------------------------------------
-# --------------------------------------------------------------
-# ----------------------------------------------------------------
-# ----------------------------------------------------------------
-
-
-
-
-
 
 
 
@@ -130,15 +84,6 @@ class careerDetailPage(Page):
 
 
 # ----------------------------------------------------------------
-
-
-
-
-
-
-
-
-
 
 class serviesIndexPage(Page):
     intro = models.CharField(max_length=255,blank=True)
@@ -204,11 +149,6 @@ class serviesGalleryImage(Orderable):
         FieldPanel('image'),
         FieldPanel('caption'),
     ]  
-
-
-
-
-
 
 
 
@@ -398,83 +338,3 @@ class CategoryPage(Page):
         FieldPanel('description'),
         FieldPanel('title_background')
     ]
-
-# class Branch(Page):
-#     city = models.TextField()
-#     address = models.TextField()
-#     phone = models.TextField()
-#     email = models.TextField()
-#     content_panels = Page.content_panels + [
-#                        # new
-#                        FieldPanel("city"),
-#                        FieldPanel("address"),
-#                        FieldPanel("phone"),
-#                        FieldPanel("email"),
-#     ]
-
-# @register_setting
-# class NavigationSettings(BaseGenericSetting):
-#     company_name  = models.TextField(blank=False, default="IDEC")
-#     twitter_url = models.URLField(verbose_name="Twitter URL", blank=True)
-#     fb_url = models.URLField(verbose_name="Facebook URL", blank=True)
-#     linkedin_url = models.URLField(verbose_name="Linkedin URL", blank=True)
-#     github_url = models.URLField(verbose_name="GitHub URL", blank=True)
-#     instagram_url = models.URLField(verbose_name="Instagram URL", blank=True)
-
-#     content_panels = Page.content_panels + [
-#                        # new
-#     ]
-#     panels = [
-#         MultiFieldPanel(
-#             [
-#                 FieldPanel("twitter_url"),
-#                 FieldPanel("github_url"),
-#                 FieldPanel("instagram_url"),
-#                 FieldPanel("twitter_url"),
-#                 FieldPanel("fb_url"),
-#                 FieldPanel("linkedin_url"),
-#                 FieldPanel("company_name"),
-#             ],
-#             "Social settings",
-#         )
-#     ]
-
-# ...keep the definition of the NavigationSettings model and add the FooterText model:
-# @register_snippet
-# class FooterText(
-#     DraftStateMixin,
-#     RevisionMixin,
-#     PreviewableMixin,
-#     TranslatableMixin,
-#     models.Model,
-# ):
-
-#     body = RichTextField()
-
-#     panels = [
-#         FieldPanel("body"),
-#         PublishingPanel(),
-#     ]
-
-#     def __str__(self):
-#         return "Footer text"
-
-#     def get_preview_template(self, request, mode_name):
-#         return "idec/idec_home.html"
-
-#     def get_preview_context(self, request, mode_name):
-#         return {"footer_text": self.body}
-
-#     class Meta(TranslatableMixin.Meta):
-#         verbose_name_plural = "Footer Text"
-
-
-
-# class Projects(Page):
-
-#     body = StreamField(Projects(), blank=True)    
-
-#     content_panels = Page.content_panels + [
-#         FieldPanel("body"),
-                     
-#     ]

@@ -34,12 +34,19 @@
                                                     																						
                                                     <svg stroke-width="2" class="text-line display-2 fw-extra-bold z-1"><text {% if LANGUAGE_CODE == 'ar' %} x="100%" {% else %} x="0%" {% endif %} dominant-baseline="middle" y="70%">{{ slide.value.dachedText }}</text></svg>
                                                 </h1>
+
+
+                                                {% if slide.value.buttonText %}
+
                                                 <div class="architronix-button">
                                                     <a href="project-archive.html" class="btn btn-outline-primary gap-10">{{slide.value.buttonText}}
                                                         <svg class="arrow-reverse" width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/></svg>																														
                                                     </a>
                                                 </div>
+                                                {% endif %}
+
+
                                             </div>										
                                         </div>
                                     </div> 

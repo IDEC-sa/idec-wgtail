@@ -17,6 +17,13 @@
                         {% include "about_us/aboutstory.html" with block=block only %}
                     {% endif %}
                     <!-- End Hero Section ======================-->
+                                        <!-- End Hero Section ======================-->
+                                        {% if block.block_type == 'aboutvideo' %}
+                                        <!--Hero Section ======================-->
+                                            {% include "about_us/aboutvideo.html" with block=block only %}
+                                        {% endif %}
+                                        <!-- End Hero Section ======================-->
+
                 {% endfor %}
             {% endwith %}
 			{% endblock %}
