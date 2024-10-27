@@ -42,6 +42,7 @@ class HomeAboutBlock(StructBlock):
     image = ImageChooserBlock(required=True)
     main_info = main_info()
     intro_with_background = intro_with_background()
+    AboutUs = PageChooserBlock(required=True, page_type="about_us.aboutHome")
 
 
 
@@ -53,13 +54,17 @@ class HomeAboutBlock(StructBlock):
 
 class Projects(StreamBlock):
     project = PageChooserBlock(required=True, page_type='idec.ProjectDetailPage')
+    intro_with_background = intro_with_background()
 
 
 class Products(StreamBlock):
     product = PageChooserBlock(required=True, page_type='product.productDetailPage')
+    intro_with_background = intro_with_background()
+
 
 class Blogs(StreamBlock):
     blog = PageChooserBlock(required=True, page_type='blog.blogDetailPage')
+    intro_with_background = intro_with_background()
 
 
 
@@ -72,6 +77,7 @@ class FeedbacksBlock(StructBlock):
 
 class Feedbacks(StreamBlock):
     feedback = FeedbacksBlock()
+    intro_with_background = intro_with_background()
 
 
  
@@ -85,6 +91,8 @@ class Aboutvideo(StructBlock):
     link = CharBlock(required=False, max_length=200)
 
     button = CharBlock(required=False, max_length=200)
+    AboutUs = PageChooserBlock(required=True, page_type="about_us.aboutHome")
+    intro_with_background = intro_with_background()
 
     # detail_page = PageChooserBlock(required=False, page_type='idec.ProjectDetailPage')
 
@@ -103,6 +111,7 @@ class Aboutvideo(StructBlock):
 
 class Services(StreamBlock):
     service = PageChooserBlock(required=True, page_type='idec.serviesDetailPage')
+    intro_with_background = intro_with_background()
 
 
 
@@ -114,6 +123,7 @@ class career(StreamBlock):
 
 class GalleryBlock(StreamBlock):
     category = PageChooserBlock(required=True, page_type="idec.CategoryPage")
+    intro_with_background = intro_with_background()
 
 
 
@@ -142,6 +152,31 @@ class BodyBlock(StreamBlock):
 
 class BranchBlock(StreamBlock):
     branch_name = CharBlock()
+
+
+
+# --------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

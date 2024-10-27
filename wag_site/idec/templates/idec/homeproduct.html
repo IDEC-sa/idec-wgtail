@@ -8,8 +8,68 @@
 
 
 			<!--Shop Section ======================-->
-			<section class="section-shop shop-1 section-full-width">				
-				<div class="section-title-wrapper position-relative">
+			<section class="section-shop shop-1 section-full-width">	
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				{% for slide in block.value %}
+
+				{% if slide.value and forloop.counter == 1 %}
+
+				
+
+
+				<div class="section-full-width">
+					<div class="section-title-wrapper position-relative">
+						<div class="scroll-move">
+							<span class="scrolling-text display-1 fw-extra-bold stroke-title text-stroke stroke-opacity-20 stroke-width-1 stroke-primary lh-1">{{ slide.value.background_text }}</span>
+						</div>					
+						
+						<div class="container">	
+							<div class="section-title section-separator">
+								<h2 class="fw-extra-bold heading-title separator lh-1">{{ slide.value.main_text }}</h2>
+								<div class="d-flex flex-column flex-lg-row gap-4 align-items-lg-end justify-content-lg-between">
+									<p class="fs-4 fw-semibold mb-0 subtitle subtitle-width">{{ slide.value.brief }} 	</p>	
+								 							
+								</div>
+							</div>
+						</div>					
+					</div>
+				</div>	
+				
+				{% endif %}
+
+				{% endfor %} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				
+				{% comment %} <div class="section-title-wrapper position-relative">
 					<div class="scroll-move">
 						<span class="scrolling-text display-1 fw-extra-bold stroke-title text-stroke stroke-opacity-20 stroke-width-1 stroke-primary lh-1">Shop</span>
 					</div>					
@@ -20,7 +80,7 @@
 							<div class="d-flex flex-column flex-lg-row gap-4 align-items-lg-end justify-content-lg-between">
 								<p class="fs-4 fw-semibold mb-0 subtitle subtitle-width">Discover Unparalleled Luxury for Your Space</p>	
 								<div class="architronix-button">
-									<a href="product-single.html" class="btn btn-outline-primary  gap-10">View Shop 							
+									<a href="/product-archive/" class="btn btn-outline-primary  gap-10">View Shop 							
 										<svg class="arrow-reverse" width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
 										</svg>							
@@ -30,7 +90,12 @@
 						</div>
 					</div>
 					
-				</div>		
+				</div>	
+				 {% endcomment %}
+				
+
+
+				
 				<div class="swiper-custom-progress position-relative">
 					<div class="swiper shop-swiper">
 						<div class="swiper-wrapper"> 
@@ -43,14 +108,15 @@
 
 
 
-                            {% for products in block.value %}
+                            {% for slide in block.value %}
+							{% if slide.value and forloop.counter > 1 %}
 
                     
                             <div class="swiper-slide">
 								<div class="shop-details">
 									<div class="shop-image-wrapper position-relative">
 										<div class="shop-image">
-                                            {% image products.value.gallery_images_product_bg.all.0.image width-1000 as img %}
+                                            {% image slide.value.gallery_images_product_bg.all.0.image width-1000 as img %}
 
 											<img src="{{ img.url }}" class="w-100 h-100 object-fit-cover" alt="img">
 										</div>
@@ -71,10 +137,10 @@
 										</div> -->
 									</div>
 									<!-- shop-image-wrapper -->
-									<a href="{% pageurl products.value %}" class="text-decoration-none">
+									<a href="{% pageurl slide.value %}" class="text-decoration-none">
 										<div class="shopping-info-wrapper mt-3 mt-lg-4 d-flex justify-content-between">
 											<div class="shopping-item-details">
-												<h5 class="fw-semibold product-title">{{ products.value.product_title}}</h5>
+												<h5 class="fw-semibold product-title">{{ slide.value.product_title}}</h5>
 												<!-- <span class="product-price fs-5">$134.99</span> -->
 											</div>
 											<div>
@@ -90,6 +156,7 @@
 				
                             
 
+							{% endif %}
 
                             {% endfor %}  
 

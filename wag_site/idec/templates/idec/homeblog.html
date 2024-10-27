@@ -3,54 +3,54 @@
  
 			<!--Blog Section ======================-->
 			<section class="section-blog blog-1">	
+
+				{% for slide in block.value %}
+				{% if slide.value and forloop.counter == 1 %}
+
 				<div class="section-full-width">
 					<div class="section-title-wrapper position-relative">
 						<div class="scroll-move">
-							<span class="scrolling-text display-1 fw-extra-bold stroke-title text-stroke stroke-opacity-20 stroke-width-1 stroke-primary lh-1">Blog</span>
+							<span class="scrolling-text display-1 fw-extra-bold stroke-title text-stroke stroke-opacity-20 stroke-width-1 stroke-primary lh-1">{{ slide.value.background_text }}</span>
 						</div>					
 						
 						<div class="container">	
 							<div class="section-title section-separator">
-								<h2 class="fw-extra-bold heading-title separator lh-1">Design Insights & Inspiration</h2>								
-								<p class="fs-4 fw-semibold mb-0 subtitle subtitle-width">Unveil the Secrets to Transforming Spaces</p>
+								<h2 class="fw-extra-bold heading-title separator lh-1">{{ slide.value.main_text }}</h2>
+								<div class="d-flex flex-column flex-lg-row gap-4 align-items-lg-end justify-content-lg-between">
+									<p class="fs-4 fw-semibold mb-0 subtitle subtitle-width">{{ slide.value.brief }} 	</p>	
+								 							
+								</div>
 							</div>
-						</div>						
+						</div>					
 					</div>
-				</div>			
+				</div>	
+				
+				{% endif %}
+
 				<div class="container">
 					<div class="swiper-custom-progress position-relative">
 						<div class="swiper blog-swiper">
 							<div class="swiper-wrapper"> 
 						
 						
-						
-						
-						
-								{% for blogs in block.value %}
-
+					{% if slide.value and forloop.counter > 1 %}
+					{% if slide.value %}
 						
 								<div class="swiper-slide">
 									<div class="blog-wrapper">
 										<div class="blog-image">
-											{% image blogs.value.gallery_images_blog.all.0.image width-800 as img %}
+											{% image slide.value.gallery_images_blog.all.0.image width-800 as img %}
 											<img src="{{ img.url }}" class="img-fluid" alt="img">
 
 										</div>
 										<div class="blog-details">
-											<p>14 December '15 / Interior </p>
-											<h5 class="blog-title fs-5 fw-semibold"><a href="{% pageurl blogs.value %}" class="link-hover-animation-1 stretched-link text-decoration-none">{{ blogs.value.blog_title}}</a></h5>
+											<p>{{ slide.value.blog_title}} </p>
+											<h5 class="blog-title fs-5 fw-semibold"><a href="{% pageurl slide.value %}" class="link-hover-animation-1 stretched-link text-decoration-none">{{ blogs.value.blog_title}}</a></h5>
 										</div>
 									</div>									
 								</div>
 								<!-- swiper-slide-->
 					
-								{% endfor %}  
-
-
-
-
-
-
 								<!-- swiper-slide-->			
 							</div>
 							<!-- swiper-wrapper -->
@@ -73,6 +73,9 @@
 						</div>									
 					</div>	
 				</div>	
+				{% endif %}
+				{% endif %}
+				{% endfor %}
 			</section>
 			<!--Blog Section ======================-->
 
@@ -84,15 +87,45 @@
 
 
 
+			
+ 
+     {% comment %} <div class="container">
+        <h2 class="text-center font-weight-bold">Our Partners</h2>
+        <section class="customer-logos slider">
+            <div class="slide"><img src="https://raw.githubusercontent.com/IDEC-sa/e-commerce/a787d6727bd19e4d62991bee4f00e70993751783/ui-themez.smartinnovates.net/items/swoo_html/home_lighting/images/1.png" alt="logo"></div>
+            <div class="slide"><img src="https://raw.githubusercontent.com/IDEC-sa/e-commerce/a787d6727bd19e4d62991bee4f00e70993751783/ui-themez.smartinnovates.net/items/swoo_html/home_lighting/images/1.png" alt="logo"></div>
 
+            <div class="slide"><img src="https://raw.githubusercontent.com/IDEC-sa/e-commerce/a787d6727bd19e4d62991bee4f00e70993751783/ui-themez.smartinnovates.net/items/swoo_html/home_lighting/images/1.png" alt="logo"></div>
 
+            <div class="slide"><img src="https://raw.githubusercontent.com/IDEC-sa/e-commerce/a787d6727bd19e4d62991bee4f00e70993751783/ui-themez.smartinnovates.net/items/swoo_html/home_lighting/images/1.png" alt="logo"></div>
 
+            <div class="slide"><img src="https://raw.githubusercontent.com/IDEC-sa/e-commerce/a787d6727bd19e4d62991bee4f00e70993751783/ui-themez.smartinnovates.net/items/swoo_html/home_lighting/images/1.png" alt="logo"></div>
 
+            <div class="slide"><img src="https://raw.githubusercontent.com/IDEC-sa/e-commerce/a787d6727bd19e4d62991bee4f00e70993751783/ui-themez.smartinnovates.net/items/swoo_html/home_lighting/images/1.png" alt="logo"></div>
 
+            <div class="slide"><img src="https://raw.githubusercontent.com/IDEC-sa/e-commerce/a787d6727bd19e4d62991bee4f00e70993751783/ui-themez.smartinnovates.net/items/swoo_html/home_lighting/images/1.png" alt="logo"></div>
 
+            <div class="slide"><img src="https://raw.githubusercontent.com/IDEC-sa/e-commerce/a787d6727bd19e4d62991bee4f00e70993751783/ui-themez.smartinnovates.net/items/swoo_html/home_lighting/images/1.png" alt="logo"></div>
 
+            <div class="slide"><img src="https://raw.githubusercontent.com/IDEC-sa/e-commerce/a787d6727bd19e4d62991bee4f00e70993751783/ui-themez.smartinnovates.net/items/swoo_html/home_lighting/images/1.png" alt="logo"></div>
+		
+            <div class="slide"><img src="https://raw.githubusercontent.com/IDEC-sa/e-commerce/a787d6727bd19e4d62991bee4f00e70993751783/ui-themez.smartinnovates.net/items/swoo_html/home_lighting/images/1.png" alt="logo"></div>
 
+            <div class="slide"><img src="https://raw.githubusercontent.com/IDEC-sa/e-commerce/a787d6727bd19e4d62991bee4f00e70993751783/ui-themez.smartinnovates.net/items/swoo_html/home_lighting/images/1.png" alt="logo"></div>
 
+            <div class="slide"><img src="https://raw.githubusercontent.com/IDEC-sa/e-commerce/a787d6727bd19e4d62991bee4f00e70993751783/ui-themez.smartinnovates.net/items/swoo_html/home_lighting/images/1.png" alt="logo"></div>
 
+            <div class="slide"><img src="https://raw.githubusercontent.com/IDEC-sa/e-commerce/a787d6727bd19e4d62991bee4f00e70993751783/ui-themez.smartinnovates.net/items/swoo_html/home_lighting/images/1.png" alt="logo"></div>
 
-            
+            <div class="slide"><img src="https://raw.githubusercontent.com/IDEC-sa/e-commerce/a787d6727bd19e4d62991bee4f00e70993751783/ui-themez.smartinnovates.net/items/swoo_html/home_lighting/images/1.png" alt="logo"></div>
+
+            <div class="slide"><img src="https://raw.githubusercontent.com/IDEC-sa/e-commerce/a787d6727bd19e4d62991bee4f00e70993751783/ui-themez.smartinnovates.net/items/swoo_html/home_lighting/images/1.png" alt="logo"></div>
+
+            <div class="slide"><img src="https://raw.githubusercontent.com/IDEC-sa/e-commerce/a787d6727bd19e4d62991bee4f00e70993751783/ui-themez.smartinnovates.net/items/swoo_html/home_lighting/images/1.png" alt="logo"></div>
+		</section>
+    </div> {% endcomment %}
+
+ 
+ 
+ 
+ 

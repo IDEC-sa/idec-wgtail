@@ -1,6 +1,5 @@
 {% load wagtailcore_tags wagtailimages_tags %}
-{% load i18n %}
-{% get_current_language as LANGUAGE_CODE %}
+
 
 
 
@@ -9,45 +8,53 @@
             
 			<!--Service Section ======================-->
 			<section class="section-service">
-				<div class="section-full-width">	
-					<div class="section-title-wrapper position-relative">
-						<div class="scroll-move">
-							<span class="scrolling-text display-1 fw-extra-bold stroke-title text-stroke stroke-opacity-20 stroke-width-1 stroke-primary lh-1">Services</span>
-						</div>
-						<div class="container">	
-							<div class="section-title section-separator">
-								<h2 class="fw-extra-bold heading-title separator lh-1">Explore Our Design Offerings</h2>
-								<div class="d-flex flex-column flex-lg-row gap-4 align-items-lg-end justify-content-lg-between">
-									<p class="fs-4 fw-semibold mb-0 subtitle subtitle-width">Exploring Excellence in Every Meticulous Design Detail</p>	
-									<div class="architronix-button">
-										<a href="" class="btn btn-outline-primary  gap-10">View All Services 							
-											<svg class="arrow-reverse" width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
-											</svg>							
-										</a>
-									</div>								
+			
+			
+			
+                        {% for slide in block.value %}
+			
+						{% if slide.value and forloop.counter == 1 %}
+
+						<div class="section-full-width">	
+							<div class="section-title-wrapper position-relative">
+								<div class="scroll-move">
+									<span class="scrolling-text display-1 fw-extra-bold stroke-title text-stroke stroke-opacity-20 stroke-width-1 stroke-primary lh-1">{{ slide.value.background_text }}</span>
+								</div>				
+								<div class="container">	
+									<div class="section-title section-separator">
+										<h2 class="fw-extra-bold heading-title separator lh-1">{{ slide.value.main_text }}</h2>
+										<div class="d-flex flex-column flex-lg-row gap-4 align-items-lg-end justify-content-lg-between">
+											<p class="fs-4 fw-semibold mb-0 subtitle subtitle-width">{{ slide.value.brief }}</p>	
+										
+										</div>
+									</div>
 								</div>
-							</div>
+							</div>			
 						</div>
-					</div>		
+			
 					<div class="row gx-60 gy-3 mt-n30 position-relative">
-					
+						{% endif %}
+
          
                         
 
+						{% if slide.value and forloop.counter > 1 %}
 
 
-                        {% for services in block.value %}
                         <div class="col-sm-6 col-lg-4 col-xl-3">
 							<div class="service-details">
 								<h2 class="stroke-heading">
-									<svg stroke-width="1" class="text-line-2 fw-extra-bold"><text {% if LANGUAGE_CODE == 'ar' %} x="100%" {% else %} x="0%" {% endif %} dominant-baseline="middle" y="70%">{{ forloop.counter }}</text></svg>
+									<svg stroke-width="1" class="text-line-2 fw-extra-bold"><text x="0%" dominant-baseline="middle" y="70%">{{ forloop.counter|add:"-1" }}</text></svg>
 								</h2>
-								<a href="{% pageurl services.value %}" class="text-decoration-none"><h4 class="service-title link-hover-animation-1 d-inline-block">{{ services.value.servies_title}} </h4></a>
-								<p class="mb-0">{{ services.value.description|richtext}}</p>
+								<a href="{% pageurl slide.value %}" class="text-decoration-none"><h4 class="service-title link-hover-animation-1 d-inline-block">{{ slide.value.servies_title}} </h4></a>
+								<p class="mb-0">{{ slide.value.description|richtext}}</p>
 							</div>
 						</div>
 						<!-- col-3 -->
+
+
+						{% endif %}
+
                         {% endfor %}                 
 
 
