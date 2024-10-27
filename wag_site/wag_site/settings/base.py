@@ -32,6 +32,8 @@ INSTALLED_APPS = [
     "product",
     "idec",
     "blog",
+
+    "about_us",
     "home",
     "search",
     "wagtail.contrib.forms",

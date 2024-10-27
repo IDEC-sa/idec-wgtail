@@ -1,0 +1,38 @@
+{% load  wagtailimages_tags %}
+{% load static %}
+
+			<!--Banner Section ======================-->
+			<section class="section-banner position-relative about-1 pt-60">	
+				<div class="section-full-width">
+					<div class="section-title-wrapper position-relative">	
+
+
+
+
+                       
+             
+{% if block.block_type == 'about_banner' %}
+    <div class="scroll-move">
+        <span class="scrolling-text display-1 fw-extra-bold stroke-title text-stroke stroke-opacity-20 stroke-width-1 stroke-primary lh-1">
+            {{ block.value.back_title }}
+        </span>
+    </div>				
+    <div class="container">	
+        <div class="section-title section-separator">
+            <h2 class="fw-extra-bold heading-title separator lh-1">
+                {{ block.value.title }}
+            </h2>
+            <p class="fs-4 fw-semibold mb-0 subtitle subtitle-width">
+                {{ block.value.subtitle }}
+            </p>	
+        </div>
+    </div>
+{% endif %}
+
+
+
+					</div>
+				</div>															
+			</section>
+			<!--Banner Section ======================-->
+			

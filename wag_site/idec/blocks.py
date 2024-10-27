@@ -12,11 +12,11 @@ from wagtail.images.blocks import ImageChooserBlock
 
 class SliderImage(StructBlock):
 
-    catchy_text = TextBlock()
-    text = TextBlock()
-    dachedText = TextBlock()
-    buttonText = TextBlock()
-    buttonUrl = URLBlock()
+    catchy_text = TextBlock(required=False)
+    text = TextBlock(required=False)
+    dachedText = TextBlock(required=False)
+    buttonText = TextBlock(required=False)
+    buttonUrl = URLBlock(required=False)
     image = ImageChooserBlock()
 
 class Slider(StreamBlock):
