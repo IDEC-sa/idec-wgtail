@@ -400,21 +400,21 @@ class CategoryPage(Page):
         FieldPanel('name'),
         FieldPanel('description'),
         FieldPanel('title_background'),
-        InlinePanel("slider_images_big")
+        # InlinePanel("slider_images_big")
 
     ]
 
-class CategoryImage(Orderable):
-    page = ParentalKey(CategoryPage, on_delete=models.CASCADE, related_name='slider_images_big')
-    image = models.ForeignKey(
-        'wagtailimages.Image', on_delete=models.CASCADE, related_name='+'
-    )
-    caption = models.CharField(blank=True, max_length=250)
+# class CategoryImage(Orderable):
+#     page = ParentalKey(CategoryPage, on_delete=models.CASCADE, related_name='slider_images_big')
+#     image = models.ForeignKey(
+#         'wagtailimages.Image', on_delete=models.CASCADE, related_name='+'
+#     )
+#     caption = models.CharField(blank=True, max_length=250)
 
-    panels = [
-        FieldPanel('image'),
-        FieldPanel('caption'),
-    ]
+#     panels = [
+#         FieldPanel('image'),
+#         FieldPanel('caption'),
+#     ]
 
 # class Branch(Page):
 #     city = models.TextField()

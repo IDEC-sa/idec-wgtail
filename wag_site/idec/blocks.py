@@ -12,11 +12,11 @@ from wagtail.images.blocks import ImageChooserBlock
 
 class SliderImage(StructBlock):
 
-    catchy_text = TextBlock()
-    text = TextBlock()
-    dachedText = TextBlock()
-    buttonText = TextBlock()
-    buttonUrl = URLBlock()
+    catchy_text = TextBlock(required=False)
+    text = TextBlock(required=False)
+    dachedText = TextBlock(required=False)
+    buttonText = TextBlock(required=False)
+    buttonUrl = URLBlock(required=False)
     image = ImageChooserBlock()
 
 class Slider(StreamBlock):
@@ -42,6 +42,7 @@ class HomeAboutBlock(StructBlock):
     image = ImageChooserBlock(required=True)
     main_info = main_info()
     intro_with_background = intro_with_background()
+    AboutUs = PageChooserBlock(required=True, )   #page_type="about_us.aboutHome"
 
 
 
@@ -51,15 +52,33 @@ class HomeAboutBlock(StructBlock):
 
 
 
-class Projects(StreamBlock):
+
+
+class ProjectsContenet(StreamBlock):
     project = PageChooserBlock(required=True, page_type='idec.ProjectDetailPage')
 
+class Projects(StructBlock):
+    intro_with_background = intro_with_background()
+    projectsContenet=ProjectsContenet(required = True)
 
-class Products(StreamBlock):
+# 
+
+
+
+class ProductContenet(StreamBlock):
     product = PageChooserBlock(required=True, page_type='product.productDetailPage')
 
-class Blogs(StreamBlock):
+class Products(StructBlock):
+    intro_with_background = intro_with_background()
+    productContenet=ProductContenet(required = True)
+
+
+class BlogsContenet(StreamBlock):
     blog = PageChooserBlock(required=True, page_type='blog.blogDetailPage')
+
+class Blogs(StructBlock):
+    intro_with_background = intro_with_background()
+    blogsContenet=BlogsContenet(required = True)
 
 
 
@@ -72,6 +91,7 @@ class FeedbacksBlock(StructBlock):
 
 class Feedbacks(StreamBlock):
     feedback = FeedbacksBlock()
+    intro_with_background = intro_with_background()
 
 
  
@@ -85,6 +105,9 @@ class Aboutvideo(StructBlock):
     link = CharBlock(required=False, max_length=200)
 
     button = CharBlock(required=False, max_length=200)
+    AboutUs = PageChooserBlock(required=True, ) #page_type="about_us.aboutHome"
+    intro_with_background = intro_with_background()
+
 
     # detail_page = PageChooserBlock(required=False, page_type='idec.ProjectDetailPage')
 
@@ -101,8 +124,16 @@ class Aboutvideo(StructBlock):
 # class Services(StreamBlock):
 #     service = ServiceBlock()
 
-class Services(StreamBlock):
+
+class ServicesContenet(StreamBlock):
     service = PageChooserBlock(required=True, page_type='idec.serviesDetailPage')
+
+
+class Services(StructBlock):
+    intro_with_background = intro_with_background()
+    services_contenets=ServicesContenet(required = True)
+
+
 
 
 
@@ -111,9 +142,13 @@ class career(StreamBlock):
 
 
 
-
-class GalleryBlock(StreamBlock):
+class GalleryContenet(StreamBlock):
     category = PageChooserBlock(required=True, page_type="idec.CategoryPage")
+
+class GalleryBlock(StructBlock):
+    intro_with_background = intro_with_background()
+    galleryContenet=GalleryContenet(required = True)
+
 
 
 
