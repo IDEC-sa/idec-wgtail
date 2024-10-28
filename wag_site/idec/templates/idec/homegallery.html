@@ -1,16 +1,21 @@
 {% load wagtailcore_tags wagtailimages_tags %}
+{% load static %}
+
             <!--Gallery Section ======================-->
 			<section class="section-gallery max-width">
+				{% for slide in block.value %}
+
+				{% if slide.value and forloop.counter == 1 %}
 				<div class="section-full-width">	
 					<div class="section-title-wrapper position-relative">
 						<div class="scroll-move">
-							<span class="scrolling-text display-1 fw-extra-bold stroke-title text-stroke stroke-opacity-20 stroke-width-1 stroke-primary lh-1">Gallery</span>
+							<span class="scrolling-text display-1 fw-extra-bold stroke-title text-stroke stroke-opacity-20 stroke-width-1 stroke-primary lh-1">{{ slide.value.background_text }}</span>
 						</div>				
 						<div class="container">	
 							<div class="section-title section-separator">
-								<h2 class="fw-extra-bold heading-title separator lh-1">Exploring Our Creations</h2>
+								<h2 class="fw-extra-bold heading-title separator lh-1">{{ slide.value.main_text }}</h2>
 								<div class="d-flex flex-column flex-lg-row gap-4 align-items-lg-end justify-content-lg-between">
-									<p class="fs-4 fw-semibold mb-0 subtitle subtitle-width">Where Imagination Takes Flight, and Excellence Blossoms</p>	
+									<p class="fs-4 fw-semibold mb-0 subtitle subtitle-width">{{ slide.value.brief }}</p>	
 									<div class="architronix-button">
 										<a href="project-archive.html" class="btn btn-outline-primary  gap-10">View All Projects 							
 											<svg class="arrow-reverse" width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -23,9 +28,11 @@
 						</div>
 					</div>			
 				</div>
-
+				{% endif %}
+				{% if slide.value and forloop.counter > 1 %}
+				{% if slide.value %}
 				<div class="horizontal-accordion d-flex">
-                    {% for slide in block.value %}
+                    {% comment %} {% for slide in block.value %} {% endcomment %}
 					<div class="gallery-contents {% if forloop.counter == 1 %} gallery-expand  {% else %} gallery-sm {% endif %}">
 						
 						<div class="gallery-wrapper position-relative overflow-hidden w-100 h-100">
@@ -35,17 +42,25 @@
 								{% comment %} jkasndjkasd {% endcomment %}
                                 <div class="gallery-info-wrapper">
 									<div class="gallery-info">
-										<a href="project-single.html" class="text-decoration-none link-hover-animation-1 gallery-title separator"><h4 class="mb-0">{{ slide.value.name }}</h4></a>
+										{% if slide.value.get_full_url %}
+										<a href="{% pageurl slide.value %}" class="text-decoration-none link-hover-animation-1 gallery-title separator"><h4 class="mb-0">{{ slide.value.name }}</h4></a>
+										{% else %}
+											<p>Page URL not available</p>
+										{% endif %}
 										<p class="gallery-description">{{ slide.value.description }}</p>
 									</div>
 								</div>								
 							</div>							
 							<h3 class="gallery-item stroke-heading stroke-heading-2 mb-0">
-								<svg stroke-width="1" class="text-line-2 fs-60 fw-extra-bold"><text x="0%" dominant-baseline="middle" y="70%">{{ forloop.counter }}</text></svg>
+								<svg stroke-width="1" class="text-line-2 fs-60 fw-extra-bold"><text x="0%" dominant-baseline="middle" y="70%">{{ forloop.counter|add:"-1" }}</text></svg>
 							</h3>													
 						</div>
 												
 					</div>
+					{% else %}
+					{% endif %}
+
+					{% endif %}
                     {% endfor %}
 				  				
 				</div>			  

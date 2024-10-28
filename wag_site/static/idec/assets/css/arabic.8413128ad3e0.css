@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'arfont'; /*a name to be used later*/
-    src: url('../fonts/arfonty.ttf'); /*URL to font*/
+    src: url("../fonts/arfonty.290592f39f54.ttf"); /*URL to font*/
 }
 .page.arabic{
     direction: rtl;
