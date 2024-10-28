@@ -38,6 +38,11 @@ class main_info(StreamBlock):
     main_info_member = main_info_client()
 
 
+
+
+
+
+
 class HomeAboutBlock(StructBlock):
     image = ImageChooserBlock(required=True)
     main_info = main_info()
@@ -48,23 +53,33 @@ class HomeAboutBlock(StructBlock):
 
 
 
+# 
 
-
-
-
-class Projects(StreamBlock):
+class ProjectsContenet(StreamBlock):
     project = PageChooserBlock(required=True, page_type='idec.ProjectDetailPage')
+
+class Projects(StructBlock):
     intro_with_background = intro_with_background()
+    projectsContenet=ProjectsContenet(required = True)
+
+# 
 
 
-class Products(StreamBlock):
+
+class ProductContenet(StreamBlock):
     product = PageChooserBlock(required=True, page_type='product.productDetailPage')
+
+class Products(StructBlock):
     intro_with_background = intro_with_background()
+    productContenet=ProductContenet(required = True)
 
 
-class Blogs(StreamBlock):
+class BlogsContenet(StreamBlock):
     blog = PageChooserBlock(required=True, page_type='blog.blogDetailPage')
+
+class Blogs(StructBlock):
     intro_with_background = intro_with_background()
+    blogsContenet=BlogsContenet(required = True)
 
 
 
@@ -109,9 +124,14 @@ class Aboutvideo(StructBlock):
 # class Services(StreamBlock):
 #     service = ServiceBlock()
 
-class Services(StreamBlock):
+
+class ServicesContenet(StreamBlock):
     service = PageChooserBlock(required=True, page_type='idec.serviesDetailPage')
+
+
+class Services(StructBlock):
     intro_with_background = intro_with_background()
+    services_contenets=ServicesContenet(required = True)
 
 
 
@@ -120,10 +140,12 @@ class career(StreamBlock):
 
 
 
-
-class GalleryBlock(StreamBlock):
+class GalleryContenet(StreamBlock):
     category = PageChooserBlock(required=True, page_type="idec.CategoryPage")
+
+class GalleryBlock(StructBlock):
     intro_with_background = intro_with_background()
+    galleryContenet=GalleryContenet(required = True)
 
 
 
@@ -149,6 +171,9 @@ class BodyBlock(StreamBlock):
     blogs = Blogs()  # إضافة كتلة المشروع
     products = Products()  # إضافة كتلة المشروع
     brands = Brands()  # إضافة كتلة المشروع
+
+
+
 
 class BranchBlock(StreamBlock):
     branch_name = CharBlock()

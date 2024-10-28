@@ -8,6 +8,14 @@
                     {% endif %}
                     <!-- End Hero Section ======================-->
 
+                    {% if block.block_type == 'intro' %}
+                    <!--Hero Section ======================-->
+                        {% include "idec/intro.html" with block=block only %}
+                    {% endif %}
+                    <!-- End Hero Section ======================-->
+
+
+
                     {% if block.block_type == 'about' %}
                     <!--About Section ======================-->
                         {% include "idec/homeabout.html" with block=block only %}

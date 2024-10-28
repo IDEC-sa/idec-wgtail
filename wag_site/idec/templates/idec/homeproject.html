@@ -3,43 +3,46 @@
 <!--Project Section ======================-->
 <section class="section-project project-1">
     <div class="section-full-width">
+
+
+        {% with block.value.intro_with_background as intro %}
+
+
+
+
         <div class="section-title-wrapper position-relative">		
          
 
 
-		
-			{% for slide in block.value %}
-
-			{% if slide.value and forloop.counter == 1 %}
-			
+		 
 			<div class="section-full-width">	
 				<div class="section-title-wrapper position-relative">
 					<div class="scroll-move">
-						<span class="scrolling-text display-1 fw-extra-bold stroke-title text-stroke stroke-opacity-20 stroke-width-1 stroke-primary lh-1">{{ slide.value.background_text }}</span>
+						<span class="scrolling-text display-1 fw-extra-bold stroke-title text-stroke stroke-opacity-20 stroke-width-1 stroke-primary lh-1">{{ intro.background_text }}</span>
 					</div>				
 					<div class="container">	
 						<div class="section-title section-separator">
-							<h2 class="fw-extra-bold heading-title separator lh-1">{{ slide.value.main_text }}</h2>
+							<h2 class="fw-extra-bold heading-title separator lh-1">{{ intro.main_text }}</h2>
 							<div class="d-flex flex-column flex-lg-row gap-4 align-items-lg-end justify-content-lg-between">
-								<p class="fs-4 fw-semibold mb-0 subtitle subtitle-width">{{ slide.value.brief }}</p>	
+								<p class="fs-4 fw-semibold mb-0 subtitle subtitle-width">{{ intro.brief }}</p>	
 							
 							</div>
 						</div>
 					</div>
 				</div>			
 			</div>
-				{% endif %}
-
-			{% endfor %}
+			 
+ 
 
 
         </div>
-
+        {% endwith %}
         <div id="projectSlider" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000"> 
-            <div class="carousel-inner text-secondary">		
+	
 
-                {% for projects in block.value %}
-                    {% if not forloop.first %}
+                {% for projects in block.value.projectsContenet %}
+
+                <div class="carousel-inner text-secondary">	
                         <div class="carousel-item {% if forloop.counter0 == 1 %} active {% endif %}">
                             <div class="project-contents position-relative">
                                 <div class="project-image overlay">
@@ -80,7 +83,6 @@
 								</div>
                             </div>
                         </div>
-                    {% endif %}
                 {% endfor %}
 
             </div>

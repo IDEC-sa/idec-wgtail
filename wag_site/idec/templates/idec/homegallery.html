@@ -9,46 +9,33 @@
 				
 
 
-				{% for slide in block.value %}
-
-				{% if slide.value and forloop.counter == 1 %}
-
 				
 				<div class="section-full-width">	
+					{% with block.value.intro_with_background as intro %}
+                        
 					<div class="section-title-wrapper position-relative">
 						<div class="scroll-move">
-							<span class="scrolling-text display-1 fw-extra-bold stroke-title text-stroke stroke-opacity-20 stroke-width-1 stroke-primary lh-1">{{ slide.value.background_text }}</span>
+							<span class="scrolling-text display-1 fw-extra-bold stroke-title text-stroke stroke-opacity-20 stroke-width-1 stroke-primary lh-1">{{ intro.background_text }}</span>
 						</div>				
 						<div class="container">	
 							<div class="section-title section-separator">
-								<h2 class="fw-extra-bold heading-title separator lh-1">{{ slide.value.main_text }}</h2>
+								<h2 class="fw-extra-bold heading-title separator lh-1">{{ intro.main_text }}</h2>
 								<div class="d-flex flex-column flex-lg-row gap-4 align-items-lg-end justify-content-lg-between">
-									<p class="fs-4 fw-semibold mb-0 subtitle subtitle-width">{{ slide.value.brief }}</p>	
+									<p class="fs-4 fw-semibold mb-0 subtitle subtitle-width">{{ intro.brief }}</p>	
 								
 								</div>
 							</div>
 						</div>
-					</div>			
+					</div>	
+					{% endwith %}		
 				</div>
-
+				
 				<div class="horizontal-accordion d-flex">
-
-					{% endif %}
-
+ 
 
 
+					{% for slide in block.value.galleryContenet %}
 
-
-
-
-
-
-
-
-
-
-					{% if slide.value and forloop.counter > 1 %}
-					{% if slide.value %}
 						<div class="gallery-contents {% if forloop.counter == 1 %} gallery-expand {% else %} gallery-sm {% endif %}">
 							<div class="gallery-wrapper position-relative overflow-hidden w-100 h-100">
 								<div class="gallery-image-wrapper overlay">
@@ -72,12 +59,7 @@
 								</h3>
 							</div>
 						</div>
-					{% else %}
-					{% endif %}
-
-					{% endif %}
-				{% endfor %}
-				
+					{% endfor %}  
 
 
 
