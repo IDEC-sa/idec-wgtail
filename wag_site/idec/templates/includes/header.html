@@ -8,16 +8,16 @@
             <div class="d-none d-xl-block">
                 <div class="container-fluid max-width">
                     <div class="top-bar d-flex justify-content-between align-items-center">
-                        <p class="mb-0 top-bar-text fw-semibold">Welcome to idec</p>
+                        <p class="mb-0 top-bar-text fw-semibold">Welcome to idecs</p>
                         {% if page %}
-                        {% comment %} {% for translation in page.get_translations.live %}
+                       {% for translation in page.get_translations.live %}
                         language is {{ LANGUAGE_CODE }}
 
                             {% get_language_info for translation.locale.language_code as lang %}
                             <a href="{% pageurl translation %}" rel="alternate" hreflang="{{ lang.code }}">
                                 {{ lang.name_local }}
                             </a>
-                        {% endfor %} {% endcomment %}
+                        {% endfor %} 
                         {% endif %}
                         <div class="top-bar-contact d-flex align-items-center">
                             <p class="mb-0 fw-bold">Call Us: <a href="tel:+(1800)456-7890" class="text-decoration-none link-hover-animation-1"> +(1800)456-7890</a></p>
