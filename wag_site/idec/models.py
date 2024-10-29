@@ -353,5 +353,20 @@ class CategoryPage(Page):
         FieldPanel('image'),
         FieldPanel('name'),
         FieldPanel('description'),
-        FieldPanel('title_background')
+        FieldPanel('title_background'),
+        InlinePanel('slider_images_big', label="Slider images big"),
+
+    ]
+
+
+class CategorySliderImage_big(Orderable):
+    page = ParentalKey(CategoryPage, on_delete=models.CASCADE, related_name='slider_images_big')
+    image = models.OneToOneField(
+        'wagtailimages.Image', on_delete=models.CASCADE, related_name='+'
+    )
+    caption = models.CharField(blank=True, max_length=250)
+
+    panels = [
+        FieldPanel('image'),
+        FieldPanel('caption'),
     ]

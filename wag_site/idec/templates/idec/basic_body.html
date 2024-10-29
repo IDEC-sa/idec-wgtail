@@ -56,7 +56,7 @@
 	
 
         
-    		<div class="page {% if LANGUAGE_CODE == 'ar' %} {{ 'arabic' }} {% endif %}">
+		<div class="page {% if LANGUAGE_CODE == 'ar' %} {{ 'arabic' }} {% endif %}">
 
 
 			<div class="preloader">				
@@ -305,12 +305,13 @@
 					</form>
 					
 					<style id="customize-css">:root { --bs-primary: #000000; --bs-primary-rgb: 0, 0, 0; --bs-secondary: #fff1dc; --bs-secondary-rgb: 255, 241, 220; }
-			body { --bs-body-color: #000000; --bs-body-color-rgb: 0, 0, 0; --bs-body-bg: #eeeeee; --bs-body-bg-rgb: 238, 238, 238; }
-			.navbar-nav { --bs-nav-link-color: #000000; }
-			.btn { --bs-btn-border-radius: 0px; --bs-btn-border-width: 2px; }
-			.form-control { --bs-border-radius: 0px; --bs-border-width: 2px; }
-			</style>
-					<link rel="stylesheet" href="{% static 'idec/customize/color.css?ver=1.6' %}">
+			
+									body { --bs-body-color: #000000; --bs-body-color-rgb: 0, 0, 0; --bs-body-bg: #eeeeee; --bs-body-bg-rgb: 238, 238, 238; }
+						.navbar-nav { --bs-nav-link-color: #000000; }
+						.btn { --bs-btn-border-radius: 0px; --bs-btn-border-width: 2px; }
+						.form-control { --bs-border-radius: 0px; --bs-border-width: 2px; }
+					</style>
+					<link rel="stylesheet" href="{% static 'idec/customize/color.css?ver=1.6' %}"/>
 				</div>					
 			</div>
 			<!-- button -->
@@ -443,6 +444,7 @@
 
 
 		</div>
+
 		<!-- pages -->
 			
 			<script src="{% static 'idec/assets/lenis@1.0.29/bundled/lenis.min.js' %}"></script> 
