@@ -58,7 +58,8 @@
                                         {% with post.gallery_images_product.all|first as first_image %}
                                             {% image first_image.image width-1000 as img %}
                                     
-                                            <img src="{{ img.url }}" class="w-100 h-100 object-fit-cover" alt="img">
+                                            {% comment %} <img src="{{ img.url }}" class="w-100 h-100 object-fit-cover" alt="img"> {% endcomment %}
+											<img src="{{ img.url }}" class="w-100 h-100 "  style="height: 300px;" alt="img">
 
                                             {% endwith %}
                                         {% endif %}

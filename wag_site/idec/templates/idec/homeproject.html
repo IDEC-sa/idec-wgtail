@@ -22,7 +22,7 @@
 								<div class="d-flex flex-column flex-lg-row gap-4 align-items-lg-end justify-content-lg-between">
 									<p class="fs-4 fw-semibold mb-0 subtitle subtitle-width">{{ intro.brief }}</p>	
 									<div class="architronix-button">
-										<a href="project-archive.html" class="btn btn-outline-primary  gap-10">All Projects 							
+										<a href="{% pageurl intro.link %}" class="btn btn-outline-primary  gap-10">View All Projects 							
 											<svg class="arrow-reverse" width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
 											</svg>							
@@ -56,7 +56,13 @@
 									<picture>		
 										<!-- <source media="(max-width:470px)" srcset="assets/images/project-1-sm.jpg">	 -->
                                         {% image projects.value.gallery_images.all.0.image width-800 as img %}
+
+
                                         <img src="{{ img.url }}" class="w-100 h-100 object-fit-cover" alt="img">
+                                        {% comment %} <img src="{{ img.url }}" class="w-100 h-100 object-fit-cover"  style="height: 400px;" alt="img"> {% endcomment %}
+
+
+
                                     </picture>											
                                 </div>
                                 <ul class="project-details list-unstyled mb-0 d-flex align-items-center">
@@ -84,8 +90,8 @@
                                 </ul>
                                 
                                 <div class="project-info bg-primary">
-                                    <h5 class="project-title fw-extra-bold">{{ projects.value.title }}</h5>
-                                    <p class="mb-0">{{ projects.value.description|richtext }} </p>
+                                    <h4 class="project-title fw-extra-bold">{{ projects.value.title }}</h4>
+                                    <p class="mb-0">{{ projects.value.description|slice:":150"|richtext }}  ... <a class="text-decoration-none fw-extra-bold" href="project-archive.html">see more</a></p>
                              
 								
 								</div>

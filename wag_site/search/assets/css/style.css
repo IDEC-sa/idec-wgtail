@@ -9376,12 +9376,13 @@ body {
   --bs-gallery-title-border-width: 100px;
   --bs-gallery-description-width: 420px;
   --bs-gallery-description-height: auto;
-  --bs-gallery-description-padding: 0 26px 0 42px;
+  --bs-gallery-description-padding: 60px 26px 60px 42px;
   --bs-gallery-item-info-left-spacing: 30px;
   --bs-gallery-info-bottom-spacing: 50px;
   height: var(--bs-gallery-contents-hight);
   overflow: hidden;
   transition: width 0.7s;
+  
 }
 
 .gallery-contents .gallery-wrapper {

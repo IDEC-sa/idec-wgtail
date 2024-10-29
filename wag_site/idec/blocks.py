@@ -29,6 +29,15 @@ class intro_with_background(StructBlock):
     background_text = TextBlock()
     main_text = TextBlock()
     brief = TextBlock()
+    link = PageChooserBlock(required=False, page_type=None)  # يسمح باختيار أي صفحة وغير ملزم
+
+
+
+
+
+
+
+
 
 class main_info_client(StructBlock):
     main_text = TextBlock()

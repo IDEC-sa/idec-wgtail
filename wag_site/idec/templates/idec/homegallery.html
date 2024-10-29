@@ -16,13 +16,13 @@
 								<h2 class="fw-extra-bold heading-title separator lh-1">{{ intro.main_text }}</h2>
 								<div class="d-flex flex-column flex-lg-row gap-4 align-items-lg-end justify-content-lg-between">
 									<p class="fs-4 fw-semibold mb-0 subtitle subtitle-width">{{ intro.brief }}</p>	
-									<div class="architronix-button">
+									{% comment %} <div class="architronix-button">
 										<a href="project-archive.html" class="btn btn-outline-primary  gap-10">View All Projects 							
 											<svg class="arrow-reverse" width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
 											</svg>							
 										</a>
-									</div>								
+									</div>								 {% endcomment %}
 								</div>
 							</div>
 						</div>
@@ -49,11 +49,12 @@
 											<p>Page URL not available</p>
 										{% endif %}
 										<p class="gallery-description">{{ slide.value.description }}</p>
+
 									</div>
 								</div>								
 							</div>							
 							<h3 class="gallery-item stroke-heading stroke-heading-2 mb-0">
-								<svg stroke-width="1" class="text-line-2 fs-60 fw-extra-bold"><text x="0%" dominant-baseline="middle" y="70%">{{ forloop.counter }}</text></svg>
+								<svg stroke-width="1" class="text-line-2 fs-60 fw-extra-bold"><text {% if LANGUAGE_CODE == 'ar' %} x="100%" {% else %} x="0%" {% endif %} dominant-baseline="middle" y="70%">{{ forloop.counter|add:"-1" }}</text></svg>
 							</h3>													
 						</div>
 												
