@@ -73,7 +73,7 @@ class Projects(StructBlock):
 
 
 
-class ProductContenet(StreamBlock):
+# class ProductContenet(StreamBlock):
 class ProductContenet(StreamBlock):
     product = PageChooserBlock(required=True, page_type='product.productDetailPage')
 
@@ -82,7 +82,7 @@ class Products(StructBlock):
     productContenet=ProductContenet(required = True)
 
 
-class BlogsContenet(StreamBlock):
+# class BlogsContenet(StreamBlock):
 class Products(StructBlock):
     intro_with_background = intro_with_background()
     productContenet=ProductContenet(required = True)
@@ -111,7 +111,7 @@ class FeedbacksBlock(StructBlock):
 class Feedbacks(StreamBlock):
     feedback = FeedbacksBlock()
     intro_with_background = intro_with_background()
-    intro_with_background = intro_with_background()
+    # intro_with_background = intro_with_background()
 
 
  
