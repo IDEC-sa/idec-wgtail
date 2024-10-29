@@ -1,52 +1,60 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 
-<!--Project Section ======================-->
-<section class="section-project project-1">
-    <div class="section-full-width">
+		<!--Project Section ======================-->
+		<div class="section-full-width">
 
 
-        {% with block.value.intro_with_background as intro %}
-
-
-
-
-        <div class="section-title-wrapper position-relative">		
-         
-
-
-		 
-			<div class="section-full-width">	
-				<div class="section-title-wrapper position-relative">
-					<div class="scroll-move">
-						<span class="scrolling-text display-1 fw-extra-bold stroke-title text-stroke stroke-opacity-20 stroke-width-1 stroke-primary lh-1">{{ intro.background_text }}</span>
-					</div>				
-					<div class="container">	
-						<div class="section-title section-separator">
-							<h2 class="fw-extra-bold heading-title separator lh-1">{{ intro.main_text }}</h2>
-							<div class="d-flex flex-column flex-lg-row gap-4 align-items-lg-end justify-content-lg-between">
-								<p class="fs-4 fw-semibold mb-0 subtitle subtitle-width">{{ intro.brief }}</p>	
-							
-							</div>
-						</div>
-					</div>
-				</div>			
-			</div>
-			 
- 
-
-
-        </div>
-        {% endwith %}
-        <div id="projectSlider" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000"> 
+			{% with block.value.intro_with_background as intro %}
 	
+	
+	
+			<div class="section-full-width">	
 
-                {% for projects in block.value.projectsContenet %}
+			<div class="section-title-wrapper position-relative">		
+			 
+							<div class="scroll-move">
+								<span class="scrolling-text display-1 fw-extra-bold stroke-title text-stroke stroke-opacity-20 stroke-width-1 stroke-primary lh-1">{{ intro.background_text }}</span>
+							</div>			
+						
+						<div class="container">	
+							<div class="section-title section-separator">
+								<h2 class="fw-extra-bold heading-title separator lh-1">{{ intro.main_text }}</h2>
+								<div class="d-flex flex-column flex-lg-row gap-4 align-items-lg-end justify-content-lg-between">
+									<p class="fs-4 fw-semibold mb-0 subtitle subtitle-width">{{ intro.brief }}</p>	
+									<div class="architronix-button">
+										<a href="project-archive.html" class="btn btn-outline-primary  gap-10">All Projects 							
+											<svg class="arrow-reverse" width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
+											</svg>							
+										</a>
+									</div>								
+								</div>
+							</div>
+						</div>						
+					</div>
 
-                <div class="carousel-inner text-secondary">	
-                        <div class="carousel-item {% if forloop.counter0 == 1 %} active {% endif %}">
-                            <div class="project-contents position-relative">
-                                <div class="project-image overlay">
-                                    <picture>
+
+
+				</div>
+				{% endwith %}
+
+
+
+
+					<div id="projectSlider" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000"> 
+						{% for projects in block.value.projectsContenet %}
+
+						<div class="carousel-inner text-secondary">		
+                            
+                            
+
+
+						  <div class="carousel-item  {% if forloop.counter0 == 0 %} active   {% endif %} ">
+
+							<div class="project-contents position-relative">
+								<div class="project-image overlay">
+									<picture>		
+										<!-- <source media="(max-width:470px)" srcset="assets/images/project-1-sm.jpg">	 -->
                                         {% image projects.value.gallery_images.all.0.image width-800 as img %}
                                         <img src="{{ img.url }}" class="w-100 h-100 object-fit-cover" alt="img">
                                     </picture>											

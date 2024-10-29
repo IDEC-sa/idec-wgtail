@@ -17,7 +17,7 @@
 .page.arabic .link-hover-animation-1 {
     background-position: right 100%;
 }
- 
+
 
 /* @media (min-width: 992px) {
 
@@ -83,10 +83,39 @@
 }
 
 
-.page.arabic .swiper-button-progress{
+/* .page.arabic .swiper-button-progress{
     flex-direction: row-reverse;
-}
+} */
 
 .page.arabic .blog-title a {
     padding-bottom: 0px;
 }
+.page.arabic .project-details-wrapper.project-details-style{
+    left: 0%;
+    right: auto;
+}
+.page.arabic .project-details-list{
+    padding-right: 0;
+}
+
+.page.arabic .project-gallery-button-prev{
+    right: 0;
+    left: auto;
+}
+.page.arabic .project-gallery-button-next{
+    left: 0;
+    right: auto;
+}
+
+.page.arabic .arrow{
+    transform: none;
+}
+
+.page.arabic .arrow-reverse{
+    transform: rotate(180deg);
+   
+}
+
+.page.arabic .credits-wrapper a{
+    background-position: right 100%;
+} 

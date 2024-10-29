@@ -25543,3 +25543,10 @@ textarea {
   font-size: 80%;
 }
 
+.arrow{
+  transform: rotate(180deg);
+}
+
+.reversed{
+  transform: rotate(180deg);
+}
