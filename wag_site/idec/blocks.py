@@ -80,7 +80,8 @@ class Projects(StructBlock):
 
 # 
 
-
+class Banner(StreamBlock):
+    banner = PageChooserBlock(required=True, page_type='banner.BannerDetailPage')
 
 # class ProductContenet(StreamBlock):
 class ProductContenet(StreamBlock):
@@ -199,6 +200,7 @@ class BodyBlock(StreamBlock):
     blogs = Blogs()  # إضافة كتلة المشروع
     products = Products()  # إضافة كتلة المشروع
     brands = Brands()  # إضافة كتلة المشروع
+    banner = Banner()  # إضافة كتلة المشروع
 
 
 

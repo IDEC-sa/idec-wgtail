@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     "idec",
     "blog",
     "projects",
+    "banner",
 
     "about_us",
     "home",

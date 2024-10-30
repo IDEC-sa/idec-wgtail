@@ -9702,7 +9702,7 @@ body {
 }
 
 .feedback-wrapper {
-  background-image: url("../images/feedback-image.jpg");
+  /* background-image: url("../images/feedback-image.jpg"); */
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -25549,4 +25549,17 @@ textarea {
 
 .reversed{
   transform: rotate(180deg);
+}
+
+
+
+
+.feedback-background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* تأكد من ملاءمة الصورة للحاوية */
+  height: 100%; /* تأكد من ملاءمة الصورة للحاوية */
+  object-fit: cover; /* يضمن تغطية المساحة بالكامل مع الحفاظ على نسبة العرض إلى الارتفاع */
+  z-index: 1; /* اجعل الصورة خلف المحتوى */
 }

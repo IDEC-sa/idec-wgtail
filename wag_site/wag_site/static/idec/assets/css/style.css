@@ -9702,7 +9702,7 @@ body {
 }
 
 .feedback-wrapper {
-  background-image: url("../images/feedback-image.jpg");
+  /* background-image: url("../images/feedback-image.jpg"); */
   background-position: center;
   background-repeat: no-repeat;
 }

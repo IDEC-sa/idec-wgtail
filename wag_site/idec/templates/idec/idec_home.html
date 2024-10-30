@@ -69,6 +69,15 @@
                     {% endif %}
 
 
+
+                    {% if block.block_type == 'banner' %}
+                    <!--blog Section ======================-->
+                        {% include "banner/home_banner.html" with block=block only %}
+                    <!--End blog Section ======================-->
+                    {% endif %}
+
+
+
                 {% endfor %}
             {% endwith %}
 			{% endblock %}
