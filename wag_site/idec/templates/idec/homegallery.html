@@ -1,4 +1,8 @@
 {% load wagtailcore_tags wagtailimages_tags %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+
 {% load static %}
 
             <!--Gallery Section ======================-->
@@ -38,27 +42,29 @@
 						
 						<div class="gallery-wrapper position-relative overflow-hidden w-100 h-100">
 							<div class="gallery-image-wrapper overlay">
-								{% image slide.value.slider_images_big.all.0.image width-750 height-750 as img %}
+								{% with slide.value.localized as localized_slide %}
+								{% image localized_slide.slider_images_big.all.0.image width-750 height-750 as img %}
                                 <img alt="hero-image" class="position-absolute start-0 top-0 w-100 h-100 object-fit-cover" src="{{ img.url }}">
 								{% comment %} jkasndjkasd {% endcomment %}
                                 <div class="gallery-info-wrapper">
 									<div class="gallery-info">
-										{% if slide.value.get_full_url %}
-										<a href="{% pageurl slide.value %}" class="text-decoration-none link-hover-animation-1 gallery-title separator"><h4 class="mb-0">{{ slide.value.name }}</h4></a>
+										{% if localized_slide.get_full_url %}
+										<a href="{% pageurl localized_slide %}" class="text-decoration-none link-hover-animation-1 gallery-title separator"><h4 class="mb-0">{{ localized_slide.name }}</h4></a>
 										{% else %}
 											<p>Page URL not available</p>
 										{% endif %}
-										<p class="gallery-description">{{ slide.value.description }}</p>
+										<p class="gallery-description">{{ localized_slide.description }}</p>
 
 									</div>
 								</div>								
 							</div>							
 							<h3 class="gallery-item stroke-heading stroke-heading-2 mb-0">
-								<svg stroke-width="1" class="text-line-2 fs-60 fw-extra-bold"><text {% if LANGUAGE_CODE == 'ar' %} x="100%" {% else %} x="0%" {% endif %} dominant-baseline="middle" y="70%">{{ forloop.counter|add:"-1" }}</text></svg>
+								<svg stroke-width="1" class="text-line-2 fs-60 fw-extra-bold"><text {% if LANGUAGE_CODE == 'ar' %} x="100%" {% else %} x="0%" {% endif %} dominant-baseline="middle" y="70%">{{ forloop.counter }}</text></svg>
 							</h3>													
 						</div>
 												
 					</div>
+					{% endwith %}
                     {% endfor %}
 				  				
 				</div>			  
