@@ -1,6 +1,8 @@
 <!--About Section ======================-->
 {% load  wagtailimages_tags %}
 {% load wagtailcore_tags %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 {% load static %}
 
 <section class="section-about about-1 section-full-width">	
@@ -32,7 +34,7 @@
                                 <div class="about-content-inner d-flex flex-column flex-lg-row">
                                     <div class="list-item-number">
                                         <h3 class="stroke-heading stroke-heading-2 mb-0">
-                                            <svg stroke-width="1" class="text-line-2 fs-60 fw-extra-bold"><text x="0%" dominant-baseline="middle" y="70%">{{ forloop.counter }}</text></svg>
+                                            <svg stroke-width="1" class="text-line-2 fs-60 fw-extra-bold"><text {% if LANGUAGE_CODE == 'ar' %} x="100%" {% else %} x="0%" {% endif %} dominant-baseline="middle" y="70%">{{ forloop.counter }}</text></svg>
                                         </h3>
                                     </div>									
                                     
