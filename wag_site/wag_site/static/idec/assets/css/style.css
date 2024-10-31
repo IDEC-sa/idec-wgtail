@@ -9566,7 +9566,7 @@ body {
 
 @media (min-width: 1400px) and (max-width: 1599px) {
   .gallery-contents {
-    --bs-gallery-description-width: 268px;
+    --bs-gallery-description-width: 210px;
     --bs-gallery-description-padding: 0 8px 0 20px;
     --bs-gallery-title-width: 222px;
   }
