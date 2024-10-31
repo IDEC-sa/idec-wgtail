@@ -43,8 +43,10 @@ class Slider(StreamBlock):
 class intro_with_background(StructBlock):
     background_text = TextBlock()
     main_text = TextBlock()
-    brief = TextBlock()
+    brief = TextBlock(required=False)
     link = PageChooserBlock(required=False, page_type=None)  # يسمح باختيار أي صفحة وغير ملزم
+    button_all = TextBlock(required=False)
+    link_button_all = TextBlock(required=False)
 
 
 
@@ -72,6 +74,7 @@ class HomeAboutBlock(StructBlock):
     main_info = main_info()
     intro_with_background = intro_with_background()
     AboutUs = PageChooserBlock(required=True, page_type="about_us.aboutHome")
+    button = TextBlock(required=False)
 
 
 
