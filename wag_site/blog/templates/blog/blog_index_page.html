@@ -59,7 +59,7 @@
 								
 
 									<div class="blog-details">
-										<p>{{ post.blog_type}} </p>
+										<p>  {{ post.blog_date|date:"j F" }} / {{ post.category}} </p>
 										<h5 class="blog-title fs-5 fw-semibold"><a href="{% pageurl post %}" class="link-hover-animation-1 stretched-link text-decoration-none">{{ post.blog_title}} </a></h5>
 									</div>
 

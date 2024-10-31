@@ -57,7 +57,8 @@
 										</div>
 
 										<div class="blog-details">
-											<p>  {{ slide.value.blog_date|date:"j F" }} / {{ slide.value.blog_type}} </p>
+											<p>  {{ slide.value.blog_date|date:"j F" }} / {{ slide.value.category}} </p>
+
 											<h5 class="blog-title fs-5 fw-semibold"><a href="{% pageurl slide.value %}" class="link-hover-animation-1 stretched-link text-decoration-none">{{ slide.value.blog_title}} </a></h5>
 										</div>
 
