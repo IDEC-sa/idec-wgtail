@@ -67,7 +67,7 @@ class BlogDetailPage(Page):
     blog_subtitle = models.CharField(max_length=255, blank=True, null=True)
     blog_description = RichTextField()
     # blog_start_date = models.DateTimeField()  # تأكد من أن الحقل موجود في النموذج
-    blog_type = models.CharField(max_length=255)
+    # blog_type = models.CharField(max_length=255)
     blog_date = models.DateTimeField("Publication Date", blank=True, null=True)  # أضف حقل التاريخ هنا
     category = models.ForeignKey(  # تغيير الاسم إلى 'category'
         'idec.CategoryPage', 
@@ -82,7 +82,7 @@ class BlogDetailPage(Page):
         FieldPanel('blog_subtitle'),
         FieldPanel('blog_description'),
         # FieldPanel('blog_start_date'),
-        FieldPanel('blog_type'),
+        # FieldPanel('blog_type'),
         InlinePanel('gallery_images_blog', label="Gallery images"),
         FieldPanel('blog_date'),  # إضافة حقل التاريخ إلى اللوحة
         PageChooserPanel('category', 'idec.CategoryPage'),  # تغيير هنا إلى 'category'
