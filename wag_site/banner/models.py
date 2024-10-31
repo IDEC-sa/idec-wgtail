@@ -32,72 +32,19 @@ from wagtail.contrib.settings.models import (
     register_setting,
 )
 
+from banner.blocks import BodyBlock_banners
 
 
 
 
 
 
+class IdecBanners(Page):
 
 
-
-
-
-# --------------------------------------------------------------
-# ----------------------------------------------------------------
-# ----------------------------------------------------------------
-# --------------------------------------------------------------
-# ----------------------------------------------------------------
-# ----------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
-# ------------------------------------------------------------------
-
-# نموذج الصفحة الرئيسية لعرض البانر
-class BannerIndexPage(Page):
-    banner_intro = models.CharField(max_length=255, blank=True)
-    banner_sub_title = models.CharField(max_length=255, blank=True)
-    banner_title_background = models.CharField(max_length=255, blank=True)
-    subpage_types = ['BannerDetailPage']  # تأكد من استخدام الأسماء الصحيحة للنماذج الفرعية
+    body = StreamField(BodyBlock_banners(), blank=True)        # new
 
     content_panels = Page.content_panels + [
-        FieldPanel('banner_intro'),
-        FieldPanel('banner_sub_title'),
-        FieldPanel('banner_title_background'),
-    ]
-
-# نموذج الصفحة التفصيلية للبانر
-class BannerDetailPage(Page):
-    title_banner = models.CharField(max_length=255)
-    subtitle_banner = models.CharField(max_length=255, blank=True, null=True)
-    link_banner = RichTextField()
-    button_banner = models.CharField(max_length=255)  # تأكد من أن هذا هو النص المناسب للرابط
-
-    content_panels = Page.content_panels + [
-        FieldPanel('title_banner'),
-        FieldPanel('subtitle_banner'),
-        FieldPanel('link_banner'),
-        FieldPanel('button_banner'),  # يمكنك تغييره حسب الحاجة
-        InlinePanel('gallery_images', label="Gallery images"),  # تأكد من أن الاسم صحيح
-    ]
-
-# نموذج لصور المعرض
-class BannerIndexGalleryImage(Orderable):
-    page = ParentalKey(BannerDetailPage, on_delete=models.CASCADE, related_name='gallery_images')
-    image = models.ForeignKey(
-        'wagtailimages.Image', on_delete=models.CASCADE, related_name='+'
-    )
-    caption = models.CharField(blank=True, max_length=250)
-
-    panels = [
-        FieldPanel('image'),
-        FieldPanel('caption'),
+        FieldPanel("body"),
+                       # new
     ]

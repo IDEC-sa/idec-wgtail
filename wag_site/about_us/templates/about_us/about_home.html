@@ -24,11 +24,11 @@
                                         {% endif %}
                                         <!-- End Hero Section ======================-->
 
-                                        {% if block.block_type == 'banner' %}
+                                        {% comment %} {% if block.block_type == 'banner' %}
                                         <!--blog Section ======================-->
                                             {% include "banner/home_banner.html" with block=block only %}
                                         <!--End blog Section ======================-->
-                                        {% endif %}
+                                        {% endif %} {% endcomment %}
                     
                     
                 {% endfor %}

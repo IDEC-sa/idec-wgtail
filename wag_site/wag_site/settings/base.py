@@ -34,7 +34,7 @@ INSTALLED_APPS = [
     "blog",
     "projects",
     "banner",
-
+    # "wagtailvideos",
     "about_us",
     "home",
     "search",

@@ -6,6 +6,13 @@
                     <!--Hero Section ======================-->
                         {% include "idec/homeslider.html" with block=block only %}
                     {% endif %}
+
+                    {% if block.block_type == 'slide_text' %}
+                    <!--Hero Section ======================-->
+                        {% include "idec/homeslider_text.html" with block=block only %}
+                    {% endif %}
+
+
                     <!-- End Hero Section ======================-->
                     {% if block.block_type == 'intro' %}
                     <!--Hero Section ======================-->
@@ -70,11 +77,20 @@
 
 
 
-                    {% if block.block_type == 'banner' %}
+                    {% comment %} {% if block.block_type == 'banner' %}
                     <!--blog Section ======================-->
                         {% include "banner/home_banner.html" with block=block only %}
                     <!--End blog Section ======================-->
+                    {% endif %} {% endcomment %}
+
+
+
+                    {% if block.block_type == 'banners' %}
+                    <!--blog Section ======================-->
+                        {% include "banner/home_banners.html" with block=block only %}
+                    <!--End blog Section ======================-->
                     {% endif %}
+
 
 
 

@@ -6,9 +6,26 @@ from wagtail.blocks import (BooleanBlock, CharBlock, ChoiceBlock,
 
 from wagtail.images.blocks import ImageChooserBlock
 
+from banner.blocks import Banners
 
 
 
+# ------------------------------------------
+class SliderTextContenet(StreamBlock):
+    text = TextBlock(required=False)
+
+class SliderText(StructBlock):
+
+    home_Text = TextBlock(required=False)
+    button = TextBlock(required=False)
+    link = TextBlock(required=False)
+
+    sliderTextContenet=SliderTextContenet(required = True)
+
+class Slider_text(StreamBlock):
+    slide_text = SliderText()
+
+# ------------------------------------------
 
 class SliderImage(StructBlock):
 
@@ -23,13 +40,15 @@ class Slider(StreamBlock):
     slide = SliderImage()
 
 
-
+# ------------------------------------------
 
 class intro_with_background(StructBlock):
     background_text = TextBlock()
     main_text = TextBlock()
-    brief = TextBlock()
+    brief = TextBlock(required=False)
     link = PageChooserBlock(required=False, page_type=None)  # يسمح باختيار أي صفحة وغير ملزم
+    button_all = TextBlock(required=False)
+    link_button_all = TextBlock(required=False)
 
 
 
@@ -57,6 +76,7 @@ class HomeAboutBlock(StructBlock):
     main_info = main_info()
     intro_with_background = intro_with_background()
     AboutUs = PageChooserBlock(required=True, page_type="about_us.aboutHome")
+    button = TextBlock(required=False)
 
 
 
@@ -80,8 +100,8 @@ class Projects(StructBlock):
 
 # 
 
-class Banner(StreamBlock):
-    banner = PageChooserBlock(required=True, page_type='banner.BannerDetailPage')
+# class Banner(StreamBlock):
+#     banner = PageChooserBlock(required=True, page_type='banner.BannerDetailPage')
 
 # class ProductContenet(StreamBlock):
 class ProductContenet(StreamBlock):
@@ -190,6 +210,8 @@ class Brands(StreamBlock):
 class BodyBlock(StreamBlock):
     h1 = CharBlock()
     slider = Slider()
+    slider_text = Slider_text()
+   
     about = HomeAboutBlock()
     projects = Projects()  # إضافة كتلة المشروع
     feedback = Feedbacks()
@@ -200,7 +222,8 @@ class BodyBlock(StreamBlock):
     blogs = Blogs()  # إضافة كتلة المشروع
     products = Products()  # إضافة كتلة المشروع
     brands = Brands()  # إضافة كتلة المشروع
-    banner = Banner()  # إضافة كتلة المشروع
+    # banner = Banner()  # إضافة كتلة المشروع
+    banners = Banners()  # إضافة كتلة المشروع
 
 
 
