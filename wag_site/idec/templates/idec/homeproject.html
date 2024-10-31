@@ -42,13 +42,10 @@
 
 
 					<div id="projectSlider" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000"> 
-						{% for projects in block.value.projectsContenet %}
+                        <div class="carousel-inner text-secondary">		
+                        {% for projects in block.value.projectsContenet %}
 
-						<div class="carousel-inner text-secondary">		
-                            
-                            
-
-
+                                sayed
 						  <div class="carousel-item  {% if forloop.counter0 == 0 %} active   {% endif %} ">
 
 							<div class="project-contents position-relative">
@@ -97,9 +94,11 @@
 								</div>
                             </div>
                         </div>
-                {% endfor %}
+                        {% endfor %}
 
-            </div>
+            {% comment %} </div> {% endcomment %}
+        </div>
+
 
             <div class="project-carousel-buttons d-flex gap-4">
                 <a href="#" class="project-prev-btn btn prev-btn prev-btn-sm" data-bs-target="#projectSlider" data-bs-slide="prev">
