@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-
+from wagtail_localize.fields import SynchronizedField, TranslatableField
 from wagtail.fields import StreamField, RichTextField
 from .blocks import BodyBlock, HomeAboutBlock,Projects
 from wagtail.admin.panels import FieldPanel, InlinePanel
@@ -357,11 +357,16 @@ class CategoryPage(Page):
         InlinePanel('slider_images_big', label="Slider images big"),
 
     ]
-
+    translatable_fields = [
+        TranslatableField("name"),
+        TranslatableField('description'),
+        TranslatableField('title_background'),
+        TranslatableField('slider_images_big')
+    ]
 
 class CategorySliderImage_big(Orderable):
     page = ParentalKey(CategoryPage, on_delete=models.CASCADE, related_name='slider_images_big')
-    image = models.OneToOneField(
+    image = models.ForeignKey(
         'wagtailimages.Image', on_delete=models.CASCADE, related_name='+'
     )
     caption = models.CharField(blank=True, max_length=250)

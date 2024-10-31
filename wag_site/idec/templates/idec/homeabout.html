@@ -38,12 +38,12 @@
                                     
                                     <div>
                                         <h4>{{ block.value.main_text}}</h4>
-                                        <p class="mb-0">We thrive on challenging the norms, infusing each project with fresh, innovative perspectives that defy convention.</p>
+                                        <p class="mb-0">{{ block.value.brief}}</p>
                                     </div>
                                 </div>
                                 {% endfor %}
                                 <div>
-                                    <a href="{% pageurl block.value.AboutUs %}" class="btn btn-link link-hover-animation-1 d-inline-flex gap-10 align-items-center">Learn more About Us <span>
+                                    <a href="{% pageurl block.value.AboutUs.localized %}" class="btn btn-link link-hover-animation-1 d-inline-flex gap-10 align-items-center">Learn more About Us <span>
                                         <svg class="arrow-reverse" width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
                                         </svg></span>

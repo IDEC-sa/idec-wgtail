@@ -37,8 +37,9 @@
 
             
             <nav class="navbar navbar-expand-xl navbar-light nav-border hover-menu" aria-label="Offcanvas navbar large">	
-                <div class="container-fluid max-width">										
-                    <a class="navbar-brand py-0" href="/">
+                <div class="container-fluid max-width">
+                    {% get_site_root as site_root %}									
+                    <a class="navbar-brand py-0" href="{% pageurl site_root.localized %}">
                         <span class="logo">
                             <img src="https://raw.githubusercontent.com/IDEC-sa/e-commerce/a787d6727bd19e4d62991bee4f00e70993751783/ui-themez.smartinnovates.net/items/swoo_html/home_lighting/images/1.png" alt="logo" style="height: 80px; width: auto;">
                           
