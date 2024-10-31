@@ -6,6 +6,13 @@
                     <!--Hero Section ======================-->
                         {% include "idec/homeslider.html" with block=block only %}
                     {% endif %}
+
+                    {% if block.block_type == 'slide_text' %}
+                    <!--Hero Section ======================-->
+                        {% include "idec/homeslider_text.html" with block=block only %}
+                    {% endif %}
+
+
                     <!-- End Hero Section ======================-->
                     {% if block.block_type == 'intro' %}
                     <!--Hero Section ======================-->

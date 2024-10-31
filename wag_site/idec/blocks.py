@@ -8,7 +8,22 @@ from wagtail.images.blocks import ImageChooserBlock
 
 
 
+# ------------------------------------------
+class SliderTextContenet(StreamBlock):
+    text = TextBlock(required=False)
 
+class SliderText(StructBlock):
+
+    home_Text = TextBlock(required=False)
+    button = TextBlock(required=False)
+    link = TextBlock(required=False)
+
+    sliderTextContenet=SliderTextContenet(required = True)
+
+class Slider_text(StreamBlock):
+    slide_text = SliderText()
+
+# ------------------------------------------
 
 class SliderImage(StructBlock):
 
@@ -23,7 +38,7 @@ class Slider(StreamBlock):
     slide = SliderImage()
 
 
-
+# ------------------------------------------
 
 class intro_with_background(StructBlock):
     background_text = TextBlock()
@@ -190,6 +205,8 @@ class Brands(StreamBlock):
 class BodyBlock(StreamBlock):
     h1 = CharBlock()
     slider = Slider()
+    slider_text = Slider_text()
+   
     about = HomeAboutBlock()
     projects = Projects()  # إضافة كتلة المشروع
     feedback = Feedbacks()
