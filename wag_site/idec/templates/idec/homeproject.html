@@ -44,15 +44,15 @@
 					<div id="projectSlider" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000"> 
                         <div class="carousel-inner text-secondary">		
                         {% for projects in block.value.projectsContenet %}
-
-                                sayed
+                            {% with projects.value.localized as loc_project %}
+                                {% comment %} sayed {% endcomment %}
 						  <div class="carousel-item  {% if forloop.counter0 == 0 %} active   {% endif %} ">
 
 							<div class="project-contents position-relative">
 								<div class="project-image overlay">
 									<picture>		
 										<!-- <source media="(max-width:470px)" srcset="assets/images/project-1-sm.jpg">	 -->
-                                        {% image projects.value.gallery_images.all.0.image width-800 as img %}
+                                        {% image loc_project.gallery_images.all.0.image width-800 as img %}
 
 
                                         <img src="{{ img.url }}" class="w-100 h-100 object-fit-cover" alt="img">
@@ -65,35 +65,36 @@
                                 <ul class="project-details list-unstyled mb-0 d-flex align-items-center">
                                     <li class="d-flex flex-column gap-2 gap-xxl-10">
                                         <span class="fs-5 fw-bold">Clients:</span>
-                                        <span>{{ projects.value.clients }}</span>
+                                        <span>{{ loc_project.clients }}</span>
                                     </li>
                                     <li class="d-flex flex-column gap-2 gap-xxl-10">
                                         <span class="fs-5 fw-bold">Area:</span>
-                                        <span>{{ projects.value.area }}</span>
+                                        <span>{{ loc_project.area }}</span>
                                     </li>
                                     <li class="d-none d-sm-block">
                                         <span class="d-flex flex-column gap-2 gap-xxl-10">
                                             <span class="fs-5 fw-bold">Project year:</span>
-                                            <span>{{ projects.value.project_year }}</span>
+                                            <span>{{ loc_project.project_year }}</span>
                                         </span>												
                                     </li>
                                     <li class="d-flex flex-column gap-2 gap-xxl-10">
                                         <span class="fs-5 fw-bold">Project type:</span>
-                                        <span>{{ projects.value.project_type }}</span>
+                                        <span>{{ loc_project.project_type }}</span>
                                     </li>
 									<li class="architronix-button d-none d-xl-block">
-										<a href="{% pageurl projects.value %}" class="btn btn-outline-secondary  gap-10">View Project</a>
+										<a href="{% pageurl loc_project %}" class="btn btn-outline-secondary  gap-10">View Project</a>
 									</li>
                                 </ul>
                                 
                                 <div class="project-info bg-primary">
-                                    <h4 class="project-title fw-extra-bold">{{ projects.value.title }}</h4>
-                                    <p class="mb-0">{{ projects.value.description|slice:":150"|richtext }}  ... <a class="text-decoration-none fw-extra-bold" href="project-archive.html">see more</a></p>
+                                    <h4 class="project-title fw-extra-bold">{{ loc_project.title }}</h4>
+                                    <p class="mb-0">{{ loc_project.description|slice:":150"|richtext }}  ... <a class="text-decoration-none fw-extra-bold" href="project-archive.html">see more</a></p>
                              
 								
 								</div>
                             </div>
                         </div>
+                        {% endwith %}
                         {% endfor %}
 
         </div>
