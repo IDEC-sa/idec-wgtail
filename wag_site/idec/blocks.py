@@ -101,7 +101,7 @@ class Projects(StructBlock):
 # 
 
 # class Banner(StreamBlock):
-#     banner = PageChooserBlock(required=True, page_type='banner.BannerDetailPage')
+#     banner = PageChooserBlock(required=True,)
 
 # class ProductContenet(StreamBlock):
 class ProductContenet(StreamBlock):
@@ -137,16 +137,10 @@ class FeedbacksBlock(StructBlock):
     icon = CharBlock(required=False, max_length=200)
 
 
-
 class Feedbacks(StreamBlock):
     feedback = FeedbacksBlock()
     intro_with_background = intro_with_background()
     # intro_with_background = intro_with_background()
-
-
- 
-
-
 
 class Aboutvideo(StructBlock):
     title = CharBlock(required=True, max_length=100)
