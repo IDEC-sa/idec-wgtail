@@ -100,4 +100,3 @@ class BlogGalleryImage(Orderable):
         FieldPanel('image'),
         FieldPanel('caption'),
     ]
-
