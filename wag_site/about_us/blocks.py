@@ -82,8 +82,8 @@ class AboutStory(StructBlock):
 
 
 
-class Banner(StreamBlock):
-    banner = PageChooserBlock(required=True, page_type='banner.BannerDetailPage')
+# class Banner(StreamBlock):
+#     banner = PageChooserBlock(required=True, page_type='banner.BannerDetailPage')
 
 # الكتلة الرئيسية التي تحتوي على جميع المكونات
 class BodyBlock_about(StreamBlock):
@@ -93,7 +93,7 @@ class BodyBlock_about(StreamBlock):
     aboutvideo = Aboutvideo()
     about_banner = AboutBanner()
     aboutstory = AboutStory()
-    banner = Banner()  # إضافة كتلة المشروع
+    # banner = Banner()  # إضافة كتلة المشروع
 
 
 class BranchBlock(StreamBlock):

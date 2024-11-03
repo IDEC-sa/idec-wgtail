@@ -56,7 +56,8 @@
 										</div>
 
 										<div class="blog-details">
-											<p>{{ localized_slide.blog_type}} </p>
+											<p>  {{ localized_slide.blog_date|date:"j F" }} / {{ localized_slide.category}} </p>
+
 											<h5 class="blog-title fs-5 fw-semibold"><a href="{% pageurl localized_slide %}" class="link-hover-animation-1 stretched-link text-decoration-none">{{ localized_slide.blog_title}} </a></h5>
 										</div>
 

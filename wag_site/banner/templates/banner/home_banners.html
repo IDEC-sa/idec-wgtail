@@ -1,0 +1,29 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load static %}
+
+<!-- banner Section ======================-->
+<section class="section-feedback feedback-1 text-secondary">
+    <div class="container">
+
+            <div class="feedback-wrapper position-relative">
+        
+                {% image block.value.image_b width-800 as img %} 
+                <img src="{{ img.url }}" alt="banner Image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" />  
+                
+
+
+
+                <div class="feedback-content d-flex flex-column gap-4 flex-lg-row align-items-lg-end justify-content-lg-around">
+                    <h2 class="fw-extra-bold feedback-title" style="position: relative; z-index: 1;">
+                        {{ block.value.title_b }}
+                    </h2>
+                    <div class="architronix-button">
+                        <a href="{{ block.value.link_b }}" class="btn btn-secondary gap-10">
+                            {{ block.value.button_b }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+    </div>
+</section>
+<!-- banner Section ======================-->

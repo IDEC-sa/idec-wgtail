@@ -27,9 +27,9 @@
 					<div class="blog-single-text position-absolute">
 						<h5 class="display-3 fw-extra-bold mb-0">{{ page.blog_title|richtext }}</h5>
 						<ul class="contact-lists list-unstyled mb-0 d-flex">
-							 
-							<li>{{ page.blog_type|richtext }}</li>
-							 
+
+							<li>{{ page.blog_date|date:"j F" }} / {{ page.category}} </li>
+
 						</ul>
 					</div>
 				</div>
