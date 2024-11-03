@@ -9398,6 +9398,10 @@ body {
   stroke: var(--bs-white);
 }
 
+.arabic .gallery-contents .gallery-wrapper .gallery-item {
+  right: var(--bs-gallery-item-info-left-spacing);
+
+}
 .gallery-contents .gallery-wrapper .gallery-item {
   position: absolute;
   top: 30px;
