@@ -1,0 +1,41 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% load static %}
+
+<!-- Hero Section ======================-->
+<section class="section-hero hero-3 position-relative max-width z-1 overflow-hidden ">
+
+    <div class="video-bg">    
+        <video muted loop autoplay>                        
+            <source src="{% static 'videos/video-3.mp4' %}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="video-bg-overlay"></div>                    
+        <div>                        
+            <div class="container">        
+                <div class="content-text text-start">    
+                    <h1 class="huge-text light-text typed-text fw-extra-bold lh-1">
+                        {{ block.value.text_slider }}<br>
+                        <div id="typed-strings">
+                            {% for text_item in block.value.slide_chinging_text %}
+
+                                <p>{{ text_item.value.text }}</p>
+                            {% endfor %}
+                        </div>
+                        <span id="typed"></span>                                
+                    </h1>
+                    <div class="architronix-button">
+                        <a href="{{ block.value.buttonUrl }} " class="btn btn-secondary gap-10"> {{ block.value.buttonText }} 
+                            <svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
+                            </svg>    
+                        </a>
+                    </div>
+                </div>                                        
+            </div>                        
+        </div>                    
+    </div>
+
+</section>
+<!-- Hero Section ======================-->

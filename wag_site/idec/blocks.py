@@ -7,23 +7,26 @@ from wagtail.blocks import (BooleanBlock, CharBlock, ChoiceBlock,
 from wagtail.images.blocks import ImageChooserBlock
 
 from banner.blocks import Banners
+from wagtail.embeds.blocks import EmbedBlock
+# pip install wagtailmedia
+
+# from wagtail.documents.blocks import DocumentBlock  # تأكد من استيراد DocumentBlock
 
 
+# # ------------------------------------------
+# class SliderTextContenet(StreamBlock):
+#     text = TextBlock(required=False)
 
-# ------------------------------------------
-class SliderTextContenet(StreamBlock):
-    text = TextBlock(required=False)
+# class SliderText(StructBlock):
 
-class SliderText(StructBlock):
+#     home_Text = TextBlock(required=False)
+#     button = TextBlock(required=False)
+#     link = TextBlock(required=False)
 
-    home_Text = TextBlock(required=False)
-    button = TextBlock(required=False)
-    link = TextBlock(required=False)
+#     sliderTextContenet=SliderTextContenet(required = True)
 
-    sliderTextContenet=SliderTextContenet(required = True)
-
-class Slider_text(StreamBlock):
-    slide_text = SliderText()
+# class Slider_text(StreamBlock):
+#     slide_text = SliderText()
 
 # ------------------------------------------
 
@@ -38,6 +41,47 @@ class SliderImage(StructBlock):
 
 class Slider(StreamBlock):
     slide = SliderImage()
+
+
+# ------------------------------------------
+
+# class SliderText(StructBlock):
+
+#     text = TextBlock(required=False)
+
+# class Sliderindex(StructBlock):
+
+#     text_slider = TextBlock(required=False)
+#     buttonText = TextBlock(required=False)
+#     buttonUrl = URLBlock(required=False)
+#     # video = FileBlock(required=False)  # لإضافة ملف الفيديو
+#     # video = EmbedBlock(required=False)  # لإضافة فيديو يوتيوب
+#     # video = TextBlock(required=False)  # لإضافة ملف الفيديو بصيغة MP4
+#     # video = FileBlock(required=False)  # لإضافة ملف الفيديو بصيغة MP4
+#     # video = FileBlock(required=False)  # لتحديد ملف الفيديو
+#     # video = URLBlock(required=False)  # لتحديد رابط الفيديو
+#     video = EmbedBlock(required=False)  # لتضمين فيديو
+
+# https://drive.google.com/file/d/1vWFkY-QKoq6ssD2O67jtR0N8cxUgYwK7/preview
+# https://www.youtube.com/watch?v=n3X0Xm7yn5Y&t=1978s
+
+
+
+class main_text(StructBlock):
+    text = TextBlock(required=False)
+
+class main_slider(StreamBlock):
+    main_info_member = main_text()
+
+
+
+class SliderVideo(StructBlock):
+    text_slider = TextBlock(required=False)
+    buttonText = TextBlock(required=False)
+    buttonUrl = URLBlock(required=False)
+    video = EmbedBlock(required=False)  # لتضمين فيديو
+
+    slide_chinging_text = main_slider()
 
 
 # ------------------------------------------
@@ -204,7 +248,7 @@ class Brands(StreamBlock):
 class BodyBlock(StreamBlock):
     h1 = CharBlock()
     slider = Slider()
-    slider_text = Slider_text()
+    slidervideo = SliderVideo()
    
     about = HomeAboutBlock()
     projects = Projects()  # إضافة كتلة المشروع

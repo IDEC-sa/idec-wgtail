@@ -1,15 +1,32 @@
 {% extends "idec/basic_body.html" %}
 			{% block content %}
             {% with blocks=page.body %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 {% for block in blocks %} 
                     {% if block.block_type == 'slider' %}
                     <!--Hero Section ======================-->
                         {% include "idec/homeslider.html" with block=block only %}
                     {% endif %}
 
-                    {% if block.block_type == 'slide_text' %}
+                   {% if block.block_type == 'slidervideo' %}
                     <!--Hero Section ======================-->
-                        {% include "idec/homeslider_text.html" with block=block only %}
+                        {% include "idec/homeslider_video.html" with block=block only %}
                     {% endif %}
 
 
