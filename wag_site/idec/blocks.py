@@ -8,6 +8,8 @@ from wagtail.images.blocks import ImageChooserBlock
 
 from banner.blocks import Banners
 from wagtail.embeds.blocks import EmbedBlock
+from wagtailvideos.blocks import VideoChooserBlock
+
 # pip install wagtailmedia
 
 # from wagtail.documents.blocks import DocumentBlock  # تأكد من استيراد DocumentBlock
@@ -79,8 +81,7 @@ class SliderVideo(StructBlock):
     text_slider = TextBlock(required=False)
     buttonText = TextBlock(required=False)
     buttonUrl = URLBlock(required=False)
-    video = EmbedBlock(required=False)  # لتضمين فيديو
-
+    video = VideoChooserBlock(required=True,)  # لتضمين فيديو
     slide_chinging_text = main_slider()
 
 

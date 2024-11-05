@@ -2,7 +2,7 @@
 
  
 			<!--Blog Section ======================-->
-			<section class="section-blog blog-1" style="    --bs-section-feedback-padding: 120px 0;
+			<section class="section-blog blog-1" style="--bs-section-feedback-padding: 120px 0;
  padding: var(--bs-section-feedback-padding);">	
 
 
@@ -42,10 +42,11 @@
 				<div class="container">
 					<div class="swiper-custom-progress position-relative">
 						<div class="swiper blog-swiper">
-					 <div class="swiper-wrapper"> 
+							 <div class="swiper-wrapper"> 
 
 								{% for slide in block.value.blogsContenet %}
 									{% with slide.value.localized as localized_slide %}
+									1
 								<div class="swiper-slide">
 									<div class="blog-wrapper">
 										<div class="blog-image">
@@ -65,11 +66,12 @@
 									
 									</div>									
 								</div>
+								2
 								<!-- swiper-slide-->
 					{% endwith %}
 				{% endfor %}
 
-								<!-- swiper-slide-->			
+								<!-- swiper-slide out-->			
 							</div>
 						</div>
 
