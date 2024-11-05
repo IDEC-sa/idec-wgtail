@@ -11164,6 +11164,26 @@ body {
 .shop-image-wrapper .shop-image-hover .btn-sm, .shop-image-wrapper .shop-image-hover .btn-group-sm > .btn {
   --bs-btn-font-size: 18px;
 }
+.shop-image-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-backdrop-filter: none;
+          backdrop-filter: none;
+  background-color: rgba(37, 59, 47, 0.38);
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.mybox1 {
+  display: none;
+}
+/* 
+
+
 
 .shop-image-wrapper::before {
   content: "";
@@ -11177,7 +11197,7 @@ body {
   height: 100%;
   opacity: 0;
   transition: opacity 0.4s ease-in-out;
-}
+} */
 
 .shop-image-wrapper:hover::before,
 .shop-image-wrapper:hover .shop-image-hover {
@@ -11942,7 +11962,7 @@ svg {
   content: none;
 }
 
-.swiper-custom-progress .service-swiper-pagination-wrapper, .swiper-custom-progress .testimonial-swiper-pagination-wrapper, .swiper-custom-progress .shop-swiper-pagination-wrapper, .swiper-custom-progress .blog-swiper-pagination-wrapper, .swiper-custom-progress .project-swiper-pagination-wrapper {
+.swiper-custom-progress .service-swiper-pagination-wrapper, .swiper-custom-progress .testimonial-swiper-pagination-wrapper, .swiper-custom-progress .shop-swiper-pagination-wrapper, .swiper-custom-progress .brand-swiper-pagination-wrapper, .swiper-custom-progress .blog-swiper-pagination-wrapper, .swiper-custom-progress .project-swiper-pagination-wrapper {
   margin-top: var(--bs-progress-pagination-wrapper-margin);
   position: relative;
 }
@@ -11962,17 +11982,17 @@ svg {
   }
 }
 
-.swiper-custom-progress .service-swiper-pagination, .swiper-custom-progress .testimonial-swiper-pagination, .swiper-custom-progress .shop-swiper-pagination, .swiper-custom-progress .blog-swiper-pagination, .swiper-custom-progress .project-swiper-pagination {
+.swiper-custom-progress .service-swiper-pagination, .swiper-custom-progress .testimonial-swiper-pagination, .swiper-custom-progress .shop-swiper-pagination, .swiper-custom-progress .blog-swiper-pagination, .swiper-custom-progress .project-swiper-pagination , .swiper-custom-progress .sample-product-swiper-pagination, .swiper-custom-progress  .brand-swiper-pagination{
   width: var(--bs-swiper-pagination-width);
 }
 
-.swiper-custom-progress .service-swiper-pagination.swiper-pagination-progressbar, .swiper-custom-progress .testimonial-swiper-pagination.swiper-pagination-progressbar, .swiper-custom-progress .shop-swiper-pagination.swiper-pagination-progressbar, .swiper-custom-progress .blog-swiper-pagination.swiper-pagination-progressbar, .swiper-custom-progress .project-swiper-pagination.swiper-pagination-progressbar {
+.swiper-custom-progress .service-swiper-pagination.swiper-pagination-progressbar, .swiper-custom-progress .testimonial-swiper-pagination.swiper-pagination-progressbar, .swiper-custom-progress .shop-swiper-pagination.swiper-pagination-progressbar, .swiper-custom-progress .blog-swiper-pagination.swiper-pagination-progressbar, .swiper-custom-progress .project-swiper-pagination.swiper-pagination-progressbar, .sample-product-swiper-pagination.swiper-pagination-progressbar, .brand-swiper-pagination.swiper-pagination-progressbar{
   background: var(--bs-swiper-pagination-line-color);
   border-radius: 10px;
   height: 2px;
 }
 
-.swiper-custom-progress .service-swiper-pagination.swiper-pagination-progressbar .swiper-pagination-progressbar-fill, .swiper-custom-progress .testimonial-swiper-pagination.swiper-pagination-progressbar .swiper-pagination-progressbar-fill, .swiper-custom-progress .shop-swiper-pagination.swiper-pagination-progressbar .swiper-pagination-progressbar-fill, .swiper-custom-progress .blog-swiper-pagination.swiper-pagination-progressbar .swiper-pagination-progressbar-fill, .swiper-custom-progress .project-swiper-pagination.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+.swiper-custom-progress .service-swiper-pagination.swiper-pagination-progressbar .swiper-pagination-progressbar-fill, .swiper-custom-progress .testimonial-swiper-pagination.swiper-pagination-progressbar .swiper-pagination-progressbar-fill, .swiper-custom-progress .shop-swiper-pagination.swiper-pagination-progressbar .swiper-pagination-progressbar-fill, .swiper-custom-progress .blog-swiper-pagination.swiper-pagination-progressbar .swiper-pagination-progressbar-fill, .swiper-custom-progress .project-swiper-pagination.swiper-pagination-progressbar .swiper-pagination-progressbar-fill, .sample-product-swiper-pagination.swiper-pagination-progressbar .swiper-pagination-progressbar-fill, .brand-swiper-pagination.swiper-pagination-progressbar .swiper-pagination-progressbar-fill{
   height: 5px;
   top: -2px;
 }

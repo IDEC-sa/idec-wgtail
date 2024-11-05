@@ -11942,7 +11942,7 @@ svg {
   content: none;
 }
 
-.swiper-custom-progress .service-swiper-pagination-wrapper, .swiper-custom-progress .testimonial-swiper-pagination-wrapper, .swiper-custom-progress .shop-swiper-pagination-wrapper, .swiper-custom-progress .blog-swiper-pagination-wrapper, .swiper-custom-progress .project-swiper-pagination-wrapper {
+.swiper-custom-progress .service-swiper-pagination-wrapper, .swiper-custom-progress .testimonial-swiper-pagination-wrapper, .swiper-custom-progress .shop-swiper-pagination-wrapper, .swiper-custom-progress .brand-swiper-pagination-wrapper, .swiper-custom-progress .blog-swiper-pagination-wrapper, .swiper-custom-progress .project-swiper-pagination-wrapper {
   margin-top: var(--bs-progress-pagination-wrapper-margin);
   position: relative;
 }
@@ -11962,7 +11962,7 @@ svg {
   }
 }
 
-.swiper-custom-progress .service-swiper-pagination, .swiper-custom-progress .testimonial-swiper-pagination, .swiper-custom-progress .shop-swiper-pagination, .swiper-custom-progress .blog-swiper-pagination, .swiper-custom-progress .project-swiper-pagination {
+.swiper-custom-progress .service-swiper-pagination, .swiper-custom-progress .testimonial-swiper-pagination, .swiper-custom-progress .shop-swiper-pagination, .swiper-custom-progress .blog-swiper-pagination, .swiper-custom-progress .project-swiper-pagination , .swiper-custom-progress .sample-product-swiper-pagination, .swiper-custom-progress  .brand-swiper-pagination{
   width: var(--bs-swiper-pagination-width);
 }
 

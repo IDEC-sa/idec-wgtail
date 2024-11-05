@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     "wagtail_localize.locales",
     "mathfilters",
     'mptt',
+    # 'categorization',
     "contact",
     "brands",
     "product",

@@ -10,7 +10,9 @@ from wagtail.models import AbstractPage, ClusterableModel
 from wagtail.admin.panels import FieldPanel
 from wagtailmetadata.models import MetadataPageMixin
 
-
+from wagtail.models import Page
+class Categoryy_index_page(Page):
+    pass
 
 
 @register_snippet
