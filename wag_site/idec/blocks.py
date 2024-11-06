@@ -242,6 +242,9 @@ class GalleryBlock(StructBlock):
 class Brands(StreamBlock):
     brand = PageChooserBlock(required=True, page_type='brands.BrandsDetailPage')
 
+# class brandsContenet(StreamBlock):
+#     BrandsContenet=Brands(required = True)
+
 
 
 

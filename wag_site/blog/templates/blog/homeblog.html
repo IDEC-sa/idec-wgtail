@@ -1,0 +1,144 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+ 
+			<!--Blog Section ======================-->
+			<section class="section-blog blog-1" style="--bs-section-feedback-padding: 120px 0;
+ padding: var(--bs-section-feedback-padding);">	
+
+
+
+				<div class="section-full-width">
+					{% with block.value.intro_with_background as intro %}
+
+
+
+					<div class="section-title-wrapper position-relative">
+						<div class="scroll-move">
+							<span class="scrolling-text display-1 fw-extra-bold stroke-title text-stroke stroke-opacity-20 stroke-width-1 stroke-primary lh-1">{{ intro.background_text }}</span>
+						</div>					
+						
+						<div class="container">	
+							<div class="section-title section-separator">
+								<h2 class="fw-extra-bold heading-title separator lh-1">{{ intro.main_text }}</h2>
+								<div class="d-flex flex-column flex-lg-row gap-4 align-items-lg-end justify-content-lg-between">
+									<p class="fs-4 fw-semibold mb-0 subtitle subtitle-width">{{ intro.brief }} 	</p>	
+									<div class="architronix-button">
+										<a href="{% pageurl intro.link.localized %}" class="btn btn-outline-primary  gap-10" hreflang="{{ LANGUAGE_CODE }}">{{ intro.button_all }} 							
+											<svg class="arrow-reverse" width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
+											</svg>							
+										</a>
+									</div>							
+								</div>
+							</div>
+						</div>					
+					</div>
+
+					{% endwith %}
+				</div>	
+				
+
+
+				<div class="container">
+					<div class="swiper-custom-progress position-relative">
+						<div class="swiper blog-swiper">
+							 <div class="swiper-wrapper"> 
+
+								{% for slide in block.value.blogsContenet %}
+									{% with slide.value.localized as localized_slide %}
+ 								<div class="swiper-slide">
+									<div class="blog-wrapper">
+										<div class="blog-image">
+											{% image localized_slide.gallery_images_blog.all.0.image width-800 as img %}
+											{% comment %} <img src="{{ img.url }}" class="img-fluid" alt="img"> {% endcomment %}
+											<img src="{{ img.url }}" class="w-100 h-100 "  style="height: 300px;" alt="img">
+
+										</div>
+
+										<div class="blog-details">
+											<p>  {{ localized_slide.blog_date|date:"j F" }} / {{ localized_slide.category}} </p>
+
+											<h5 class="blog-title fs-5 fw-semibold"><a href="{% pageurl localized_slide %}" class="link-hover-animation-1 stretched-link text-decoration-none">{{ localized_slide.blog_title}} </a></h5>
+										</div>
+
+
+									
+									</div>									
+								</div>
+ 								<!-- swiper-slide-->
+					{% endwith %}
+				{% endfor %}
+
+								<!-- swiper-slide out-->			
+							</div>
+						</div>
+
+							<!-- swiper-wrapper -->
+
+								<!-- swiper -->							
+						<div class="blog-swiper-pagination-wrapper">
+							<div class="blog-swiper-pagination"></div>						
+							<div class="swiper-button-progress">	
+								<div class="progress-button-prev">
+									<svg   class="arrow" width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
+									</svg>
+								</div>							
+								<div class="progress-button-next">
+									<svg class="arrow-reverse" width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
+									</svg> 
+								</div>																
+							</div>
+						</div>	
+					</div>									
+					</div>	
+				</div>	
+			</div>	
+
+				
+			</section>
+			<!--Blog Section ======================-->
+
+			
+ 
+     {% comment %} <div class="container">
+        <h2 class="text-center font-weight-bold">Our Partners</h2>
+        <section class="customer-logos slider">
+            <div class="slide"><img src="https://raw.githubusercontent.com/IDEC-sa/e-commerce/a787d6727bd19e4d62991bee4f00e70993751783/ui-themez.smartinnovates.net/items/swoo_html/home_lighting/images/1.png" alt="logo"></div>
+            <div class="slide"><img src="https://raw.githubusercontent.com/IDEC-sa/e-commerce/a787d6727bd19e4d62991bee4f00e70993751783/ui-themez.smartinnovates.net/items/swoo_html/home_lighting/images/1.png" alt="logo"></div>
+
+            <div class="slide"><img src="https://raw.githubusercontent.com/IDEC-sa/e-commerce/a787d6727bd19e4d62991bee4f00e70993751783/ui-themez.smartinnovates.net/items/swoo_html/home_lighting/images/1.png" alt="logo"></div>
+
+            <div class="slide"><img src="https://raw.githubusercontent.com/IDEC-sa/e-commerce/a787d6727bd19e4d62991bee4f00e70993751783/ui-themez.smartinnovates.net/items/swoo_html/home_lighting/images/1.png" alt="logo"></div>
+
+            <div class="slide"><img src="https://raw.githubusercontent.com/IDEC-sa/e-commerce/a787d6727bd19e4d62991bee4f00e70993751783/ui-themez.smartinnovates.net/items/swoo_html/home_lighting/images/1.png" alt="logo"></div>
+
+            <div class="slide"><img src="https://raw.githubusercontent.com/IDEC-sa/e-commerce/a787d6727bd19e4d62991bee4f00e70993751783/ui-themez.smartinnovates.net/items/swoo_html/home_lighting/images/1.png" alt="logo"></div>
+
+            <div class="slide"><img src="https://raw.githubusercontent.com/IDEC-sa/e-commerce/a787d6727bd19e4d62991bee4f00e70993751783/ui-themez.smartinnovates.net/items/swoo_html/home_lighting/images/1.png" alt="logo"></div>
+
+            <div class="slide"><img src="https://raw.githubusercontent.com/IDEC-sa/e-commerce/a787d6727bd19e4d62991bee4f00e70993751783/ui-themez.smartinnovates.net/items/swoo_html/home_lighting/images/1.png" alt="logo"></div>
+
+            <div class="slide"><img src="https://raw.githubusercontent.com/IDEC-sa/e-commerce/a787d6727bd19e4d62991bee4f00e70993751783/ui-themez.smartinnovates.net/items/swoo_html/home_lighting/images/1.png" alt="logo"></div>
+		
+            <div class="slide"><img src="https://raw.githubusercontent.com/IDEC-sa/e-commerce/a787d6727bd19e4d62991bee4f00e70993751783/ui-themez.smartinnovates.net/items/swoo_html/home_lighting/images/1.png" alt="logo"></div>
+
+            <div class="slide"><img src="https://raw.githubusercontent.com/IDEC-sa/e-commerce/a787d6727bd19e4d62991bee4f00e70993751783/ui-themez.smartinnovates.net/items/swoo_html/home_lighting/images/1.png" alt="logo"></div>
+
+            <div class="slide"><img src="https://raw.githubusercontent.com/IDEC-sa/e-commerce/a787d6727bd19e4d62991bee4f00e70993751783/ui-themez.smartinnovates.net/items/swoo_html/home_lighting/images/1.png" alt="logo"></div>
+
+            <div class="slide"><img src="https://raw.githubusercontent.com/IDEC-sa/e-commerce/a787d6727bd19e4d62991bee4f00e70993751783/ui-themez.smartinnovates.net/items/swoo_html/home_lighting/images/1.png" alt="logo"></div>
+
+            <div class="slide"><img src="https://raw.githubusercontent.com/IDEC-sa/e-commerce/a787d6727bd19e4d62991bee4f00e70993751783/ui-themez.smartinnovates.net/items/swoo_html/home_lighting/images/1.png" alt="logo"></div>
+
+            <div class="slide"><img src="https://raw.githubusercontent.com/IDEC-sa/e-commerce/a787d6727bd19e4d62991bee4f00e70993751783/ui-themez.smartinnovates.net/items/swoo_html/home_lighting/images/1.png" alt="logo"></div>
+
+            <div class="slide"><img src="https://raw.githubusercontent.com/IDEC-sa/e-commerce/a787d6727bd19e4d62991bee4f00e70993751783/ui-themez.smartinnovates.net/items/swoo_html/home_lighting/images/1.png" alt="logo"></div>
+		</section>
+    </div> {% endcomment %}
+
+ 
+ 
+ 
+ 
