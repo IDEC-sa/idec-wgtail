@@ -63,6 +63,21 @@
 
 
 
+            {% with blocks=page.body %}
+
+                {% for block in blocks %} 
+                   
+                    {% if block.block_type == 'banners' %}
+                    <!--blog Section ======================-->
+                        {% include "banner/home_banners.html" with block=block only %}
+                    <!--End blog Section ======================-->
+                    {% endif %}
+
+
+
+
+                {% endfor %}
+            {% endwith %}
 
 {% endblock body %}
 

@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 from wagtail_localize.fields import SynchronizedField, TranslatableField
 from wagtail.fields import StreamField, RichTextField
+
 from .blocks import BodyBlock, HomeAboutBlock,Projects
 from wagtail.admin.panels import FieldPanel, InlinePanel
 from wagtail.models import Page, Orderable
@@ -29,6 +30,7 @@ from wagtail.contrib.settings.models import (
     BaseGenericSetting,
     register_setting,
 )
+from banner.blocks import BodyBlock_banners
 
 
 # ----------------------------------------------------------------
@@ -89,6 +91,7 @@ class serviesIndexPage(Page):
     intro = models.CharField(max_length=255,blank=True)
     sub_title = models.CharField(max_length=255,blank=True)
     title_background = models.CharField(max_length=255,blank=True)
+    body = StreamField(BodyBlock_banners(), blank=True)        # new
 
     subpage_types = ['serviesDetailPage']
 
@@ -97,6 +100,7 @@ class serviesIndexPage(Page):
         FieldPanel('sub_title'),
         FieldPanel('title_background'),
         InlinePanel('gallery_images_serviesIndexPage', label="Gallery images"),
+        FieldPanel("body"),
 
     ]
 
@@ -112,6 +116,7 @@ class serviesindexGalleryImage(Orderable):
     panels = [
         FieldPanel('image'),
         FieldPanel('caption'),
+
     ]  
 
 
@@ -126,6 +131,7 @@ class serviesDetailPage(Page):
     subtitle = models.CharField(max_length=255, blank=True, null=True)
     description = RichTextField()
     all_description = RichTextField()
+    body = StreamField(BodyBlock_banners(), blank=True)        # new
 
     content_panels = Page.content_panels + [
         FieldPanel('servies_title'),
@@ -133,6 +139,7 @@ class serviesDetailPage(Page):
         FieldPanel('description'),
         FieldPanel('all_description'),
         InlinePanel('gallery_images_servies', label="Gallery images"),
+        FieldPanel("body"),
 
     ]
 
@@ -159,13 +166,15 @@ class ProjectIndexPage(Page):
     intro = models.CharField(max_length=255,blank=True)
     sub_title = models.CharField(max_length=255,blank=True)
     title_background = models.CharField(max_length=255,blank=True)
+    body = StreamField(BodyBlock_banners(), blank=True)        # new
 
     subpage_types = ['ProjectDetailPage']
 
     content_panels = Page.content_panels + [
         FieldPanel('intro'),
         FieldPanel('sub_title'),
-        FieldPanel('title_background')
+        FieldPanel('title_background'),
+        FieldPanel("body"),
 
     ]
 
@@ -183,6 +192,7 @@ class ProjectDetailPage(Page):
     location = models.CharField(max_length=255, blank=True, null=True)
     project_year = models.CharField(max_length=4, blank=True, null=True)
     project_type = models.CharField(max_length=255, blank=True, null=True)
+    body = StreamField(BodyBlock_banners(), blank=True)        # new
 
     content_panels = Page.content_panels + [
         FieldPanel('project_title'),
@@ -199,6 +209,8 @@ class ProjectDetailPage(Page):
         InlinePanel('gallery_images', label="Gallery images"),
         InlinePanel('slider_images', label="Slider images"),
         InlinePanel('slider_images_big', label="Slider images big"),
+        FieldPanel("body"),
+
     ]
 
 

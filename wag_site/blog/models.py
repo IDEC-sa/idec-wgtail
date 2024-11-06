@@ -73,6 +73,8 @@ class BlogDetailPage(Page):
     # blog_start_date = models.DateTimeField()  # تأكد من أن الحقل موجود في النموذج
     # blog_type = models.CharField(max_length=255)
     blog_date = models.DateTimeField("Publication Date", blank=True, null=True)  # أضف حقل التاريخ هنا
+    body = StreamField(BodyBlock_banners(), blank=True)        # new
+
     category = models.ForeignKey(  # تغيير الاسم إلى 'category'
         'idec.CategoryPage', 
         null=True,  # السماح بقيمة null
@@ -90,6 +92,7 @@ class BlogDetailPage(Page):
         InlinePanel('gallery_images_blog', label="Gallery images"),
         FieldPanel('blog_date'),  # إضافة حقل التاريخ إلى اللوحة
         PageChooserPanel('category', 'idec.CategoryPage'),  # تغيير هنا إلى 'category'
+        FieldPanel("body"),
 
     ]
 

@@ -6,6 +6,8 @@ from wagtail.blocks import (BooleanBlock, CharBlock, ChoiceBlock,
 
 from wagtail.images.blocks import ImageChooserBlock
 
+from banner.blocks import Banners
+
 
 
 
@@ -94,6 +96,7 @@ class BodyBlock_about(StreamBlock):
     about_banner = AboutBanner()
     aboutstory = AboutStory()
     # banner = Banner()  # إضافة كتلة المشروع
+    banners = Banners()
 
 
 class BranchBlock(StreamBlock):
