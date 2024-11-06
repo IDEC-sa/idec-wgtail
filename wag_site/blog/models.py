@@ -47,11 +47,14 @@ from wagtail.contrib.settings.models import (
 )
 from wagtail.admin.panels import FieldPanel, InlinePanel, PageChooserPanel
 
+from banner.blocks import BodyBlock_banners
+
 class BlogIndexPage(Page):
 
     blog_intro = models.CharField(max_length=255, blank=True)
     blog_sub_title = models.CharField(max_length=255, blank=True)
     blog_background = models.CharField(max_length=255, blank=True)
+    body = StreamField(BodyBlock_banners(), blank=True)        # new
 
     subpage_types = ['BlogDetailPage']
 
@@ -59,6 +62,7 @@ class BlogIndexPage(Page):
         FieldPanel('blog_intro'),
         FieldPanel('blog_sub_title'),
         FieldPanel('blog_background'),
+        FieldPanel("body"),
 
     ]
 
