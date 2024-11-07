@@ -19,11 +19,11 @@ from categorization.models.models import CategoryMp
 
 
 class intro_with_background(StructBlock):
-    background_text = TextBlock()
-    main_text = TextBlock()
+    background_text = TextBlock(required=False)
+    main_text = TextBlock(required=False)
     brief = TextBlock(required=False)
     brief_part2 = TextBlock(required=False)
-    image = ImageChooserBlock()
+    image = ImageChooserBlock(required=False)
 
 
 

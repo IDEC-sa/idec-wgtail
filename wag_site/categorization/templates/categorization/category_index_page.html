@@ -11,11 +11,14 @@
 {% with blocks=page.body %}
 
 
-
+   {% for block in page.bodycat %}
 
     <!--Banner Section ======================-->
 
-    {% for block in page.bodycat %}
+ 
+
+
+
     {% if block.block_type == 'intro_header' %}  
 
 
@@ -55,7 +58,6 @@
 
 
     {% endif %}
-    {% endfor %}
 
 
     <!--Banner Section ======================-->
@@ -64,6 +66,39 @@
 
 
    
+
+
+{% comment %} 
+    {% for block in page.bodycat %}
+    {% if block.block_type == 'block_header' %}
+        <section class="pt-60 pt-lg-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="section-title section-separator">
+                            <h3 class="lh-1">{{ block.value.main_text }}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endif %}
+{% endfor %} {% endcomment %}
+
+
+
+
+
+
+
+{% if block.block_type == 'block_header' %}
+<!--Hero Section ======================-->
+    {% include "categorization/header.html" with block=block only %}
+{% endif %}
+
+
+
+
 
 
 
@@ -77,21 +112,10 @@
         <!-- heading -->
 
 
-        {% for block_banner in page.bodycat %}
-        {% if block_banner.block_type == 'brandContenet' %}  
+        {% if block.block_type == 'brandContenet' %}  
 
 
-        <section class="pt-60 pt-lg-100">
-            <div class="container">
-                     <div class="row">
-                        <div class="col-lg-8">
-                            <div class="section-title section-separator">						
-                                <h4 class=" lh-1">Banner</h4>
-                            </div>
-                     </div>
-                </div>
-            </div>
-        </section>
+
         <!-- heading -->
 <section class="section-full-width position-relative pt-60">
     <div class="credits">
@@ -142,7 +166,6 @@
     </div>	
 </section>
            {% endif %}
-                        {% endfor %}
 <!-- Brands Section ======================-->
 
 
@@ -155,25 +178,12 @@
 
 
 
-        <!-- heading -->
 
                         
-        {% for block in page.bodycat %}
         {% if block.block_type == 'categoryContenet' %} 
 
 
-        <section class="pt-60 pt-lg-100">
-            <div class="container">
-                     <div class="row">
-                        <div class="col-lg-8">
-                            <div class="section-title section-separator">						
-                                <h4 class=" lh-1">Sub catagory</h4>
-                            </div>
-                     </div>
-                </div>
-            </div>
-        </section>
-        <!-- heading -->
+
 
             <!--Shop Section ======================-->
             <section class="section-shop position-relative pt-60">
@@ -236,7 +246,6 @@
 
 
        {% endif %}
-    {% endfor %}
 
 
 
@@ -254,24 +263,8 @@
 
             <!--Shop Section ======================-->
 
-            {% for block in page.bodycat %}
             {% if block.block_type == 'productContenet' %} 
 
-            <!-- heading -->
-            <section class="pt-60 pt-lg-100">
-                <div class="container">
-                    <div class="section-padding-md">
-                        <div class="row">
-                            <div class="col-lg-8">
-                                <div class="section-title section-separator">						
-                                    <h3 class=" lh-1">Related Products</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- heading -->
 
         <!--Product-Swiper Section ======================-->
         <section class="section-shop section-shop-swiper  position-relative">
@@ -360,7 +353,6 @@
         </section>
 
         {% endif %}
-        {% endfor %}
 
         <!--Shop-Swiper Section ======================-->
 
@@ -377,23 +369,9 @@
         <!-- heading -->
 
 
-        {% for block in page.bodycat %}
         {% if block.block_type == 'blogsContenet' %} 
 
-        <section class="pt-60 pt-lg-100">
-            <div class="container">
-                <div class="section-padding-md">
-                    <div class="row">
-                        <div class="col-lg-8">
-                            <div class="section-title section-separator">						
-                                <h4 class=" lh-1">Related Posts</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- heading -->
+
         <!-- blog section -->
 
         <section class="position-relative">
@@ -438,8 +416,8 @@
             
         </section>
                         {% endif %}
-                    {% endfor %}
      <!-- blog section -->
+                    {% endfor %}
 
      {% endwith %}
 
