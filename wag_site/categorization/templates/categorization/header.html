@@ -1,0 +1,55 @@
+
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+
+    <!--Banner Section ======================-->
+
+    {% for block in page.bodycat %}
+    {% if block.block_type == 'intro_header' %}  
+
+
+    <section class="section-bg position-relative pt-60">	
+        <div class="section-full-width">
+            <div class="section-title-wrapper position-relative">	
+                <div class="scroll-move">
+                    <span class="scrolling-text display-1 fw-extra-bold stroke-title text-stroke stroke-opacity-20 stroke-width-1 stroke-primary lh-1">{{ block.value.background_text }}</span>
+                </div>				
+                
+                    <div class="section-title section-separator">
+                        <h2 class="fw-extra-bold heading-title separator lh-1">{{ block.value.main_text }}</h2>
+                        {% comment %} <p class="fs-4 fw-semibold mb-0 subtitle subtitle-width">Audio visual systems brief text udio visual systems brief text  udio visual<span id="span1">...</span><span class="mybox1" id="mybox1id">systems brief text udio visual systems brief text udio visual systems brief text udio visual systems brief text  udio visual systems brief text  udio visual systems brief text  udio visual systems brief text</span></p> {% endcomment %}
+                       
+                        {% if block.value.brief %}
+                        <p class="fs-4 fw-semibold mb-0 subtitle subtitle-width">
+                            {{ block.value.brief }}<span id="span1">...</span>
+                            <span class="mybox1" id="mybox1id">{{ block.value.brief_part2 }}</span>
+                        </p>
+                    {% endif %}
+                        <a  class="text-decoration-none fw-extra-bold" id="mybuttonid"  style="cursor: pointer;"
+                                onclick="changeReadMore()">
+                            Read More
+                    </a>
+                </div>	
+            </div>
+            <!-- section-title-wrapper -->
+            {% comment %} <img src="{% static 'idec/assets/images/section-bg.jpg' %}" style="top: 0; left: 0;position: absolute;height: 100%;width: 100%;background-color: purple;"></img> {% endcomment %}
+            {% image block.value.image width-800 as img %}
+            <img src="{{ img.url }}" style="top: 0; left: 0;position: absolute;height: 100%;width: 100%;background-color: purple;">
+
+       
+        </div>
+        
+        <!-- section-full-width -->									
+    </section>
+
+
+    {% endif %}
+    {% endfor %}
+
+
+    <!--Banner Section ======================-->
+    <script src="{% static 'js/script.js' %}"></script>
+
+

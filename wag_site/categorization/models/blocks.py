@@ -18,10 +18,42 @@ from categorization.models.models import CategoryMp
 
 
 
-
-
-class Block_header(StreamBlock):
+class intro_with_background(StructBlock):
+    background_text = TextBlock()
     main_text = TextBlock()
+    brief = TextBlock(required=False)
+    brief_part2 = TextBlock(required=False)
+    image = ImageChooserBlock()
+
+
+
+
+
+class Block_header(StructBlock):
+    main_text = TextBlock()
+
+
+
+
+class CategoryContenet(StreamBlock):
+  
+    category = PageChooserBlock(required=True, page_type="idec.CategoryPage")
+
+
+class BrandContenet(StreamBlock):
+
+    brand = PageChooserBlock(required=True, page_type='brands.BrandsDetailPage')
+
+
+
+class ProductContenet(StreamBlock):
+    product = PageChooserBlock(required=True, page_type='product.productDetailPage')
+
+
+
+
+class BlogsContenet(StreamBlock):
+    blog = PageChooserBlock(required=True, page_type='blog.blogDetailPage')
 
 
 
@@ -30,7 +62,11 @@ class Block_header(StreamBlock):
 class Bodycat(StreamBlock):
     h1 = CharBlock()
     block_header = Block_header()
-    brands = Brands()
+    brandContenet = BrandContenet()
+    intro_header = intro_with_background()
+    categoryContenet = CategoryContenet()
+    productContenet = ProductContenet()
+    blogsContenet = BlogsContenet()
 
 
 
