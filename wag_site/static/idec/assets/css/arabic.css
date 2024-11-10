@@ -5,7 +5,7 @@
 .page.arabic{
     direction: rtl;
     text-align: right;
-    font-family: 'arfont';
+    font-family: 'Cairo';
 }
 .page.arabic .dropdown-menu{
     text-align: right;

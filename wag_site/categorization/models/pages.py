@@ -19,3 +19,8 @@ class Category_index_page(Page):
         FieldPanel('bodycat'),
 
     ]
+
+
+
+class SubPage(Page):
+    pass
