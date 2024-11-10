@@ -266,6 +266,9 @@ class BodyBlock(StreamBlock):
     brands = Brands()  # إضافة كتلة المشروع
     # banner = Banner()  # إضافة كتلة المشروع
     banners = Banners()  # إضافة كتلة المشروع
+    blogsContenet = BlogsContenet()
+    intro_with_background_ = intro_with_background()
+    productContenet = ProductContenet()
 
 
 
