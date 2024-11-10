@@ -242,6 +242,9 @@ class GalleryBlock(StructBlock):
 class Brands(StreamBlock):
     brand = PageChooserBlock(required=True, page_type='brands.BrandsDetailPage')
 
+# class brandsContenet(StreamBlock):
+#     BrandsContenet=Brands(required = True)
+
 
 
 
@@ -263,6 +266,9 @@ class BodyBlock(StreamBlock):
     brands = Brands()  # إضافة كتلة المشروع
     # banner = Banner()  # إضافة كتلة المشروع
     banners = Banners()  # إضافة كتلة المشروع
+    blogsContenet = BlogsContenet()
+    intro_with_background_ = intro_with_background()
+    productContenet = ProductContenet()
 
 
 

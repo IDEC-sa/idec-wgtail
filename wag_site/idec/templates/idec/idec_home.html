@@ -3,7 +3,22 @@
             {% with blocks=page.body %}
 
 
-                {% for block in blocks %} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                {% for block in blocks  %} 
                     {% if block.block_type == 'slider' %}
                     <!--Hero Section ======================-->
                         {% include "idec/homeslider.html" with block=block only %}
@@ -31,15 +46,29 @@
 
 
 
+
+
+                    {% if block.block_type == 'intro_with_background_' %}
+                    <!--Hero Section ======================-->
+                        {% include "idec/intro_with_background.html" with block=block only %}
+                    {% endif %}
+                    <!-- End Hero Section ======================-->
+
+
+
+
+
+
+
                     {% if block.block_type == 'about' %}
                     <!--About Section ======================-->
-                        {% include "idec/homeabout.html" with block=block only %}
+                        {% include "about_us/homeabout.html" with block=block only %}
                     <!--End About Section ======================-->
                     {% endif %}
 
 					{% if block.block_type == 'projects' %}
                     <!--project Section ======================-->
-                        {% include "idec/homeproject.html" with block=block only %}
+                        {% include "projects/homeproject.html" with block=block only %}
                     <!--End project Section ======================-->
                     {% endif %}
 					{% if block.block_type == 'feedback' %}
@@ -60,32 +89,26 @@
                     <!--End project Section ======================-->
 					{% if block.block_type == 'gallery' %}
                     <!--gallery Section ======================-->
-                        {% include "idec/homegallery.html" with block=block only %}
+                        {% include "categorization/homegallery.html" with block=block only %}
                     <!--End gallery Section ======================-->
                     {% endif %}
 
-					{% if block.block_type == 'blogs' %}
+					{% if block.block_type == 'blogsContenet' %}
                     <!--blog Section ======================-->
-                        {% include "idec/homeblog.html" with block=block only %}
+                        {% include "blog/blogsContenet.html" with block=block only %}
                     <!--End blog Section ======================-->
                     {% endif %}
 
 
-					{% if block.block_type == 'products' %}
+					{% if block.block_type == 'productContenet' %}
                     <!--blog Section ======================-->
-                        {% include "idec/homeproduct.html" with block=block only %}
+                        {% include "product/productContenet.html" with block=block only %}
                     <!--End blog Section ======================-->
                     {% endif %}
 
 
 
-                    {% comment %} {% if block.block_type == 'banner' %}
-                    <!--blog Section ======================-->
-                        {% include "banner/home_banner.html" with block=block only %}
-                    <!--End blog Section ======================-->
-                    {% endif %} {% endcomment %}
-
-
+                    
 
                     {% if block.block_type == 'banners' %}
                     <!--blog Section ======================-->

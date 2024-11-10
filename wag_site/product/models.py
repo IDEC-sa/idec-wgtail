@@ -46,7 +46,8 @@ from wagtail.contrib.settings.models import (
     register_setting,
 )
 
-from brands.models import BrandsDetailPage  # تأكد من استيراد الموديل بشكل صحيح
+from brands.models import BrandsDetailPage
+from banner.blocks import BodyBlock_banners  # تأكد من استيراد الموديل بشكل صحيح
 # from idec.models import CategoryPage  # تأكد من استيراد الموديل بشكل صحيح
 
 class productIndexPage(Page):
@@ -54,6 +55,7 @@ class productIndexPage(Page):
     product_intro = models.CharField(max_length=255, blank=True)
     product_sub_title = models.CharField(max_length=255, blank=True)
     product_background = models.CharField(max_length=255, blank=True)
+    body = StreamField(BodyBlock_banners(), blank=True)        # new
 
     subpage_types = ['productDetailPage']
 
@@ -61,6 +63,7 @@ class productIndexPage(Page):
         FieldPanel('product_intro'),
         FieldPanel('product_sub_title'),
         FieldPanel('product_background'),
+        FieldPanel("body"),
 
     ]
 
@@ -73,6 +76,7 @@ class productDetailPage(Page):
     product_type = models.CharField(max_length=255)
     brand = models.ForeignKey('brands.BrandsDetailPage', on_delete=models.SET_NULL, null=True, blank=True, related_name='brand')
     category = models.ForeignKey('idec.CategoryPage', on_delete=models.SET_NULL, null=True, blank=True)
+    body = StreamField(BodyBlock_banners(), blank=True)        # new
 
     content_panels = Page.content_panels + [
         FieldPanel('product_title'),
@@ -86,6 +90,7 @@ class productDetailPage(Page):
         FieldPanel('product_type'),
         InlinePanel('gallery_images_product', label="Gallery images"),
         InlinePanel('gallery_images_product_bg', label="Gallery images bg"),
+        FieldPanel("body"),
 
     ]
 

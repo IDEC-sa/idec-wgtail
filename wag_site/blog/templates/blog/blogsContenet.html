@@ -1,0 +1,59 @@
+
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% load static %}
+
+
+
+            
+ 
+        <!-- blog section -->
+
+        <section class="position-relative">
+            <!--Blog-swiper ======================-->
+            <div class="container">				
+                <!-- <h4 class="mb-4 mb-lg-30 position-relative">Related Post</h4> -->
+                <div class="swiper blog-swiper">
+                    <div class="swiper-wrapper"> 
+
+                        {% comment %} start {% endcomment %}
+
+                             {% if block.block_type == 'blogsContenet' %} 
+                                {% for block in block.value %}
+
+                        <div class="swiper-slide">
+                            <div class="blog-wrapper">
+                                <div class="blog-image">
+
+                                    
+           {% image block.value.gallery_images_blog.all.0.image width-800  as img %}
+           <img src="{{ img.url }}" class="w-100 h-200 object-fit-cover" alt="img"  >  
+
+
+                                </div>
+                                <div class="blog-details">
+                                    <p>  {{ block.value.blog_date|date:"j F" }} / {{ block.value.category}} </p>
+
+                                    <h5 class="blog-title fs-5 fw-semibold"><a href="{{ block.value.url }}" class="link-hover-animation-1 stretched-link text-decoration-none">{{ block.value.blog_title }}</a></h5>
+                                </div>
+                            </div>									
+                        </div>
+                     		
+                        {% endfor %}
+                        {% endif %}
+                         {% comment %} end {% endcomment %}
+
+
+
+                    </div>
+                    <!-- swiper-wrapper -->
+                </div>
+                <!-- swiper -->	
+            </div>
+            <!--Blog-swiper ======================-->
+            
+        </section>
+                  
+     <!-- blog section -->
+               

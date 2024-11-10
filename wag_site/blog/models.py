@@ -47,11 +47,14 @@ from wagtail.contrib.settings.models import (
 )
 from wagtail.admin.panels import FieldPanel, InlinePanel, PageChooserPanel
 
+from banner.blocks import BodyBlock_banners
+
 class BlogIndexPage(Page):
 
     blog_intro = models.CharField(max_length=255, blank=True)
     blog_sub_title = models.CharField(max_length=255, blank=True)
     blog_background = models.CharField(max_length=255, blank=True)
+    body = StreamField(BodyBlock_banners(), blank=True)        # new
 
     subpage_types = ['BlogDetailPage']
 
@@ -59,6 +62,7 @@ class BlogIndexPage(Page):
         FieldPanel('blog_intro'),
         FieldPanel('blog_sub_title'),
         FieldPanel('blog_background'),
+        FieldPanel("body"),
 
     ]
 
@@ -69,6 +73,8 @@ class BlogDetailPage(Page):
     # blog_start_date = models.DateTimeField()  # تأكد من أن الحقل موجود في النموذج
     # blog_type = models.CharField(max_length=255)
     blog_date = models.DateTimeField("Publication Date", blank=True, null=True)  # أضف حقل التاريخ هنا
+    body = StreamField(BodyBlock_banners(), blank=True)        # new
+
     category = models.ForeignKey(  # تغيير الاسم إلى 'category'
         'idec.CategoryPage', 
         null=True,  # السماح بقيمة null
@@ -86,6 +92,7 @@ class BlogDetailPage(Page):
         InlinePanel('gallery_images_blog', label="Gallery images"),
         FieldPanel('blog_date'),  # إضافة حقل التاريخ إلى اللوحة
         PageChooserPanel('category', 'idec.CategoryPage'),  # تغيير هنا إلى 'category'
+        FieldPanel("body"),
 
     ]
 
