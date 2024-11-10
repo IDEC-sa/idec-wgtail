@@ -27,6 +27,7 @@ from wagtail.admin.panels import (
 )
 from wagtail.contrib.settings.models import (
     BaseGenericSetting,
+    BaseSiteSetting,
     register_setting,
 )
 
@@ -245,19 +246,6 @@ class ProjectSliderImage_big(Orderable):
 # ----------------------------------------------------------------
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 class IdecHome(Page):
     # header_image = models.ForeignKey(
     #     "wagtailimages.Image",
@@ -288,8 +276,11 @@ class Branch(Page):
     ]
 
 @register_setting
-class NavigationSettings(BaseGenericSetting):
+class NavigationSettings(BaseSiteSetting):
     company_name  = models.TextField(blank=False, default="IDEC")
+    logo = models.ForeignKey(
+        'wagtailimages.Image', on_delete=models.CASCADE, related_name='+'
+    )
     twitter_url = models.URLField(verbose_name="Twitter URL", blank=True)
     fb_url = models.URLField(verbose_name="Facebook URL", blank=True)
     linkedin_url = models.URLField(verbose_name="Linkedin URL", blank=True)
@@ -302,6 +293,7 @@ class NavigationSettings(BaseGenericSetting):
     panels = [
         MultiFieldPanel(
             [
+                FieldPanel("logo"),
                 FieldPanel("twitter_url"),
                 FieldPanel("github_url"),
                 FieldPanel("instagram_url"),

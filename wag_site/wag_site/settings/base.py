@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'mptt',
     # 'categorization',
     "contact",
+    'django_extensions',
     "brands",
     "product",
     "idec",

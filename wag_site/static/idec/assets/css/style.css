@@ -9573,7 +9573,7 @@ body {
   .gallery-contents {
     --bs-gallery-description-width: 210px;
     --bs-gallery-description-padding: 0 8px 0 20px;
-    --bs-gallery-title-width: 222px;
+    --bs-gallery-title-width: 40%;
   }
   .gallery-contents .gallery-title {
     font-size: 30px;
