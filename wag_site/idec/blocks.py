@@ -10,25 +10,6 @@ from banner.blocks import Banners
 from wagtail.embeds.blocks import EmbedBlock
 from wagtailvideos.blocks import VideoChooserBlock
 
-# pip install wagtailmedia
-
-# from wagtail.documents.blocks import DocumentBlock  # تأكد من استيراد DocumentBlock
-
-
-# # ------------------------------------------
-# class SliderTextContenet(StreamBlock):
-#     text = TextBlock(required=False)
-
-# class SliderText(StructBlock):
-
-#     home_Text = TextBlock(required=False)
-#     button = TextBlock(required=False)
-#     link = TextBlock(required=False)
-
-#     sliderTextContenet=SliderTextContenet(required = True)
-
-# class Slider_text(StreamBlock):
-#     slide_text = SliderText()
 
 # ------------------------------------------
 
@@ -46,26 +27,6 @@ class Slider(StreamBlock):
 
 
 # ------------------------------------------
-
-# class SliderText(StructBlock):
-
-#     text = TextBlock(required=False)
-
-# class Sliderindex(StructBlock):
-
-#     text_slider = TextBlock(required=False)
-#     buttonText = TextBlock(required=False)
-#     buttonUrl = URLBlock(required=False)
-#     # video = FileBlock(required=False)  # لإضافة ملف الفيديو
-#     # video = EmbedBlock(required=False)  # لإضافة فيديو يوتيوب
-#     # video = TextBlock(required=False)  # لإضافة ملف الفيديو بصيغة MP4
-#     # video = FileBlock(required=False)  # لإضافة ملف الفيديو بصيغة MP4
-#     # video = FileBlock(required=False)  # لتحديد ملف الفيديو
-#     # video = URLBlock(required=False)  # لتحديد رابط الفيديو
-#     video = EmbedBlock(required=False)  # لتضمين فيديو
-
-# https://drive.google.com/file/d/1vWFkY-QKoq6ssD2O67jtR0N8cxUgYwK7/preview
-# https://www.youtube.com/watch?v=n3X0Xm7yn5Y&t=1978s
 
 
 
@@ -130,36 +91,28 @@ class HomeAboutBlock(StructBlock):
 # 
 
 class ProjectsContenet(StreamBlock):
-    project = PageChooserBlock(required=True, page_type='idec.ProjectDetailPage')
+    project = PageChooserBlock(required=True, page_type='projects.ProjectDetailPage')
 
-class Projects(StructBlock):
-    intro_with_background = intro_with_background()
-    projectsContenet=ProjectsContenet(required = True)
 
-# 
 
 
 class Projects(StructBlock):
-    intro_with_background = intro_with_background()
+    # intro_with_background = intro_with_background()
     projectsContenet=ProjectsContenet(required = True)
 
-# 
-
-# class Banner(StreamBlock):
-#     banner = PageChooserBlock(required=True,)
 
 # class ProductContenet(StreamBlock):
 class ProductContenet(StreamBlock):
     product = PageChooserBlock(required=True, page_type='product.productDetailPage')
 
 class Products(StructBlock):
-    intro_with_background = intro_with_background()
+    # intro_with_background = intro_with_background()
     productContenet=ProductContenet(required = True)
 
 
 # class BlogsContenet(StreamBlock):
 class Products(StructBlock):
-    intro_with_background = intro_with_background()
+    # intro_with_background = intro_with_background()
     productContenet=ProductContenet(required = True)
 
 
@@ -171,7 +124,7 @@ class Blogs(StructBlock):
     blogsContenet=BlogsContenet(required = True)
 
 class Blogs(StructBlock):
-    intro_with_background = intro_with_background()
+    # intro_with_background = intro_with_background()
     blogsContenet=BlogsContenet(required = True)
 
 
@@ -203,16 +156,7 @@ class Aboutvideo(StructBlock):
 
 
 
-
-# class ServiceBlock(StructBlock):
-#     title = CharBlock(required=True, max_length=100)
-#     sub_title = CharBlock(required=False, max_length=200)
-
-
-# class Services(StreamBlock):
-#     service = ServiceBlock()
-
-
+ 
 class ServicesContenet(StreamBlock):
     service = PageChooserBlock(required=True, page_type='idec.serviesDetailPage')
 
@@ -242,10 +186,6 @@ class GalleryBlock(StructBlock):
 class Brands(StreamBlock):
     brand = PageChooserBlock(required=True, page_type='brands.BrandsDetailPage')
 
-# class brandsContenet(StreamBlock):
-#     BrandsContenet=Brands(required = True)
-
-
 
 
 # الكتلة الرئيسية التي تحتوي على جميع المكونات
@@ -264,7 +204,6 @@ class BodyBlock(StreamBlock):
     blogs = Blogs()  # إضافة كتلة المشروع
     products = Products()  # إضافة كتلة المشروع
     brands = Brands()  # إضافة كتلة المشروع
-    # banner = Banner()  # إضافة كتلة المشروع
     banners = Banners()  # إضافة كتلة المشروع
     blogsContenet = BlogsContenet()
     intro_with_background_ = intro_with_background()

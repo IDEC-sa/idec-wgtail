@@ -1,0 +1,86 @@
+
+
+{% extends "idec/basic_body.html" %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load static %}
+
+
+{% block body %}    
+
+
+ 
+
+    <!--Brands Section ======================-->
+    <section class="section-full-width position-relative pt-60">
+        <div class="credits">
+            <div class="swiper-custom-progress position-relative">
+            <!-- section-title-wrapper -->
+                <div class="container">						
+                    <div class="section-padding-md">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="section-title section-separator">						
+                                    <h3 class="lh-1">Brands</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper brand-swiper">
+                        <div class="swiper-wrapper">
+                            <div class="credits-wrapper swiper-slide">
+                                <div class="cridit-image">
+                                    <img src="{% static 'idec/assets/images/credit-image-1.jpg' %}" class="img-fluid" alt="img">
+                                </div>
+                                <a href="#"><h5 class="mt-4 mt-lg-30">Layero Engenharia</h5></a>
+                                <p class="mb-0 pt-1">Engineers</p>
+                            </div>
+                            <div class="credits-wrapper swiper-slide">
+                                <div class="cridit-image">
+                                    <img src="{% static 'idec/assets/images/credit-image-1.jpg' %}" class="img-fluid" alt="img">
+                                </div>
+                                <a href="#"><h5 class="mt-4 mt-lg-30">Layero Engenharia</h5></a>
+                                <p class="mb-0 pt-1">Engineers</p>
+                            </div>
+                            <div class="credits-wrapper swiper-slide">
+                                <div class="cridit-image">
+                                    <img src="{% static 'idec/assets/images/credit-image-1.jpg' %}" class="img-fluid" alt="img">
+                                </div>
+                                <a href="#"><h5 class="mt-4 mt-lg-30">Layero Engenharia</h5></a>
+                                <p class="mb-0 pt-1">Engineers</p>
+                            </div>
+                            <div class="credits-wrapper swiper-slide">
+                                <div class="cridit-image">
+                                    <img src="{% static 'idec/assets/images/credit-image-1.jpg' %}" class="img-fluid" alt="img">
+                                </div>
+                                <a href="#"><h5 class="mt-4 mt-lg-30">Layero Engenharia</h5></a>
+                                <p class="mb-0 pt-1">Engineers</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="brand-swiper-pagination-wrapper">
+                        <div class="brand-swiper-pagination"></div>						
+                        <div class="swiper-button-progress">	
+                            <div class="progress-button-prev">
+                                <svg class="arrow" width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
+                                </svg>
+                            </div>							
+                            <div class="progress-button-next">
+                                <svg class="arrow-reverse" width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path  fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
+                                </svg> 
+                            </div>																
+                        </div>
+                    </div>							
+                </div>	
+            </div>
+        </div>	
+    </section>
+    <!--Brands Section ======================-->	
+
+{% endblock body %}
