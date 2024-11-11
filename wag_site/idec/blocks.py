@@ -137,7 +137,7 @@ class FeedbacksBlock(StructBlock):
 
 class Feedbacks(StreamBlock):
     feedback = FeedbacksBlock()
-    intro_with_background = intro_with_background()
+    # intro_with_background = intro_with_background()
     # intro_with_background = intro_with_background()
 
 class Aboutvideo(StructBlock):
@@ -162,7 +162,7 @@ class ServicesContenet(StreamBlock):
 
 
 class Services(StructBlock):
-    intro_with_background = intro_with_background()
+    # intro_with_background = intro_with_background()
     services_contenets=ServicesContenet(required = True)
 
 
@@ -176,7 +176,7 @@ class GalleryContenet(StreamBlock):
     category = PageChooserBlock(required=True, page_type="idec.CategoryPage")
 
 class GalleryBlock(StructBlock):
-    intro_with_background = intro_with_background()
+    # intro_with_background = intro_with_background()
     galleryContenet=GalleryContenet(required = True)
 
 
