@@ -291,7 +291,7 @@ class Branch(Page):
 class NavigationSettings(BaseSiteSetting):
     company_name  = models.TextField(blank=False, default="IDEC")
     logo = models.ForeignKey(
-        'wagtailimages.Image', on_delete=models.CASCADE, related_name='+'
+        'wagtailimages.Image', on_delete=models.CASCADE, related_name='+',null=True
     )
     twitter_url = models.URLField(verbose_name="Twitter URL", blank=True)
     fb_url = models.URLField(verbose_name="Facebook URL", blank=True)

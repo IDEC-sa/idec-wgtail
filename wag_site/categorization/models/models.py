@@ -9,17 +9,17 @@ from wagtail.models import AbstractPage, ClusterableModel
 # from wagtail.models import PageBase
 from wagtail.admin.panels import FieldPanel
 from wagtailmetadata.models import MetadataPageMixin
-
+# from .pages import Category_index_page
 from wagtail.models import Page
-class Categoryy_index_page(Page):
-    pass
+# class Categoryy_index_page(Page):
+#     pass
 
 
 @register_snippet
 class CategoryMp(MPTTModel):
     name = models.CharField(max_length=50, unique=True)
     parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
-
+    # page = models.ForeignKey("categorization.Category_index_page", on_delete=models.DO_NOTHING)
     # class MPTTMeta:
     #     order_insertion_by = ['name']
     
