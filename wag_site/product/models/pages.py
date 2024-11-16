@@ -47,7 +47,7 @@ from wagtail.contrib.settings.models import (
 )
 
 from banner.blocks import BodyBlock_banners
-from product.blocks import BodyBlock_product  # تأكد من استيراد الموديل بشكل صحيح
+from .blocks import BodyBlock_product  # تأكد من استيراد الموديل بشكل صحيح
 # from idec.models import CategoryPage  # تأكد من استيراد الموديل بشكل صحيح
 
 class productIndexPage(Page):
