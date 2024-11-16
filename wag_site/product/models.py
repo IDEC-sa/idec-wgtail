@@ -46,8 +46,8 @@ from wagtail.contrib.settings.models import (
     register_setting,
 )
 
-from brands.models import BrandsDetailPage
-from banner.blocks import BodyBlock_banners  # تأكد من استيراد الموديل بشكل صحيح
+from banner.blocks import BodyBlock_banners
+from product.blocks import BodyBlock_product  # تأكد من استيراد الموديل بشكل صحيح
 # from idec.models import CategoryPage  # تأكد من استيراد الموديل بشكل صحيح
 
 class productIndexPage(Page):
@@ -70,17 +70,21 @@ class productIndexPage(Page):
 class productDetailPage(Page):
     product_title = models.CharField(max_length=255)
     product_subtitle = models.CharField(max_length=255, blank=True, null=True)
-    product_description = RichTextField()
-    product_details = RichTextField()
+    product_description = RichTextField(blank=True)
+    product_smalldescription = RichTextField(blank=True)
+
+    product_details = RichTextField(blank=True)
     # blog_start_date = models.DateTimeField()  # تأكد من أن الحقل موجود في النموذج
-    product_type = models.CharField(max_length=255)
+    product_type = models.CharField(max_length=255, blank=True)
     brand = models.ForeignKey('brands.BrandsDetailPage', on_delete=models.SET_NULL, null=True, blank=True, related_name='brand')
     category = models.ForeignKey('idec.CategoryPage', on_delete=models.SET_NULL, null=True, blank=True)
-    body = StreamField(BodyBlock_banners(), blank=True)        # new
+    body = StreamField(BodyBlock_product(), blank=True)        # new
 
     content_panels = Page.content_panels + [
         FieldPanel('product_title'),
         FieldPanel('product_subtitle'),
+        FieldPanel('product_smalldescription'),
+
         FieldPanel('product_description'),
         FieldPanel('product_details'),
         FieldPanel('brand'),
