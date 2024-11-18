@@ -1,0 +1,40 @@
+{% load menu_tags i18n %}
+{% load wagtailcore_tags %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<div class="d-none d-xl-block nav-border">
+    <div class="container-fluid max-width">
+        {% comment %} <div class="top-bar d-flex justify-content-between align-items-center"> {% endcomment %}
+            <ul class=" sec-nav navbar-nav justify-content-center flex-grow-1 align-items-xl-center flex-row" style="display:flex">
+                {% for item in menu_items %}
+                    <li class="nav-item">
+                        <a class="nav-link " href="{% pageurl item.link_page.localized %}">{{ item.link_page.localized.title }}</a>									
+                    </li>
+                {% endfor %}                        
+                                    
+            </ul>	
+            {% comment %} <p class="mb-0 top-bar-text fw-semibold">Welcome to IDEC</p>
+            {% if page %}
+           {% for translation in page.get_translations.live %}
+            language is {{ LANGUAGE_CODE }}
+
+                {% get_language_info for translation.locale.language_code as lang %}
+                <a href="{% pageurl translation %}" rel="alternate" hreflang="{{ lang.code }}">
+                    {{ lang.name_local }}
+                </a>
+            {% endfor %} 
+            {% endif %}
+            <div class="top-bar-contact d-flex align-items-center">
+                <p class="mb-0 fw-bold">Call Us: <a href="tel:+(1800)456-7890" class="text-decoration-none link-hover-animation-1"> +(1800)456-7890</a></p>
+                <ul class="contact-lists list-unstyled mb-0 d-flex">
+                    <li><a href="#" class="link-hover-animation-1 text-decoration-none text-uppercase" aria-label="top-bar-link">fb</a></li>
+                    <li><a href="#" class="link-hover-animation-1 text-decoration-none text-uppercase" aria-label="top-bar-link">in</a></li>
+                    <li><a href="#" class="link-hover-animation-1 text-decoration-none text-uppercase" aria-label="top-bar-link">tw</a></li>
+                    <li><a href="#" class="link-hover-animation-1 text-decoration-none text-uppercase" aria-label="top-bar-link">li</a></li>
+                </ul>
+            </div> {% endcomment %}
+        {% comment %} </div> {% endcomment %}
+        <!-- top-bar -->
+    </div>
+    <!-- container-fluid -->
+</div>	

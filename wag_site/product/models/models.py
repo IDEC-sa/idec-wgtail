@@ -16,7 +16,7 @@ from wagtailmetadata.models import MetadataPageMixin
 from categorization.models.models import CategoryMp
 
 @register_snippet
-class Product(MPTTModel):
+class Product(models.Model):
     name = models.CharField(max_length=50, unique=True)
     category = models.OneToOneField(CategoryMp, on_delete=models.DO_NOTHING, related_name="prod_page")
     

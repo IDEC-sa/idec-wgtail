@@ -82,7 +82,7 @@
 
 			<!--Header Section ======================-->
 			{% comment %} {% include "includes/header.html" %} {% endcomment %}
-			{% main_menu template="includes/header.html" %}
+			{% main_menu template="includes/header.html" add_sub_menus_inline=True max_levels=5 %}
 			
 			<!--Header Section ======================-->
 
@@ -382,70 +382,9 @@
             {% endblock %} 
 			{% block body %}
             {% endblock %} 
-			{% comment %} {% with blocks=page.body %}
-                {% for block in blocks %} 
-                    {% if block.block_type == 'slider' %}
-                    <!--Hero Section ======================-->
-                        {% include "idec/homeslider.html" with block=block only %}
-                    {% endif %}
-                    <!-- End Hero Section ======================-->
+			
 
-                    {% if block.block_type == 'about' %}
-                    <!--About Section ======================-->
-                        {% include "idec/homeabout.html" with block=block only %}
-                    <!--End About Section ======================-->
-                    {% endif %}
-
-					{% if block.block_type == 'projects' %}
-                    <!--project Section ======================-->
-                        {% include "idec/homeproject.html" with block=block only %}
-                    <!--End project Section ======================-->
-                    {% endif %}
-					{% if block.block_type == 'feedback' %}
-                    <!--project Section ======================-->
-                        {% include "idec/homefeedback.html" with block=block only %}
-                    <!--End project Section ======================-->
-                    {% endif %}
-					{% if block.block_type == 'aboutvideo' %}
-                    <!--Aboutvideo Section ======================-->
-                        {% include "idec/homeaboutvideo.html" with block=block only %}
-                    <!--End Aboutvideo Section ======================-->
-                    {% endif %}
-
-					{% if block.block_type == 'services' %}
-                    <!--project Section ======================-->
-                        {% include "idec/homeservice.html" with block=block only %}
-					{% endif %}
-                    <!--End project Section ======================-->
-					{% if block.block_type == 'gallery' %}
-                    <!--gallery Section ======================-->
-                        {% include "idec/homegallery.html" with block=block only %}
-                    <!--End gallery Section ======================-->
-                    {% endif %}
-
-					{% if block.block_type == 'blogs' %}
-                    <!--blog Section ======================-->
-                        {% include "idec/homeblog.html" with block=block only %}
-                    <!--End blog Section ======================-->
-                    {% endif %}
-
-
-					{% if block.block_type == 'products' %}
-                    <!--blog Section ======================-->
-                        {% include "idec/homeproduct.html" with block=block only %}
-                    <!--End blog Section ======================-->
-                    {% endif %}
-
-
-                {% endfor %}
-            {% endwith %}
-			dasdaaaaa] {% endcomment %}
-			{% main_menu max_levels=5 %}
-			{% comment %} asldmas {% endcomment %}
-
-			{% for item in menu_items %}
 				{% comment %} lol {% endcomment %}
-			{% endfor %}
 			{% include "includes/footer.html" %}
 
 

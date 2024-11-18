@@ -5,11 +5,13 @@ from django.db import models
 from categorization.models.blocks import Bodycat
 from .models import CategoryMp
 from wagtail.fields import StreamField, RichTextField
+from wagtail_localize.fields import SynchronizedField, TranslatableField
 
 
 
 class Category_index_page(Page):
-    cat = models.OneToOneField(to=CategoryMp, on_delete=models.CASCADE, related_name="page")
+    # unique_id = models.BigAutoField( )
+    cat = models.ForeignKey(to=CategoryMp, on_delete=models.CASCADE, related_name="page", unique=False)
     # body = StreamField(brandsContenet(), blank=True)        # new
     bodycat = StreamField(Bodycat(), blank=True)        # new
    
@@ -32,7 +34,16 @@ class Category_index_page(Page):
             ctx["sub_cats"] = subs
         
         return ctx
+    # class Meta:
+    #     constraints = [
+    #     models.UniqueConstraint(fields=['unique_id', 'cat'], name='unique page per cat')
+    # ]
+        # unique_together = ('cat', 'unique_id')
 
+    override_translatable_fields = [
+        TranslatableField("title"),
+        SynchronizedField("slug"),
+    ]
 
 
 class SubPage(Page):
