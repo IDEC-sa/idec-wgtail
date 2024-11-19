@@ -72,31 +72,41 @@ class productDetailPage(Page):
     product_subtitle = models.CharField(max_length=255, blank=True, null=True)
     product_description = RichTextField(blank=True)
     product_smalldescription = RichTextField(blank=True)
-
     product_details = RichTextField(blank=True)
     # blog_start_date = models.DateTimeField()  # تأكد من أن الحقل موجود في النموذج
     product_type = models.CharField(max_length=255, blank=True)
-    brand = models.ForeignKey('brands.BrandsDetailPage', on_delete=models.SET_NULL, null=True, blank=True, related_name='brand')
-    category = models.ForeignKey('idec.CategoryPage', on_delete=models.SET_NULL, null=True, blank=True)
+    # brand = models.ForeignKey('brands.BrandsDetailPage', on_delete=models.SET_NULL, null=True, blank=True, related_name='brand')
+    # category = models.ForeignKey('idec.CategoryPage', on_delete=models.SET_NULL, null=True, blank=True)
     body = StreamField(BodyBlock_product(), blank=True)        # new
-
+    product = models.ForeignKey('product.Product', on_delete=models.CASCADE  ,related_name='product_page')
     content_panels = Page.content_panels + [
         FieldPanel('product_title'),
         FieldPanel('product_subtitle'),
         FieldPanel('product_smalldescription'),
-
         FieldPanel('product_description'),
         FieldPanel('product_details'),
-        FieldPanel('brand'),
-        FieldPanel('category'),
-
-        # FieldPanel('blog_start_date'),
+        FieldPanel('product'),
+        # FieldPanel('brand'),
+        # FieldPanel('category'),
         FieldPanel('product_type'),
         InlinePanel('gallery_images_product', label="Gallery images"),
-        InlinePanel('gallery_images_product_bg', label="Gallery images bg"),
         FieldPanel("body"),
-
     ]
+
+    def get_context(self, request, *args, **kwargs):
+        ctx = super().get_context(request, *args, **kwargs)
+        brand = self.product.brand
+        category = self.product.category
+
+        if brand:
+            ctx['brand_page'] = brand.brand_page.all().first() or None
+        
+        if category:
+            ctx['category_page'] = category.sub_page.all().first() or None
+        
+        print(category)
+        print(category.sub_page.all())
+        return ctx
 
 class productGalleryImage(Orderable):
     page = ParentalKey(productDetailPage, on_delete=models.CASCADE, related_name='gallery_images_product')
@@ -110,14 +120,3 @@ class productGalleryImage(Orderable):
         FieldPanel('caption'),
     ]
 
-class productliGalleryImage(Orderable):
-    page = ParentalKey(productDetailPage, on_delete=models.CASCADE, related_name='gallery_images_product_bg')
-    image = models.ForeignKey(
-        'wagtailimages.Image', on_delete=models.CASCADE, related_name='+'
-    )
-    caption = models.CharField(blank=True, max_length=250)
-
-    panels = [
-        FieldPanel('image'),
-        FieldPanel('caption'),
-    ]

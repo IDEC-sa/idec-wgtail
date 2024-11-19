@@ -1,4 +1,6 @@
 from django.db import models
+from django.db.models import CheckConstraint, Q, F
+from django.core.exceptions import ValidationError
 
 # Create your models here.
 
@@ -15,15 +17,25 @@ from wagtailmetadata.models import MetadataPageMixin
 #     pass
 from categorization.models.models import CategoryMp
 
+
+
+def validate_category_level(value):
+    category = CategoryMp.objects.get(id=value)
+    if not category.parent:
+        raise ValidationError("The category should has a parent category.")
+
 @register_snippet
 class Product(models.Model):
     name = models.CharField(max_length=50, unique=True)
-    category = models.OneToOneField(CategoryMp, on_delete=models.DO_NOTHING, related_name="prod_page")
-    
+    category = models.ForeignKey(CategoryMp, on_delete=models.DO_NOTHING, related_name="product", validators=[validate_category_level])
+    brand = models.ForeignKey("brands.Brand", on_delete=models.DO_NOTHING, related_name="product")
     panels = [
         FieldPanel("name"),
+        FieldPanel('category'),
+        FieldPanel("brand")
     ]
+    def __str__(self):
+        # print()
+        return self.name
 
-    # def __str__(self):
-    #     # print()
-    #     return " >  ".join([a.name for a in self.get_ancestors(include_self=True)])
+

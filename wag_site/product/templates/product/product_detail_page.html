@@ -188,8 +188,8 @@
 							<!-- Tabs-Contents -->            
 							<div class="tab-content" id="shops-tabContent">
 								<!--shop-1-tab  -->
-								{% for image in page.gallery_images_product_bg.all %}
-								{% image image.image width-1000 as img %}
+								{% for image in page.gallery_images_product.all %}
+								{% image image.image  height-802 fill-636x802 as img %}
 								<!--shop-1-tab  -->
 								<div class="tab-pane fade show  {% if forloop.counter0 == 0 %} active   {% endif %}" id="shop-{{ forloop.counter }}" role="tabpanel" aria-labelledby="shop-{{ forloop.counter }}-tab" tabindex="0">
 									<img src="{{ img.url }}" class="img-fluid" alt="img">
@@ -203,7 +203,7 @@
 							<ul class="shop-tabs nav nav-pills d-flex gap-20 mt-20" id="shops-tab" role="tablist">
 								
 								{% for image in page.gallery_images_product.all %}
-								{% image image.image width-1000 as img %}
+								{% image image.image fill-112x112 as img %}
 
 								<li class="nav-item" role="presentation">
 									<button class="shop-button  {% if forloop.counter0 == 0 %} active   {% endif %}" id="shop-{{ forloop.counter }}-tab" data-bs-toggle="pill" data-bs-target="#shop-{{ forloop.counter }}" type="button" role="tab" aria-controls="shop-{{ forloop.counter }}" aria-selected="true">
@@ -236,11 +236,6 @@
 							
 								
 
-
-
-
-
-
 								<div class="architronix-button_product" >
 								
   <!-- الروابط -->
@@ -258,31 +253,16 @@
 									
 								</div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 								<ul class="shop-product-list d-flex flex-column gap-10 list-unstyled mb-0">
 								
 									<li class="d-flex align-items-center gap-10">
 										<span class="list-description">CATEGORY :</span>
-										<a href="#" class="shop-items-link link-hover-animation-1">{{ page.category }}</a>
+										<a href="{% pageurl category_page.localized %}" class="shop-items-link link-hover-animation-1">{{ category_page.localized.title }}</a>
 									</li>
 									
 									<li class="d-flex align-items-center gap-10">
 										<span class="list-description">Brand :</span>
-										<a href="#" class="shop-items-link link-hover-animation-1">{{ page.brand }}</a> 
+										<a href="{% pageurl brand_page.localized %}" class="shop-items-link link-hover-animation-1">{{ brand_page.localized.title }}</a> 
 									</li>
 								</ul>
 

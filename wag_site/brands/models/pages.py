@@ -67,11 +67,13 @@ class BrandsDetailPage(Page):
     Brands_description = RichTextField()
     # blog_start_date = models.DateTimeField()  # تأكد من أن الحقل موجود في النموذج
     Brands_type = models.CharField(max_length=255)
+    brand = models.ForeignKey("brands.brand", on_delete=models.CASCADE, related_name="brand_page", null=False,)
 
     content_panels = Page.content_panels + [
         FieldPanel('Brands_title'),
         FieldPanel('Brands_subtitle'),
         FieldPanel('Brands_description'),
+        FieldPanel('brand'),
         # FieldPanel('blog_start_date'),
         FieldPanel('Brands_type'),
         InlinePanel('gallery_images_Brands', label="Gallery images"),

@@ -47,7 +47,7 @@ class Category_index_page(Page):
 
 
 class SubPage(Page):
-    cat = models.OneToOneField(to=CategoryMp, on_delete=models.CASCADE, related_name="sub_page")
+    cat = models.ForeignKey(to=CategoryMp, on_delete=models.CASCADE, related_name="sub_page")
     # pass
     content_panels = Page.content_panels + [
         FieldPanel('cat'),
