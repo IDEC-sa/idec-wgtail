@@ -79,6 +79,8 @@ class productDetailPage(Page):
     # category = models.ForeignKey('idec.CategoryPage', on_delete=models.SET_NULL, null=True, blank=True)
     body = StreamField(BodyBlock_product(), blank=True)        # new
     product = models.ForeignKey('product.Product', on_delete=models.CASCADE  ,related_name='product_page')
+
+    
     content_panels = Page.content_panels + [
         FieldPanel('product_title'),
         FieldPanel('product_subtitle'),
