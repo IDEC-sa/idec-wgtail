@@ -9000,6 +9000,11 @@ body {
 }
 
 
+footer.section-footer {
+  margin-top: 5rem;
+}
+
+
 /* keep the nav-border when sticky mode */
 /* .header-bg-1.sticky .nav-border {
   --bs-navbar-border-color: transparent;

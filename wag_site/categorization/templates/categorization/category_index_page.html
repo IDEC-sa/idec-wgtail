@@ -42,14 +42,14 @@
 
 {% if block.block_type == 'brandContenet' %}
 <!--Hero Section ======================-->
-    {% include "brands/brandContenet.html" with block=block only %}
+    {% include "brands/brandContenet.html" with block=block brand_pages=brand_pages only %}
 {% endif %}
 
 
 
 {% if block.block_type == 'categoryContenet' %}
 <!--Hero Section ======================-->
-    {% include "categorization/categoryContenet.html" with block=block only %}
+    {% include "categorization/categoryContenet.html" with block=block sub_cat_pages=sub_cat_pages  only %}
 {% endif %}
 
 
@@ -59,7 +59,7 @@
 
 {% if block.block_type == 'productContenet' %}
 <!--Hero Section ======================-->
-    {% include "product/productContenet.html" with block=block only %}
+    {% include "product/productContenet.html" with block=block product_pages=product_pages only %}
 {% endif %}
 
 

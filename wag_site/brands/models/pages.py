@@ -65,6 +65,10 @@ class BrandsDetailPage(Page):
     Brands_title = models.CharField(max_length=255)
     Brands_subtitle = models.CharField(max_length=255, blank=True, null=True)
     Brands_description = RichTextField()
+    image_logo = models.ForeignKey(
+        'wagtailimages.Image', on_delete=models.CASCADE, related_name='+'
+    )
+    
     # blog_start_date = models.DateTimeField()  # تأكد من أن الحقل موجود في النموذج
     Brands_type = models.CharField(max_length=255)
     brand = models.ForeignKey("brands.brand", on_delete=models.CASCADE, related_name="brand_page", null=False,)
@@ -73,7 +77,9 @@ class BrandsDetailPage(Page):
         FieldPanel('Brands_title'),
         FieldPanel('Brands_subtitle'),
         FieldPanel('Brands_description'),
+        FieldPanel('image_logo'),
         FieldPanel('brand'),
+        InlinePanel('brand_logo', label="Logo"),
         # FieldPanel('blog_start_date'),
         FieldPanel('Brands_type'),
         InlinePanel('gallery_images_Brands', label="Gallery images"),
@@ -91,3 +97,15 @@ class BrandsGalleryImage(Orderable):
         FieldPanel('caption'),
     ]
 
+
+class BrandsLogo(Orderable):
+    page = ParentalKey(BrandsDetailPage, on_delete=models.CASCADE, related_name='brand_logo')
+    image = models.ForeignKey(
+        'wagtailimages.Image', on_delete=models.CASCADE, related_name='+'
+    )
+    caption = models.CharField(blank=True, max_length=250)
+
+    panels = [
+        FieldPanel('image'),
+        FieldPanel('caption'),
+    ]

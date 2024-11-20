@@ -2,7 +2,7 @@ from wagtail.blocks import (BooleanBlock, CharBlock, ChoiceBlock,
                                  DateTimeBlock, FieldBlock, IntegerBlock,
                                  ListBlock, PageChooserBlock, RawHTMLBlock,
                                  RichTextBlock, StreamBlock, StructBlock,
-                                 StructValue, TextBlock, URLBlock)
+                                 StructValue, TextBlock, URLBlock,)
 
 from wagtail.images.blocks import ImageChooserBlock
 
@@ -64,8 +64,8 @@ class Bodycat(StreamBlock):
     block_header = Block_header()
     brandContenet = BrandContenet()
     intro_header = intro_with_background()
-    categoryContenet = CategoryContenet()
-    productContenet = ProductContenet()
+    categoryContenet = ChoiceBlock(choices=(("full", "f"), ("ss", 's')))
+    productContenet = ChoiceBlock(choices=(("full", "f"), ("ss", 's')))
     blogsContenet = BlogsContenet()
 
 

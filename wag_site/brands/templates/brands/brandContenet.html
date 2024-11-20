@@ -20,21 +20,35 @@
                 
 
                     {% if block.block_type == 'brandContenet' %}  
-                    
-
-                        {% for block in block.value %}
-                            <div class="credits-wrapper swiper-slide">
-                                <div class="cridit-image">
-                                    <!-- Assuming `gallery_images_Brands` is an image field in `BrandsDetailPage` -->
-                                    {% image block.value.gallery_images_Brands.all.0.image width-800 as img %}
-                                    <img src="{{ img.url }}" class="w-100 h-100" style="height: 300px;" alt="Brand Image">
+                        {% if not brand_pages %}
+                            {% for block in block.value %}
+                                <div class="credits-wrapper swiper-slide">
+                                    <div class="cridit-image">
+                                        <!-- Assuming `gallery_images_Brands` is an image field in `BrandsDetailPage` -->
+                                        {% image block.value.gallery_images_Brands.all.0.image width-800 as img %}
+                                        <img src="{{ img.url }}" class="w-100 h-100" style="height: 300px;" alt="Brand Image">
+                                    </div>
+                                    <a href="{{ brand_block.value.brand.url }}">
+                                        <h5 class="mt-4 mt-lg-30">{{ block.value.Brands_title }}</h5> <!-- عرض عنوان العلامة التجارية -->
+                                    </a>
+                                    <p class="mb-0 pt-1">{{ block.value.Brands_subtitle }}</p> <!-- عرض الوصف الفرعي إذا كان موجودًا -->
                                 </div>
-                                <a href="{{ brand_block.value.brand.url }}">
-                                    <h5 class="mt-4 mt-lg-30">{{ block.value.Brands_title }}</h5> <!-- عرض عنوان العلامة التجارية -->
-                                </a>
-                                <p class="mb-0 pt-1">{{ block.value.Brands_subtitle }}</p> <!-- عرض الوصف الفرعي إذا كان موجودًا -->
-                            </div>
-                        {% endfor %}
+                            {% endfor %}
+                        {% else %}
+                            {% for page in brand_pages %}
+                                <div class="credits-wrapper swiper-slide">
+                                    <div class="cridit-image">
+                                        <!-- Assuming `gallery_images_Brands` is an image field in `BrandsDetailPage` -->
+                                        {% image page.image_logo fill-163x166 as img %}
+                                        <img src="{{ img.url }}" class="w-100 h-100" style="height: 300px;" alt="Brand Image">
+                                    </div>
+                                    <a href="{{ brand_block.value.brand.url }}">
+                                        <h5 class="mt-4 mt-lg-30">{{ page.Brands_title }}</h5> <!-- عرض عنوان العلامة التجارية -->
+                                    </a>
+                                    <p class="mb-0 pt-1">{{ page.Brands_subtitle }}</p> <!-- عرض الوصف الفرعي إذا كان موجودًا -->
+                                </div>
+                            {% endfor %}
+                        {% endif %}
                     {% endif %}
                
             </div>

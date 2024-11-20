@@ -12,43 +12,79 @@
     <div class="container">
         <div class="row gx-4 gy-5 gy-lg-70 section-padding-lg">
 
-    
-                    {% for block in block.value %}
+            {% if not sub_cat_pages %}
+            {% for block in block.value %}
 
 
-<div class="col-md-6 col-lg-3">
-<div class="shop-details">
-    <div class="shop-image-wrapper position-relative">
-        <div class="shop-image">
+                <div class="col-md-6 col-lg-3">
+                <div class="shop-details">
+                    <div class="shop-image-wrapper position-relative">
+                        <div class="shop-image">
 
-            
-            {% comment %} <img src="{% static 'idec/assets/images/shop-image-1.jpg' %}" class="w-100 h-100 object-fit-cover" alt="img"> {% endcomment %}
+                            
+                            {% comment %} <img src="{% static 'idec/assets/images/shop-image-1.jpg' %}" class="w-100 h-100 object-fit-cover" alt="img"> {% endcomment %}
 
 
-           {% image block.value.slider_images_big.all.0.image width-800  as img %}
-            <img src="{{ img.url }}" class="w-100 h-200 object-fit-cover" alt="img"  >  
+                        {% image block.value.slider_images_big.all.0.image width-800  as img %}
+                            <img src="{{ img.url }}" class="w-100 h-200 object-fit-cover" alt="img"  >  
 
-        </div>
-        <div class="shop-image-hover">
-            <a class="btn btn-sm btn-outline-secondary gap-10" href="{{ block.value.url }}">	
-                Explore More										
-            </a>
-        </div>
-    </div>
-    <!-- shop-image-wrapper -->
-    <a href="{{ block.value.url }}" class="text-decoration-none">
-        <div class="shopping-info-wrapper mt-3 mt-lg-4 d-flex justify-content-between">
-            <div class="shopping-item-details">
-                <h5 class="fw-semibold product-title">{{ block.value.name }}</h5>
-            </div>
-            <div class="star-rating-wrap pt-1">
-                <!-- يمكنك إضافة أي محتوى إضافي هنا -->
-            </div>
-        </div>
-    </a>
-</div>
-</div>
-{% endfor %}
+                        </div>
+                        <div class="shop-image-hover">
+                            <a class="btn btn-sm btn-outline-secondary gap-10" href="{{ block.value.url }}">	
+                                Explore More										
+                            </a>
+                        </div>
+                    </div>
+                    <!-- shop-image-wrapper -->
+                    <a href="{{ block.value.url }}" class="text-decoration-none">
+                        <div class="shopping-info-wrapper mt-3 mt-lg-4 d-flex justify-content-between">
+                            <div class="shopping-item-details">
+                                <h5 class="fw-semibold product-title">{{ block.value.name }}</h5>
+                            </div>
+                            <div class="star-rating-wrap pt-1">
+                                <!-- يمكنك إضافة أي محتوى إضافي هنا -->
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                </div>
+            {% endfor %}
+            {% else %}
+            {% for page in sub_cat_pages %}
+            <div class="col-md-6 col-lg-3">
+                <div class="shop-details">
+                    <div class="shop-image-wrapper position-relative">
+                        <div class="shop-image">
+
+                            
+                            {% comment %} <img src="{% static 'idec/assets/images/shop-image-1.jpg' %}" class="w-100 h-100 object-fit-cover" alt="img"> {% endcomment %}
+
+
+                        {% image page.image_logo fill-216x265  as img %}
+                            <img src="{{ img.url }}" class="w-100 h-200 object-fit-cover" alt="img"  >  
+
+                        </div>
+                        <div class="shop-image-hover">
+                            <a class="btn btn-sm btn-outline-secondary gap-10" href="{% pageurl page.localized %}">	
+                                Explore More										
+                            </a>
+                        </div>
+                    </div>
+                    <!-- shop-image-wrapper -->
+                    <a href="{% pageurl page.localized %}" class="text-decoration-none">
+                        <div class="shopping-info-wrapper mt-3 mt-lg-4 d-flex justify-content-between">
+                            <div class="shopping-item-details">
+                                <h5 class="fw-semibold product-title">{{ page.localized.title }}</h5>
+                            </div>
+                            <div class="star-rating-wrap pt-1">
+                                <!-- يمكنك إضافة أي محتوى إضافي هنا -->
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                </div>
+                {% endfor %}
+            {% endif %}
  
 
             <!-- col-4 -->
