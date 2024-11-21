@@ -4,6 +4,8 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 {% load static %}
 
+{% load mptt_tags %}
+{% load define_action %}
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'css/sub_cat.css' %}">
@@ -31,7 +33,6 @@
 				<!-- section-full-width -->	
 			</section>
 			<!--Banner-Section ======================-->
-			
 
 
 			<!--Blog-Section ======================-->
@@ -54,83 +55,58 @@
 									<div class="widget">
 										<h5 class="display-5 fw-semibold mb-30 lh-1">Categories</h5>
 										<ul class="category-lists list-unstyled mb-0 d-flex flex-column gap-20">
-											<li class="d-flex align-items-center gap-4">
-												{% comment %} <svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
-												</svg>	 {% endcomment %}
-                                                <span class="dropdown-icon">
-                                                    <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M11 8L6 2L1 8"></path>
-                                                    </svg>
-                                                </span>
-												<a href="#" class="text-decoration-none link-hover-animation-1 fw-bold">Design Inspiration<span class="fw-bold"> (15)</span></a> 
-											</li>
-											<li class="active d-flex align-items-center gap-4 sub sub">
-												<svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
-												</svg>	
-												<a href="#" class="text-decoration-none link-hover-animation-1">Room Makeovers<span class="fw-bold"> (7)</span></a> 
-											</li>
-											<li class="d-flex align-items-center gap-4 sub">
-												<svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
-												</svg>	
-												<a href="#" class="text-decoration-none link-hover-animation-1">Color and Decor<span class="fw-bold"> (8)</span></a> 
-											</li>
-											<li class="d-flex align-items-center gap-4 sub">
-												<svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
-												</svg>	
-												<a href="#" class="text-decoration-none link-hover-animation-1">Home Improvement<span class="fw-bold"> (20)</span></a> 
-											</li>
-											<li class="d-flex align-items-center gap-4 sub">
-												<svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
-												</svg>	
-												<a href="#" class="text-decoration-none link-hover-animation-1">Sustainable Design<span class="fw-bold"> (4)</span></a> 
-											</li>
-											<li class="d-flex align-items-center gap-4 sub">
-												<svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
-												</svg>	
-												<a href="#" class="text-decoration-none link-hover-animation-1">Art and Decor<span class="fw-bold"> (9)</span></a> 
-											</li>
-											<li class="d-flex align-items-center gap-4 sub">
-												<svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
-												</svg>	
-												<a href="#" class="text-decoration-none link-hover-animation-1">Space Planning<span class="fw-bold"> (15)</span></a> 
-											</li>
-											<li class="d-flex align-items-center gap-4 sub">
-												<svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
-												</svg>	
-												<a href="#" class="text-decoration-none link-hover-animation-1">Client Success Stories<span class="fw-bold"> (25)</span></a> 
-											</li>
-											<li class="d-flex align-items-center gap-4 sub">
-												<svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
-												</svg>	
-												<a href="#" class="text-decoration-none link-hover-animation-1">Design Trends<span class="fw-bold"> (3)</span></a> 
-											</li>
+                                                    {% recursetree cats %}
+                                                        <li>
+                                                            {% if node.sub_page.live %}
+                                                                    {% define node.sub_page.live.0.localized  as cur %}
+                                                                {% elif node.page.live %}
+                                                                    {% define node.page.live.0.localized as cur %}
+                                                                {% endif %}
+                                                            {% if cur %}
+                                                            <li class="d-flex align-items-center gap-4">
+                                                                {% comment %} <svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
+                                                                </svg>	 {% endcomment %}
+                                                                
+                                                                
+                                                                {% if not node.is_child_node %}
+                                                                    <span class="dropdown-icon">
+                                                                        <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M11 8L6 2L1 8"></path>
+                                                                        </svg>
+                                                                    </span>
+                                                                {% else %}
+                                                                    <svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
+                                                                    </svg>
+                                                                {% endif %}
+                                                                {% pageurl cur as cur_url  %}
+                                                                
+                                                                <a href="{{ cur_url }}" class="text-decoration-none {% if cur_url == request.path %} active {% else %} {% endif %}link-hover-animation-1 {% if not node.is_child_node %} fw-bold {% else %} {% endif %}">{{ cur.title }}<span class="fw-bold"> </span></a> 
+                                                            </li>
+                                                            {% if not node.is_leaf_node %}
+                                                                <ul class="list-unstyled children  sub">
+                                                                    {{ children }}
+                                                                </ul>
+                                                            {% endif %}
+                                                            {% endif %}
+                                                        </li>
+                                                    {% endrecursetree %}
+
 										</ul>
 									</div>
 									<!-- widget -->
-
+                                    {% if brand_pages %}
 									<div class="widget">
 										<h5 class="display-5 fw-semibold mb-30 lh-1">Brands</h5>
 										<div class="wp-block-tag-cloud d-flex flex-wrap">
-											<a href="#" class="text-decoration-none tag-cloud-link btn-hover-animation-3">Color Schemes</a>
-											<a href="#" class="text-decoration-none tag-cloud-link btn-hover-animation-3">Furniture Design</a>
-											<a href="#" class="text-decoration-none tag-cloud-link btn-hover-animation-3">DIY Projects</a>
-											<a href="#" class="text-decoration-none tag-cloud-link btn-hover-animation-3">Space Planning</a>
-											<a href="#" class="text-decoration-none tag-cloud-link btn-hover-animation-3">Styling Tips</a>
-											<a href="#" class="text-decoration-none tag-cloud-link btn-hover-animation-3">Art and Decor</a>
-											<a href="#" class="text-decoration-none tag-cloud-link btn-hover-animation-3">Modern Living</a>
-											<a href="#" class="text-decoration-none tag-cloud-link btn-hover-animation-3">Renovations</a>
-											<a href="#" class="text-decoration-none tag-cloud-link btn-hover-animation-3">Vintage Style</a>
-										</div>
+                                            {% for brand in brand_pages %}
+											<a href="{% pageurl brand.localized %}" class="text-decoration-none tag-cloud-link btn-hover-animation-3">{{ brand.title }}</a>
+											
+                                            {% endfor %}
+                                        </div>
 									</div>
+                                    {% endif %}
 									<!-- widget -->
 								</div>
 								
