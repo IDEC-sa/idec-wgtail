@@ -284,8 +284,13 @@ class Branch(Page):
 class NavigationSettings(BaseSiteSetting):
     company_name  = models.TextField(blank=False, default="IDEC")
     logo = models.ForeignKey(
-        'wagtailimages.Image',null=True, on_delete=models.CASCADE, related_name='+'
+        'wagtailimages.Image',
+        null=True,  # السماح بالقيمة null
+        blank=True,  # السماح بترك الحقل فارغًا في النموذج
+        on_delete=models.SET_NULL,  # عند حذف الصورة، يتم تعيين القيمة إلى NULL بدلاً من الحذف التام
+        related_name='+'
     )
+    
     twitter_url = models.URLField(verbose_name="Twitter URL", blank=True)
     fb_url = models.URLField(verbose_name="Facebook URL", blank=True)
     linkedin_url = models.URLField(verbose_name="Linkedin URL", blank=True)
