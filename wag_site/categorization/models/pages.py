@@ -10,8 +10,11 @@ from wagtail_localize.fields import SynchronizedField, TranslatableField
 from product import models as prod_models
 # from product.models.pages import productDetailPage
 from brands import models as brand_models
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from wagtail.contrib.routable_page.models import RoutablePageMixin, path, re_path
 
-class Category_index_page(Page):
+
+class Category_index_page( Page):
     # unique_id = models.BigAutoField( )
     cat = models.ForeignKey(to=CategoryMp, on_delete=models.CASCADE, related_name="page", unique=False)
     # body = StreamField(brandsContenet(), blank=True)        # new
@@ -32,7 +35,7 @@ class Category_index_page(Page):
         brands = prod_models.models.Product.objects.filter(category__in=sub_cats).values("brand").distinct()
         brand_pages =  brand_models.pages.BrandsDetailPage.objects.filter(brand__in = brands)
         sub_cat_pages = SubPage.objects.filter(cat__in=sub_cats)
-        product_pages = prod_models.pages.productDetailPage.objects.filter(product__in=products)[:10]
+        product_pages = prod_models.pages.productDetailPage.objects.filter(product__in=products)
         print("products")
         print(product_pages)
         if brand_pages:
@@ -41,15 +44,16 @@ class Category_index_page(Page):
             ctx['sub_cat_pages'] = sub_cat_pages
         if product_pages:
             ctx["product_pages"] = product_pages
+        # ctx['posts'] = self.get_paginated_posts(request, self.posts)
         return ctx
 
     override_translatable_fields = [
-        TranslatableField("title"),
-        SynchronizedField("slug"),
+    TranslatableField("title"),
+    SynchronizedField("slug"),
     ]
 
 
-class SubPage(Page):
+class SubPage(RoutablePageMixin, Page):
     cat = models.ForeignKey(to=CategoryMp, on_delete=models.CASCADE, related_name="sub_page")
     # pass
     image_logo = models.ForeignKey(
@@ -67,10 +71,56 @@ class SubPage(Page):
         products = prod_models.models.Product.objects.filter(Q(category=self.cat)).values("id").distinct()
         brands = prod_models.models.Product.objects.filter(Q(category=self.cat)).values("brand").distinct()
         brand_pages = brand_models.pages.BrandsDetailPage.objects.filter(Q(brand__in=brands))
-        product_pages = prod_models.pages.productDetailPage.objects.filter(Q(product__in=products))
+        product_pages = self.get_paginated_prods( self.get_prods())
         ctx["cats"] = siblings
         if brand_pages:
             ctx['brand_pages'] = brand_pages
         if product_pages:
             ctx["product_pages"] = product_pages
         return ctx
+
+    def get_prods(self, additional_filters={}):
+        
+        products = prod_models.models.Product.objects.filter(Q(category=self.cat))
+        print(additional_filters)
+        if additional_filters.get('brand', None):
+            print(additional_filters['brand'])
+            print("lol")
+            products = products.filter(Q(brand__name=additional_filters['brand']))
+        products = products.values("id").distinct()
+        print(products)
+        return prod_models.pages.productDetailPage.objects.filter(product__in=products)
+
+    def get_paginated_prods(self, qs, page=None):
+        paginator = Paginator(qs, 3)
+        # page = 1
+
+        try:
+            posts = paginator.page(page)
+            print(posts.number)
+        except PageNotAnInteger:
+            posts = paginator.page(1)
+        except EmptyPage:
+            posts = paginator.object_list.none()
+        return posts
+    
+
+    @re_path(r'^products/$', name="products")
+    def next_page(self, request,):
+        # brand = request.Grequest.GET.get('brand', None)
+        # print(brand)
+        additional_filters = {}
+        brand = request.GET.get('brand', None)
+        print(f"brand{brand}")
+        if brand:
+            print(additional_filters)
+            additional_filters['brand'] = brand
+            
+        return self.render(
+            request,
+            context_overrides={"query":{"brand":brand if brand else None},
+                'product_pages': self.get_paginated_prods(self.get_prods(additional_filters=additional_filters), request.GET.get('pages', 1)
+) ,
+            },
+            template="categorization/paginated_cat_prods.html",
+        )

@@ -5707,7 +5707,7 @@ fieldset:disabled .btn {
   box-shadow: var(--bs-pagination-focus-box-shadow);
 }
 
-.page-link.active,
+.page-item.active,
 .active > .page-link {
   z-index: 3;
   color: var(--bs-pagination-active-color);
