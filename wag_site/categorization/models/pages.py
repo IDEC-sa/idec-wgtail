@@ -56,6 +56,7 @@ class Category_index_page( Page):
 class SubPage(RoutablePageMixin, Page):
     cat = models.ForeignKey(to=CategoryMp, on_delete=models.CASCADE, related_name="sub_page")
     # pass
+    header_sec = StreamField([("intro_with_background", intro_with_background())], max_num=1, min_num=1)
     image_logo = models.ForeignKey(
         'wagtailimages.Image', on_delete=models.CASCADE, related_name='+'
     )
