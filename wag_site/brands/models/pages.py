@@ -21,7 +21,7 @@ from wagtail.search import index
 from wagtail.fields import StreamField, RichTextField
 
 from wagtail.admin.panels import FieldPanel, InlinePanel
-
+# import  categorization.models as va
 from wagtail.models import Page, Orderable
 from modelcluster.fields import ParentalKey
 from wagtail.images.models import WagtailImageField
@@ -52,7 +52,7 @@ class BrandsIndexPage(Page):
     Brands_sub_title = models.CharField(max_length=255, blank=True)
     Brands_background = models.CharField(max_length=255, blank=True)
 
-    # subpage_types = ['categorization/brand_landing']
+    subpage_types = ['categorization.brand_landing']
 
     content_panels = Page.content_panels + [
         FieldPanel('Brands_intro'),
