@@ -52,7 +52,7 @@ class BrandsIndexPage(Page):
     Brands_sub_title = models.CharField(max_length=255, blank=True)
     Brands_background = models.CharField(max_length=255, blank=True)
 
-    subpage_types = ['brand_landing']
+    subpage_types = ['categorization/brand_landing']
 
     content_panels = Page.content_panels + [
         FieldPanel('Brands_intro'),
