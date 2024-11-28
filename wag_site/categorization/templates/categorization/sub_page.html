@@ -12,32 +12,17 @@
     <link rel="stylesheet" href="{% static 'css/sub_cat.css' %}">
 {% endblock %}
 {% block body %}    
-			<!--Banner-Section ======================-->
-			<section class="section-banner position-relative pt-60">
-				<div class="section-full-width">
-					<div class="section-title-wrapper position-relative">	
-						<div class="scroll-move">
-							<span class="scrolling-text display-1 fw-extra-bold stroke-title text-stroke stroke-opacity-20 stroke-width-1 stroke-primary lh-1">Blog</span>
-						</div>				
-						
-						<div class="container">	
-							<div class="section-title section-separator">
-								<h2 class="fw-extra-bold heading-title separator lh-1">Design Insights & Inspiration</h2>
-								<div class="d-flex flex-column flex-lg-row gap-4 align-items-lg-end justify-content-lg-between">
-									<p class="fs-4 fw-semibold mb-0 subtitle subtitle-width">Unveil the Secrets to Transforming Spaces</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- section-title-wrapper -->	
-				</div>
-				<!-- section-full-width -->	
-			</section>
-			<!--Banner-Section ======================-->
+				<!--Hero Section ======================-->
+				<section class="">
 
+			{% if page.header_sec %}
+				{% include "categorization/header.html" with header=page.header_sec.0.value only %}
+			{% endif %}
+			<section/>
+				<!--Hero Section ======================-->
 
 			<!--Blog-Section ======================-->
-			<section class="section-blog position-relative">
+			<section class="section-blog position-relative pt-60">
 				<div class="container">
 					<div class="position-relative section-padding-xxl">
 						<div class="row gx-60 gy-5">
@@ -101,10 +86,10 @@
                                     {% if brand_pages %}
 									<div class="widget">
 										<h5 class="display-5 fw-semibold mb-30 lh-1">Brands</h5>
-										<div class="wp-block-tag-cloud d-flex flex-wrap">
-                                            {% for brand in brand_pages %}
-											<a hx-get="{% routablepageurl page "products" %}?brand={{ brand.brand }}" hx-target="#paginated_prods" hx-swap="outerHTML" href="#" hx-replace-url="?brand={{ brand.brand }}" class="text-decoration-none tag-cloud-link btn-hover-animation-3">{{ brand.title }}</a>
-											<a href="{% pageurl brand.localized %}" class="text-decoration-none tag-cloud-link btn-hover-animation-3">{{ brand.title }}</a>
+										<div class="wp-block-tag-cloud d-flex flex-wrap" hx-on:click="if (event.target.classList.contains('tag-cloud-link')) htmx.takeClass(event.target, 'active')">
+                                            {% for brand_page in brand_pages %}
+											<a hx-get="{% routablepageurl page "products" %}?brand={{ brand_page.brand }}" hx-target="#paginated_prods" hx-swap="outerHTML" href="#" hx-replace-url="?brand={{ brand_page.brand }}" class="text-decoration-none tag-cloud-link btn-hover-animation-3 {% if brand == brand_page.brand %}active{% else %}{% endif %}">{{ brand_page.title }}</a>
+											{% comment %} <a href="{% pageurl brand_page.localized %}" class="text-decoration-none tag-cloud-link btn-hover-animation-3">{{ brand_pages.title }}</a> {% endcomment %}
 											
                                             {% endfor %}
                                         </div>

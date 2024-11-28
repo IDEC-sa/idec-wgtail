@@ -11036,6 +11036,13 @@ footer.section-footer {
   transition: all .2s ease-in-out;
   overflow: hidden;
 }
+.wp-block-tag-cloud .tag-cloud-link.active {
+  color: var(--bs-secondary);
+  --bs-link-color-rgb: var(--bs-link-hover-color-rgb);
+}
+.wp-block-tag-cloud .tag-cloud-link.active::after {
+  width: 100%;
+}
 
 .wp-block-quote {
   padding: 80px 0 60px 0;

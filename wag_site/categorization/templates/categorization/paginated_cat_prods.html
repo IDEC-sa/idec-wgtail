@@ -56,13 +56,14 @@
             {% if product_pages.has_previous %}
             {% if product_pages.previous_page_number > 1 %}
             <li class="page-item me-md-10" >
-                <a class="btn prev-btn prev-btn-sm me-0" href="#" hx-get="{% routablepageurl page "products" %}?pages={{ product_pages.previous_page_number }}" hx-target="#paginated_prods" hx-swap="outerHTML">
+                <a class="btn prev-btn prev-btn-sm me-0" href="#" hx-get="{% routablepageurl page "products" %}?pages={{ product_pages.previous_page_number }}{% if query.brand %}&brand={{ query.brand }}{% else %}{% endif %}" hx-target="#paginated_prods" hx-swap="outerHTML">
                     <svg class="arrow" width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
                     </svg>	
                 </a>
             </li>
-            <li class="page-item mx-2 mx-md-3"><a class="page-link fw-semibold next-btn next-btn-sm" href="#" hx-get="{% routablepageurl page "products" %}?pages=1{% if query.brand %}{% else %}&brand={{ query.brand }}{% endif %}" hx-target="#paginated_prods" hx-swap="outerHTML"> 1 </a></li>
+            {% comment %} {{ query.brand }} {% endcomment %}
+            <li class="page-item mx-2 mx-md-3"><a class="page-link fw-semibold next-btn next-btn-sm" href="#" hx-get="{% routablepageurl page "products" %}?pages=1{% if query.brand %}&brand={{ query.brand }}{% else %}{% endif %}" hx-target="#paginated_prods" hx-swap="outerHTML"> 1 </a></li>
             {% if product_pages.previous_page_number > 2 %}
             <li class="page-item mx-md-1">
                 <svg width="29" height="5" viewBox="0 0 29 5" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -73,12 +74,12 @@
             </li>	
             {% endif %}
             {% endif %}
-            <li class="page-item ms-2 ms-md-3"><a class="page-link fw-semibold next-btn next-btn-sm" href="#" hx-get="{% routablepageurl page "products"  %}?pages={{ product_pages.previous_page_number }}" hx-target="#paginated_prods" hx-swap="outerHTML">{{ product_pages.previous_page_number }}</a></li>
+            <li class="page-item ms-2 ms-md-3"><a class="page-link fw-semibold next-btn next-btn-sm" href="#" hx-get="{% routablepageurl page "products"  %}?pages={{ product_pages.previous_page_number }}{% if query.brand %}&brand={{ query.brand }}{% else %}{% endif %}" hx-target="#paginated_prods" hx-swap="outerHTML">{{ product_pages.previous_page_number }}</a></li>
             {% endif %}
             <li class="page-item  active"><a class="page-link fw-semibold next-btn next-btn-sm" href="#" hx-get="{% routablepageurl page "products"  %}?pages={{ product_pages.number }}{% if query.brand %}&brand={{ query.brand }}{% else %}{% endif %}" hx-target="#paginated_prods" hx-swap="outerHTML">{{ product_pages.number }}</a></li>
             
             {% if product_pages.has_next %}
-                <li class="page-item me-2 me-md-3"><a class="page-link fw-semibold next-btn next-btn-sm" href="#" hx-get="{% routablepageurl page "products"  %}?pages={{ product_pages.next_page_number }}" hx-target="#paginated_prods" hx-swap="outerHTML">{{ product_pages.next_page_number }}</a></li>
+                <li class="page-item me-2 me-md-3"><a class="page-link fw-semibold next-btn next-btn-sm" href="#" hx-get="{% routablepageurl page "products"  %}?pages={{ product_pages.next_page_number }}{% if query.brand %}&brand={{ query.brand }}{% else %}{% endif %}" hx-target="#paginated_prods" hx-swap="outerHTML">{{ product_pages.next_page_number }}</a></li>
                 {% if product_pages.next_page_number <  product_pages.paginator.num_pages %}
                 {% if product_pages.next_page_number <  product_pages.paginator.num_pages|add:-1 %}
                 <li class="page-item mx-md-1">
@@ -89,9 +90,9 @@
                     </svg> 
                 </li>	
                 {% endif %}
-                <li class="page-item mx-2 mx-md-3"><a class="page-link fw-semibold next-btn next-btn-sm" href="#" hx-get="{% routablepageurl page "products" %}?pages={{ product_pages.paginator.num_pages }}" hx-target="#paginated_prods" hx-swap="outerHTML">{{ product_pages.paginator.num_pages }}</a></li>
+                <li class="page-item mx-2 mx-md-3"><a class="page-link fw-semibold next-btn next-btn-sm" href="#" hx-get="{% routablepageurl page "products" %}?pages={{ product_pages.paginator.num_pages }}{% if query.brand %}&brand={{ query.brand }}{% else %}{% endif %}" hx-target="#paginated_prods" hx-swap="outerHTML">{{ product_pages.paginator.num_pages }}</a></li>
                 <li class="page-item">
-                    <a class="btn btn-primary btn-lg d-inline-flex gap-10" href="#" hx-get="{% routablepageurl page "products" %}?pages={{ product_pages.next_page_number }}" hx-target="#paginated_prods" hx-swap="outerHTML" >Next
+                    <a class="btn btn-primary btn-lg d-inline-flex gap-10" href="#" hx-get="{% routablepageurl page "products" %}?pages={{ product_pages.next_page_number }}{% if query.brand %}&brand={{ query.brand }}{% else %}{% endif %}" hx-target="#paginated_prods" hx-swap="outerHTML" >Next
                         <svg width="35" height="22" viewBox="0 0 35 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
                         </svg>
