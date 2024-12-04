@@ -33,7 +33,7 @@ class Category_index_page( Page):
         products = prod_models.models.Product.objects.filter(category__in=sub_cats).values("id").distinct()
         brands = []
         brands = prod_models.models.Product.objects.filter(category__in=sub_cats).values("brand").distinct()
-        brand_pages =  brand_models.pages.brand_landing.objects.filter(brand__in = brands)
+        brand_pages =  brand_landing.objects.filter(brand__in = brands)
         sub_cat_pages = SubPage.objects.filter(cat__in=sub_cats)
         product_pages = prod_models.pages.productDetailPage.objects.filter(product__in=products)
         print("products")
@@ -71,7 +71,7 @@ class SubPage(RoutablePageMixin, Page):
         siblings = parent.get_descendants(include_self=True)
         products = prod_models.models.Product.objects.filter(Q(category=self.cat)).values("id").distinct()
         brands = prod_models.models.Product.objects.filter(Q(category=self.cat)).values("brand").distinct()
-        brand_pages = brand_models.pages.brand_landing.objects.filter(Q(brand__in=brands))
+        brand_pages = brand_landing.objects.filter(Q(brand__in=brands))
         product_pages = self.get_paginated_prods( self.get_prods())
         ctx["cats"] = siblings
         if brand_pages:
