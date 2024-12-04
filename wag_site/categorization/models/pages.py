@@ -62,6 +62,7 @@ class SubPage(RoutablePageMixin, Page):
     )
     content_panels = Page.content_panels + [
         FieldPanel('cat'),
+        FieldPanel('header_sec'),
         FieldPanel('image_logo')
     ]
 
