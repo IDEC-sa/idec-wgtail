@@ -247,10 +247,16 @@
     Request Info <i class="fas fa-question-circle"></i>  
   </a> {% endcomment %}
 
-  <a href="#" class="btn btn-outline-primary gap-10" id="btnOpenForm">
-    Request prices/quote <i class="fas fa-paper-plane"></i>  
-  </a>
-									
+
+		 <!-- زر الانتقال -->
+		 {% if page.page %}
+		 <a href="{{ page.page.url }}?product_title={{ page.product_title|urlencode }}" class="btn btn-outline-primary gap-10" >
+			Request prices/quote <i class="fas fa-paper-plane"></i>  
+		  </a>
+	 
+	   {% else %}
+		 <p>لا توجد صفحة مرتبطة.</p>
+	   {% endif %}							
 								</div>
 
 								<ul class="shop-product-list d-flex flex-column gap-10 list-unstyled mb-0">
@@ -377,14 +383,44 @@
 
 
 
+			{% comment %} <form action="{{ page.url }}" method="POST" class="contact-form row gy-3 gx-20"  >
+				{% csrf_token %}
+				{% for field in form %}
+					<div class="form-group col-md-6">
+						{{ field.label_tag }}
+						{{ field }}
+						{% if field.help_text %}
+							<small class="helptext">{{ field.help_text }}</small>
+						{% endif %}
+						{% for error in field.errors %}
+							<div class="error">{{ error }}</div>
+						{% endfor %}
+					</div>
+					<button type="submit" class="btn btn-success">Submit Form</button>
 
-
-
-
-
-
-
-
+				{% endfor %}
+			</form> {% endcomment %}
+			
+			{% comment %} {% if page.form_page %}
+			{% for field in page.form_page.form_fields.all %}
+				<div class="form-group">
+					<label for="{{ field.id_for_label }}">{{ field.label }}</label>
+					{% if field.field_type == 'text' %}
+						<input type="text" id="{{ field.id_for_label }}" name="{{ field.name }}" class="form-control">
+					{% elif field.field_type == 'textarea' %}
+						<textarea id="{{ field.id_for_label }}" name="{{ field.name }}" class="form-control"></textarea>
+					{% elif field.field_type == 'select' %}
+						<select id="{{ field.id_for_label }}" name="{{ field.name }}" class="form-control">
+							{% for choice in field.choices %}
+								<option value="{{ choice.value }}">{{ choice.display }}</option>
+							{% endfor %}
+						</select>
+					{% endif %}
+				</div>
+			{% endfor %}
+		{% else %}
+			<p>No form page associated with this product.</p>
+		{% endif %} {% endcomment %}
 
 
 
@@ -446,78 +482,55 @@
 
 
  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <!-- نموذج الطلب -->
-  <div class="form-popup-bg" id="formPopup">
-    <div class="form-container">
-      <button id="btnCloseForm" class="close-button">&times;</button>
-      
-      <!-- العنوان الرئيسي -->
-      <h5 class="section-title mb-2">Request a Quotation</h5>
-      <p>Contact our consultants to receive a personalised estimate and transform your ideas into projects.</p>
+<div class="form-popup-bg" id="formPopup">
+	<div class="form-container">
+<form action="{{ page.url }}" method="POST" class="contact-form row gy-3 gx-20">
+    {% csrf_token %}
 
-      <!-- بطاقة تفاصيل المنتج -->
-      <div class="product-card">
-        <img src="https://images.pexels.com/photos/27054224/pexels-photo-27054224/free-photo-of-motorbike-parked-on-hill-on-sea-coast.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Product Image">
-        <div>
-          <h6>Product Name</h6>
-          <p class="text-muted">Product Subtitle</p>
-        </div>
-      </div>
+    {% if page.form_page %}
+        {% for field in page.form_page.form_fields.all %}
+            <div class="form-group col-md-6">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                <input type="text" name="{{ field.name }}" class="form-control">
 
-      <!-- البيانات الشخصية -->
-      {% comment %} <h6 class="section-title mt-3">Your Data</h6> {% endcomment %}
-      <form>
-        <div class="form-group">
- 
-
-
-			<div class="form-row">
-				<div class="form-group">
-				  <label for="firstName">First Name</label>
-				  <input type="text" id="firstName" class="form-control" placeholder="Enter your first name">
-				</div>
-				<div class="form-group">
-				  <label for="lastName">Last Name</label>
-				  <input type="text" id="lastName" class="form-control" placeholder="Enter your last name">
-				</div>
-			  </div>
-
- 
-
-
-			  <div class="form-row">
-				<div class="form-group">
-					<label for="email">Email</label>
-					<input type="email" id="email" class="form-control" placeholder="Enter your email">
-				 </div>
-				<div class="form-group">
-					<label for="phone">Phone Number</label>
-					<input type="tel" id="phone" class="form-control" placeholder="Enter your phone number">
-				 </div>
-			  </div>
-
-
-
-
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" class="form-control" rows="3" placeholder="Your message..."></textarea>
-        </div>
-        
-        <!-- سياسة الخصوصية -->
-        <div class="form-check mb-3">
-          <input type="checkbox" class="form-check-input" id="policy">
-          <label class="form-check-label" for="policy">I agree to the privacy policy</label>
-        </div>
-
-        <!-- زر الإرسال -->
-<button type="submit" class="btn btn-primary btn-block submit-btn">Submit Request</button>
-      </form>
-    </div>
+                {% if field.help_text %}
+                    <small class="helptext">{{ field.help_text }}</small>
+                {% endif %}
+                
+                {% for error in field.errors %}
+                    <div class="error">{{ error }}</div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No form page associated with this product.</p>
+    {% endif %}
+    
+    <button type="submit" class="btn btn-success">Submit Form</button>
+</form>
+	</div>
   </div>
-
- 
-
 
 
 		</div>

@@ -28,7 +28,15 @@
 							</div>
 							<div class="col-lg-3">
 								<div class="text-lg-end">
-									<a href="" class="btn btn-primary">Apply Now</a>
+  <!-- زر الانتقال -->
+  {% if page.page %}
+	<a href="{{ page.page.url }}?career_title={{ page.career_title|urlencode }}" class="btn btn-primary">Apply Now</a>
+
+
+  {% else %}
+    <p>لا توجد صفحة مرتبطة.</p>
+  {% endif %}
+
 								</div>
 							</div>
 						</div>
@@ -97,6 +105,26 @@
 				</div>
 			</section>			
 			<!--Career Section ======================-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

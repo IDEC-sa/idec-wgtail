@@ -8,12 +8,16 @@ from wagtail.documents import urls as wagtaildocs_urls
 from django.conf.urls.i18n import i18n_patterns
 
 from search import views as search_views
+# from product.views import product_detail_view
 
 urlpatterns = [
     path("django-admin/", admin.site.urls),
     path("admin/", include(wagtailadmin_urls)),
     path("documents/", include(wagtaildocs_urls)),
     # path("search/", search_views.search, name="search"),
+
+        # path('form/', jobform_page_view, name='jobform_page'),
+
 ]
 
 
@@ -26,6 +30,10 @@ if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns = urlpatterns + [
+
+    # path('product/<int:product_id>/', product_detail_view, name='product_detail'),
+
+
     # For anything not caught by a more specific rule above, hand over to
     # Wagtail's page serving mechanism. This should be the last pattern in
     # the list:

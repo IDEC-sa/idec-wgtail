@@ -50,6 +50,76 @@ from banner.blocks import BodyBlock_banners
 from .blocks import BodyBlock_product  # تأكد من استيراد الموديل بشكل صحيح
 # from idec.models import CategoryPage  # تأكد من استيراد الموديل بشكل صحيح
 
+from wagtail.contrib.forms.models import AbstractEmailForm, AbstractFormField
+
+from wagtail.admin.panels import FieldPanel, InlinePanel, MultiFieldPanel, FieldRowPanel
+
+
+
+
+
+
+
+# ----------------------------------------------------------------
+# ----------------------------------------------------------------
+# ----------------------------------------------------------------
+# ----------------------------------------------------------------
+# ----------------------------------------------------------------
+# ----------------------------------------------------------------
+
+
+
+class FormField(AbstractFormField):
+    page = ParentalKey(
+        'productformPage',
+        on_delete=models.CASCADE,
+        related_name='form_fields',
+    )
+
+
+
+class productformPage(AbstractEmailForm):
+    template = "product/product_form.html"
+    landing_page_template = "contact/contact_page_landing.html"
+
+    intro = RichTextField(blank=True)
+    sub_title = RichTextField(blank=True)
+    background = RichTextField(blank=True)
+
+    thank_you_text = RichTextField(blank=True)
+
+    content_panels = AbstractEmailForm.content_panels + [
+        FieldPanel('intro'),
+        FieldPanel('sub_title'),
+        FieldPanel('background'),
+        InlinePanel('form_fields', label='Form Fields'),
+        FieldPanel('thank_you_text'),
+        MultiFieldPanel([
+            FieldRowPanel([
+                FieldPanel('from_address', classname="col6"),
+                FieldPanel('to_address', classname="col6"),
+            ]),
+            FieldPanel("subject"),
+        ], heading="Email Settings"),
+    ]
+
+
+
+
+
+
+# ----------------------------------------------------------------
+# ----------------------------------------------------------------
+# ----------------------------------------------------------------
+# ----------------------------------------------------------------
+# ----------------------------------------------------------------
+# ----------------------------------------------------------------
+
+
+
+
+
+
 class productIndexPage(Page):
 
     product_intro = models.CharField(max_length=255, blank=True)
@@ -81,6 +151,13 @@ class productDetailPage(Page):
     product = models.ForeignKey('product.Product', on_delete=models.CASCADE  ,related_name='product_page')
 
     
+    page = ParentalKey(
+        'productformPage',
+        on_delete=models.CASCADE,
+        related_name='form_fields4',blank=True, null=True
+    )
+
+
     content_panels = Page.content_panels + [
         FieldPanel('product_title'),
         FieldPanel('product_subtitle'),
@@ -93,6 +170,8 @@ class productDetailPage(Page):
         FieldPanel('product_type'),
         InlinePanel('gallery_images_product', label="Gallery images"),
         FieldPanel("body"),
+        FieldPanel('page'),
+
     ]
 
     def get_context(self, request, *args, **kwargs):
@@ -121,4 +200,13 @@ class productGalleryImage(Orderable):
         FieldPanel('image'),
         FieldPanel('caption'),
     ]
+
+
+
+
+
+
+
+
+
 

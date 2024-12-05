@@ -18,6 +18,85 @@ from wagtailmetadata.models import MetadataPageMixin
 from categorization.models.models import CategoryMp
 
 
+from wagtail.admin.panels import FieldPanel, InlinePanel, MultiFieldPanel, FieldRowPanel
+from wagtail.images.models import Image as WagImage
+from wagtail.snippets.models import register_snippet
+from wagtail.search import index
+from modelcluster.fields import ParentalKey
+from wagtail.contrib.forms.models import AbstractEmailForm, AbstractFormField
+from wagtail.fields import RichTextField, StreamField
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@register_snippet
+class Product_Requst_form(models.Model):
+
+    # معلومات المنتج
+    # product_name = models.CharField(max_length=255, verbose_name="Product Name")
+
+    # البيانات الشخصية
+    first_name = models.CharField(max_length=100, verbose_name="First Name")
+    last_name = models.CharField(max_length=100, verbose_name="Last Name")
+    email = models.EmailField(verbose_name="Email")
+    phone_number = models.CharField(max_length=15, verbose_name="Phone Number")
+
+    # الرسالة
+    message = models.TextField(verbose_name="Message", blank=True, null=True)
+
+    # الموافقة على سياسة الخصوصية
+    agree_to_policy = models.BooleanField(default=False, verbose_name="Agree to Privacy Policy")
+
+    # بيانات التوقيت
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Created At")
+    updated_at = models.DateTimeField(auto_now=True, verbose_name="Updated At")
+
+    def __str__(self):
+        return f"Request by {self.first_name} {self.last_name}"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 def validate_category_level(value):
     category = CategoryMp.objects.get(id=value)
@@ -37,5 +116,8 @@ class Product(models.Model):
     def __str__(self):
         # print()
         return self.name
+
+
+
 
 

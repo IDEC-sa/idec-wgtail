@@ -33,6 +33,9 @@ from wagtail.contrib.settings.models import (
 )
 from banner.blocks import BodyBlock_banners
 
+from wagtail.contrib.forms.models import AbstractEmailForm, AbstractFormField
+from wagtail.admin.panels import FieldPanel, InlinePanel, MultiFieldPanel, FieldRowPanel
+from django import forms
 
 # ----------------------------------------------------------------
 # ----------------------------------------------------------------
@@ -40,6 +43,111 @@ from banner.blocks import BodyBlock_banners
 # ----------------------------------------------------------------
 # ----------------------------------------------------------------
 # ----------------------------------------------------------------
+
+
+
+
+class FormField(AbstractFormField):
+    page = ParentalKey(
+        'jobformPage',
+        on_delete=models.CASCADE,
+        related_name='form_fields',
+    )
+
+
+class jobformPage(AbstractEmailForm):
+    template = "idec/career_form.html"
+    landing_page_template = "contact/contact_page_landing.html"
+
+    intro = RichTextField(blank=True)
+    sub_title = RichTextField(blank=True)
+    background = RichTextField(blank=True)
+
+    thank_you_text = RichTextField(blank=True)
+
+    content_panels = AbstractEmailForm.content_panels + [
+        FieldPanel('intro'),
+        FieldPanel('sub_title'),
+        FieldPanel('background'),
+        InlinePanel('form_fields', label='Form Fields'),
+        FieldPanel('thank_you_text'),
+        MultiFieldPanel([
+            FieldRowPanel([
+                FieldPanel('from_address', classname="col6"),
+                FieldPanel('to_address', classname="col6"),
+            ]),
+            FieldPanel("subject"),
+        ], heading="Email Settings"),
+    ]
+
+    # def get_form(self, *args, **kwargs):
+    #     # استخراج الطلب من kwargs
+    #     request = kwargs.pop('request', None)
+
+    #     # استدعاء النموذج الأصلي
+    #     form = super().get_form(*args, **kwargs)
+
+    #     # التحقق إذا كان هناك طلب و career_title
+    #     if request:
+    #         career_title = request.GET.get('career_title', '')
+    #         form.fields['job'] = forms.CharField(
+    #             initial=career_title,
+    #             widget=forms.HiddenInput()
+    #         )
+
+    #     return form
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# ----------------------------------------------------------------
+# ----------------------------------------------------------------
+# ----------------------------------------------------------------
+# ----------------------------------------------------------------
+# ----------------------------------------------------------------
+# ----------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -70,6 +178,12 @@ class careerDetailPage(Page):
     location =  RichTextField()
     salary_range = RichTextField()
 
+    page = ParentalKey(
+        'jobformPage',
+        on_delete=models.CASCADE,
+        related_name='form_fields2',blank=True, null=True
+    )
+
 
     content_panels = Page.content_panels + [
         FieldPanel('career_title'),
@@ -81,10 +195,12 @@ class careerDetailPage(Page):
         FieldPanel('Expert'),
         FieldPanel('type'),
         FieldPanel('location'),
-        FieldPanel('salary_range')
+        FieldPanel('salary_range'),
+        FieldPanel('page'),
 
     ]
-
+    # def get_jobform_page(self):
+    #     return self.get_children().type(jobformPage).live().first()
 
 # ----------------------------------------------------------------
 
