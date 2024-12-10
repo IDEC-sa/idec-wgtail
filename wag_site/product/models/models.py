@@ -27,6 +27,7 @@ def validate_category_level(value):
 @register_snippet
 class Product(models.Model):
     name = models.CharField(max_length=50, unique=True)
+    internalCode = models.CharField(max_length=50, unique=True)
     category = models.ForeignKey(CategoryMp, on_delete=models.DO_NOTHING, related_name="product", validators=[validate_category_level])
     brand = models.ForeignKey("brands.Brand", on_delete=models.DO_NOTHING, related_name="product")
     panels = [

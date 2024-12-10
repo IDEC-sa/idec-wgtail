@@ -99,15 +99,16 @@ class productDetailPage(Page):
         ctx = super().get_context(request, *args, **kwargs)
         brand = self.product.brand
         category = self.product.category
-
-        if brand:
+        brand_page = brand.brand_page.all().first() or None
+        category_page = category.sub_page.all().first() or None
+        if brand_page:
             ctx['brand_page'] = brand.brand_page.all().first() or None
         
-        if category:
+        if category_page:
             ctx['category_page'] = category.sub_page.all().first() or None
         
-        print(category)
-        print(category.sub_page.all())
+        # print(category)
+        # print(category.sub_page.all())
         return ctx
 
 class productGalleryImage(Orderable):

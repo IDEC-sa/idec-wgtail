@@ -11,17 +11,6 @@ from wagtail.images.blocks import ImageChooserBlock
 
 
 
-
-
-
-
-
-
-
- 
-
-
-
 class Banners(StructBlock):
     title_b = CharBlock(required=True, max_length=100)
     subtitle_b = TextBlock(required=False, max_length=200)

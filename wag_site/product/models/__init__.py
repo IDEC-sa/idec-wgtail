@@ -1,1 +1,2 @@
-from . import pages, models
+from . import pages, models, forms  
+
