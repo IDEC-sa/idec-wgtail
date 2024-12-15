@@ -36,6 +36,7 @@ class Product(models.Model):
     panels = [
         FieldPanel("name"),
         FieldPanel('category'),
+        FieldPanel('internalCode'),
         FieldPanel("brand")
     ]
     def __str__(self):
