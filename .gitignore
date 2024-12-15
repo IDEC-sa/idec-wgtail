@@ -6,3 +6,5 @@ migrations
 __pycache__
 media
 *.pem
+
+!*/product/migrations

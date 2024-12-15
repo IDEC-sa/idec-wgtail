@@ -3,7 +3,7 @@ from django.db.models import CheckConstraint, Q, F
 from django.core.exceptions import ValidationError
 
 # Create your models here.
-
+from uuid import uuid4
 from django.db import models
 from mptt.models import MPTTModel, TreeForeignKey
 from wagtail.snippets.models import register_snippet
@@ -24,10 +24,13 @@ def validate_category_level(value):
     if not category.parent:
         raise ValidationError("The category should has a parent category.")
 
+def get_default_uuid():
+    return uuid4().hex
+
 @register_snippet
 class Product(models.Model):
     name = models.CharField(max_length=50, unique=True)
-    internalCode = models.CharField(max_length=50, unique=True)
+    internalCode = models.CharField(max_length=50, unique=True,default=get_default_uuid, null=True)
     category = models.ForeignKey(CategoryMp, on_delete=models.DO_NOTHING, related_name="product", validators=[validate_category_level])
     brand = models.ForeignKey("brands.Brand", on_delete=models.DO_NOTHING, related_name="product")
     panels = [
