@@ -99,7 +99,7 @@ class productDetailPage(Page):
         ctx = super().get_context(request, *args, **kwargs)
         brand = self.product.brand
         category = self.product.category
-        brand_page = brand.brand_page.all().first() or None
+        brand_page = brand.brand_landing_page.all().first() or None
         category_page = category.sub_page.all().first() or None
         if brand_page:
             ctx['brand_page'] = brand.brand_page.all().first() or None
