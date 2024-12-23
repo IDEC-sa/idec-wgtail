@@ -94,7 +94,7 @@ class SubPage(RoutablePageMixin, Page):
         return prod_models.pages.productDetailPage.objects.filter(product__in=products)
 
     def get_paginated_prods(self, qs, page=None):
-        paginator = Paginator(qs, 3)
+        paginator = Paginator(qs, 30)
         # page = 1
 
         try:

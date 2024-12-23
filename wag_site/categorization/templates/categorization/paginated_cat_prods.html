@@ -13,7 +13,7 @@
                         <img src="{% static 'idec/assets/images/shop-image-1.jpg' %}" class="w-100 h-100 object-fit-cover" alt="img">
                     </div>
                     <div class="shop-image-hover">
-                        <a class="btn btn-sm btn-outline-secondary  gap-10" href="product-single.html"> 	
+                        {% comment %} <a class="btn btn-sm btn-outline-secondary  gap-10" href="product-single.html"> 	
                             Add to Cart													
                             <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_381_163)">
@@ -25,21 +25,21 @@
                                 </clipPath>
                                 </defs>
                             </svg> 		
-                        </a>
+                        </a> {% endcomment %}
                     </div>
                 </div>
                 <!-- shop-image-wrapper -->
-                <a href="product-single.html" class="text-decoration-none">
+                <a href="{{ product.url }}" class="text-decoration-none">
                     <div class="shopping-info-wrapper mt-3 mt-lg-4 d-flex justify-content-between">
                         <div class="shopping-item-details">
                             <h5 class="fw-semibold product-title">{{ product.title }}</h5>
-                            <span class="product-price fs-5">$134.99</span>
+                            {% comment %} <span class="product-price fs-5">$134.99</span> {% endcomment %}
                         </div>
-                        <div class="star-rating-wrap pt-1">
+                        {% comment %} <div class="star-rating-wrap pt-1">
                             <span class="star-rating">										
                                 <span class="star-fill" style="width: 80%;"></span>
                             </span>
-                        </div>
+                        </div> {% endcomment %}
                     </div>
                 </a>
             </div>
